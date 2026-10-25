@@ -96,3 +96,14 @@ def test_image_fallback(tmp_path, monkeypatch):
     out = tmp_path / "x.jpg"
     image.generate("zupa", out)
     assert Image.open(out).size == (100, 125)
+
+
+def test_model_pick():
+    from src import gemini
+    gc = ("generateContent",)
+    models = [{"name": f"models/{n}", "supportedGenerationMethods": gc} for n in [
+        "gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3-flash-preview", "gemini-2.5-pro",
+        "gemini-2.5-flash-image", "gemini-3-pro-image-preview", "gemini-2.5-flash-preview-tts"]]
+    assert gemini.pick(models, "text") == "gemini-2.5-flash"      # stabilny przed preview
+    assert gemini.pick(models, "image") == "gemini-2.5-flash-image"
+    assert gemini.pick([], "text") is None

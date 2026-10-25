@@ -9,11 +9,13 @@ def env(name, default=None, required=True):
 
 
 def text_model():
-    return env("TEXT_MODEL", "gemini-2.5-flash", required=False)
+    from . import gemini
+    return gemini.model_for("text", "TEXT_MODEL", "gemini-2.5-flash")
 
 
 def image_model():
-    return env("IMAGE_MODEL", "gemini-2.5-flash-image", required=False)
+    from . import gemini
+    return gemini.model_for("image", "IMAGE_MODEL", "gemini-2.5-flash-image")
 
 
 def image_providers():

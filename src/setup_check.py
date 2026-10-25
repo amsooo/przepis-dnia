@@ -1,4 +1,4 @@
-"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check
+"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models
 
 whoami - odpowiada na Telegramie Twoim chat_id (nie trafia do logów Actions).
 check  - sprawdza, których sekretów brakuje, i wysyła wiadomość testową.
@@ -36,5 +36,16 @@ def check():
         _api("sendMessage", chat_id=int(os.environ["TELEGRAM_CHAT_ID"]), text=f"Bot działa ✅\n{status}")
 
 
+def models():
+    """Wypisuje modele Gemini dostępne dla klucza oraz te wybrane automatycznie."""
+    from . import config, gemini
+    available = gemini.list_models()
+    for m in available:
+        if "generateContent" in m["supportedGenerationMethods"]:
+            print(m["name"])
+    print("Wybrany tekst:", config.text_model())
+    print("Wybrany obraz:", config.image_model())
+
+
 if __name__ == "__main__":
-    {"whoami": whoami, "check": check}[sys.argv[1]]()
+    {"whoami": whoami, "check": check, "models": models}[sys.argv[1]]()

@@ -1,5 +1,6 @@
 import base64
 import io
+import sys
 import urllib.parse
 
 import requests
@@ -46,15 +47,17 @@ PROVIDERS = {"gemini": _gemini, "pollinations": _pollinations, "openai": _openai
 
 
 def generate(prompt, out_path):
-    """Próbuje kolejnych dostawców, zapisuje JPEG 4:5 (wymóg proporcji IG)."""
+    """Próbuje kolejnych dostawców, zapisuje JPEG 4:5 (wymóg proporcji IG). Zwraca (dostawca, błędy poprzednich)."""
     errors = []
     for name in config.image_providers():
+        name = name.strip()
         try:
-            raw = PROVIDERS[name.strip()](prompt)
+            raw = PROVIDERS[name](prompt)
             img = Image.open(io.BytesIO(raw)).convert("RGB")
             break
         except Exception as exc:  # 429, brak klucza, zły obraz: próbujemy następnego
             errors.append(f"{name}: {exc}")
+            print(f"[obraz] {name} nie zadziałał: {exc}", file=sys.stderr)
     else:
         raise RuntimeError("Żaden dostawca obrazów nie zadziałał: " + " | ".join(errors))
     w, h = img.size
@@ -63,3 +66,4 @@ def generate(prompt, out_path):
         top = (h - target_h) // 2
         img = img.crop((0, top, w, top + target_h))
     img.save(out_path, "JPEG", quality=88)
+    return name, errors

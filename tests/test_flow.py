@@ -21,7 +21,7 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(main.telegram, "send_text", lambda t, k=None: sent.append(t))
     monkeypatch.setattr(main.telegram, "send_preview", lambda *a: sent.append("preview"))
     monkeypatch.setattr(main.telegram, "answer_callback", lambda *a: None)
-    monkeypatch.setattr(main.image, "generate", lambda p, out: None)
+    monkeypatch.setattr(main.image, "generate", lambda p, out: ("gemini", []))
     monkeypatch.setattr(main.recipe, "generate", lambda titles: dict(RECIPE))
     monkeypatch.setattr(main.instagram, "publish_photo", lambda url, cap: "ig123")
     monkeypatch.setattr(main.config, "public_base_url", lambda: "https://x")
@@ -107,3 +107,12 @@ def test_model_pick():
     assert gemini.pick(models, "text") == "gemini-2.5-flash"      # stabilny przed preview
     assert gemini.pick(models, "image") == "gemini-2.5-flash-image"
     assert gemini.pick([], "text") is None
+
+
+def test_image_button_and_fallback_note(env, monkeypatch):
+    main.propose()
+    monkeypatch.setattr(main.image, "generate", lambda p, out: ("pollinations", ["gemini: 429"]))
+    updates(monkeypatch, [cb("image")])
+    main.poll()
+    p = state.load_state()["pending"]
+    assert p["version"] == 2 and "pollinations" in p["image_note"] and p["status"] == "awaiting"

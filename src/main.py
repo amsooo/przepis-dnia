@@ -22,7 +22,17 @@ def _make_pending(data, version_suffix):
 
 def _send_preview(pending):
     caption = recipe.build_caption(pending["recipe"])
-    telegram.send_preview(ROOT / pending["image"], pending["recipe"]["title"], caption)
+    telegram.send_preview(ROOT / pending["image"], pending["recipe"]["title"], caption,
+                          pending.get("image_note", ""))
+
+
+def _make_image(pending, prompt):
+    """Generuje zdjęcie; gdy zadziałał dostawca rezerwowy, dopisuje ostrzeżenie do podglądu."""
+    provider, errors = image.generate(prompt, ROOT / pending["image"])
+    if errors:
+        pending["image_note"] = f"⚠️ Zdjęcie z generatora rezerwowego ({provider}), może mieć znak wodny. {errors[0][:250]}"
+    else:
+        pending["image_note"] = ""
 
 
 def _titles():
@@ -32,9 +42,9 @@ def _titles():
 def _new_pending(st, version):
     data = recipe.generate(_titles())
     rel = _make_pending(data, version)
-    image.generate(data["image_prompt"], ROOT / rel)
     st["pending"] = {"recipe": data, "image": rel, "status": "awaiting",
                      "version": version, "created": _now().isoformat()}
+    _make_image(st["pending"], data["image_prompt"])
     _send_preview(st["pending"])
 
 
@@ -71,6 +81,11 @@ def _handle_callback(st, cb):
         telegram.send_text("Napisz, co zmienić (np. „mniej ostre, dodaj gotowanie na parze, zdjęcie jaśniejsze”).")
     elif action == "new":
         _new_pending(st, p["version"] + 1)
+    elif action == "image":
+        p["version"] += 1
+        p["image"] = _make_pending(p["recipe"], p["version"])
+        _make_image(p, p["recipe"]["image_prompt"])
+        _send_preview(p)
 
 
 def _handle_message(st, msg):
@@ -83,7 +98,7 @@ def _handle_message(st, msg):
     p["version"] += 1
     if regen:
         p["image"] = _make_pending(new_recipe, p["version"])
-        image.generate(new_recipe["image_prompt"], ROOT / p["image"])
+        _make_image(p, new_recipe["image_prompt"])
     p["status"] = "awaiting"
     _send_preview(p)
 

@@ -34,12 +34,14 @@ def send_photo(path, caption):
     return resp.json()["result"]
 
 
-def send_preview(image_path, title, caption):
-    send_photo(image_path, title)
+def send_preview(image_path, title, caption, note=""):
+    send_photo(image_path, f"{note}\n\n{title}" if note else title)
     keyboard = [[
         {"text": "✅ Akceptuj", "callback_data": "approve"},
         {"text": "✏️ Popraw", "callback_data": "edit"},
         {"text": "🔄 Inny przepis", "callback_data": "new"},
+    ], [
+        {"text": "🖼 Inne zdjęcie", "callback_data": "image"},
     ]]
     return send_text(caption, keyboard)
 

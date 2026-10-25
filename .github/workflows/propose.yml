@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
@@ -26,4 +27,4 @@ jobs:
         run: |
           git config user.name "przepis-bot"; git config user.email "bot@users.noreply.github.com"
           git add -A state.json history.json media
-          git diff --cached --quiet || (git commit -m "Nowy przepis do akceptacji" && git push)
+          git diff --cached --quiet || (git commit -m "Nowy przepis do akceptacji" && git pull --rebase origin main && git push)

@@ -1,5 +1,7 @@
 import functools
 import re
+import sys
+import time
 
 import requests
 
@@ -13,7 +15,7 @@ def _version_key(name):
     return tuple(int(n) for n in m.group(1).split(".")) if m else (0,)
 
 
-def pick(models, kind):
+def ranked(models, kind):
     """Wybiera najlepszy model z listy zwróconej przez API.
 
     kind="text"  -> rodzina flash (bez lite/image/live/tts), "image" -> modele generujące obrazy.
@@ -33,7 +35,12 @@ def pick(models, kind):
             continue
         stable = not any(x in name for x in ("preview", "exp"))
         candidates.append((stable, _version_key(name), name))
-    return max(candidates)[2] if candidates else None
+    return [name for _, _, name in sorted(candidates, reverse=True)]
+
+
+def pick(models, kind):
+    best = ranked(models, kind)
+    return best[0] if best else None
 
 
 @functools.lru_cache(maxsize=None)
@@ -54,3 +61,35 @@ def model_for(kind, override_var, fallback):
         return pick(list_models(), kind) or fallback
     except requests.RequestException:
         return fallback
+
+
+def model_chain(kind, override_var, fallback, limit=3):
+    """Lista modeli do wypróbowania po kolei: jawnie ustawiony albo najlepsze z autodetekcji."""
+    explicit = config.env(override_var, "", required=False)
+    if explicit:
+        return [explicit]
+    try:
+        return ranked(list_models(), kind)[:limit] or [fallback]
+    except requests.RequestException:
+        return [fallback]
+
+
+def generate(kind, override_var, fallback, body, retries=3, timeout=180):
+    """POST generateContent z ponawianiem przy 5xx (z odstępem) i przełączaniem na kolejny model.
+
+    Błąd 4xx (np. 429 limit, 404) nie jest ponawiany: przechodzimy od razu do następnego modelu.
+    """
+    last = None
+    for model in model_chain(kind, override_var, fallback):
+        for attempt in range(retries):
+            resp = requests.post(f"{BASE}/models/{model}:generateContent",
+                                 headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},
+                                 json=body, timeout=timeout)
+            if resp.ok:
+                return resp.json()
+            last = f"{model}: HTTP {resp.status_code}"
+            print(f"[gemini] {last}", file=sys.stderr)
+            if resp.status_code < 500:
+                break
+            time.sleep(5 * (attempt + 1))
+    raise RuntimeError(f"Gemini nie odpowiedział poprawnie ({last})")

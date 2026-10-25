@@ -2,9 +2,7 @@ import json
 import re
 from datetime import date
 
-import requests
-
-from . import config
+from . import gemini
 
 # Rotacja kategorii daje różnorodność bez ustalania niszy.
 CATEGORIES = [
@@ -49,19 +47,13 @@ def _parse(text):
 def _ask(prompt, retries=2):
     last = None
     for _ in range(retries + 1):
-        resp = requests.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/{config.text_model()}:generateContent",
-            headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},
-            json={
-                "systemInstruction": {"parts": [{"text": SYSTEM}]},
-                "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-                "generationConfig": {"responseMimeType": "application/json", "maxOutputTokens": 8000},
-            },
-            timeout=120,
-        )
-        resp.raise_for_status()
+        data = gemini.generate("text", "TEXT_MODEL", "gemini-2.5-flash", {
+            "systemInstruction": {"parts": [{"text": SYSTEM}]},
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+            "generationConfig": {"responseMimeType": "application/json", "maxOutputTokens": 8000},
+        })
         try:
-            return _parse(resp.json()["candidates"][0]["content"]["parts"][0]["text"])
+            return _parse(data["candidates"][0]["content"]["parts"][0]["text"])
         except (KeyError, IndexError, ValueError) as exc:  # JSONDecodeError dziedziczy po ValueError
             last = exc
     raise RuntimeError(f"Gemini nie zwrócił poprawnego JSON-a: {last}")

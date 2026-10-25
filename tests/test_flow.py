@@ -116,3 +116,23 @@ def test_image_button_and_fallback_note(env, monkeypatch):
     main.poll()
     p = state.load_state()["pending"]
     assert p["version"] == 2 and "pollinations" in p["image_note"] and p["status"] == "awaiting"
+
+
+def test_gemini_retries_5xx_then_next_model(monkeypatch):
+    from src import gemini
+    monkeypatch.setattr(gemini.time, "sleep", lambda s: None)
+    monkeypatch.setattr(gemini, "model_chain", lambda *a, **k: ["m1", "m2"])
+    monkeypatch.setattr(gemini.config, "env", lambda *a, **k: "key")
+    calls = []
+
+    class R:
+        def __init__(self, code): self.status_code, self.ok = code, code == 200
+        def json(self): return {"ok": True}
+
+    def post(url, **kw):
+        calls.append(url.split("/models/")[1])
+        return R(200 if "m2" in url else 503)
+
+    monkeypatch.setattr(gemini.requests, "post", post)
+    assert gemini.generate("text", "X", "f", {}) == {"ok": True}
+    assert calls == ["m1:generateContent"] * 3 + ["m2:generateContent"]

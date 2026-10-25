@@ -6,19 +6,15 @@ import urllib.parse
 import requests
 from PIL import Image
 
-from . import config
+from . import config, gemini
 
 
 def _gemini(prompt):
-    resp = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{config.image_model()}:generateContent",
-        headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},
-        json={"contents": [{"parts": [{"text": prompt}]}],
-              "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "4:5"}}},
-        timeout=180,
-    )
-    resp.raise_for_status()
-    for part in resp.json()["candidates"][0]["content"]["parts"]:
+    data = gemini.generate("image", "IMAGE_MODEL", "gemini-2.5-flash-image", {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "4:5"}},
+    })
+    for part in data["candidates"][0]["content"]["parts"]:
         inline = part.get("inlineData") or part.get("inline_data")
         if inline:
             return base64.b64decode(inline["data"])

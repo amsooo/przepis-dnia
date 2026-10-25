@@ -1,4 +1,49 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Jajka po turecku (Çılbır) z palonym masłem chili",
+      "intro": "Kremowy czosnkowy jogurt, idealnie płynne jajka w koszulkach i pikantne, orzechowe masło chili. To efektowne śniadanie przygotujesz w kwadrans z kilku prostych składników.",
+      "time_min": 15,
+      "servings": 2,
+      "ingredients": [
+        "400 g gęstego jogurtu greckiego (w temperaturze pokojowej)",
+        "1 ząbek czosnku, przeciśnięty przez praskę",
+        "4 świeże jajka (rozmiar M lub L)",
+        "40 g masła",
+        "15 ml oliwy z oliwek (1 łyżka)",
+        "1 łyżeczka płatków chili lub papryki pul biber (ok. 3 g)",
+        "1/2 łyżeczki wędzonej papryki w proszku",
+        "15 ml octu spirytusowego lub jabłkowego (1 łyżka, do wody)",
+        "2 gałązki świeżego koperku, drobno posiekane",
+        "1/3 łyżeczki soli",
+        "Do podania: 4 kromki chleba na zakwasie"
+      ],
+      "steps": [
+        "Jogurt wymieszaj w misce z przeciśniętym czosnkiem i 1/3 łyżeczki soli. Rozłóż równomiernie na dwa płytkie talerze, tworząc grzbietem łyżki lekkie zagłębienia.",
+        "W małym rondelku rozpuść masło z oliwą na średnim ogniu. Gotuj przez około 2 minuty, aż masło zacznie delikatnie brązowieć i pachnieć orzechowo. Zdejmij z ognia, wsyp płatki chili oraz wędzoną paprykę, wymieszaj i odstaw.",
+        "W garnku zagotuj litr wody z łyżką octu, a następnie zmniejsz ogień tak, by woda ledwo mrugała. Łyżką zrób delikatny wir, wbij jajko z małej miseczki w sam środek i gotuj przez dokładnie 3 minuty. Wyjmij łyżką cedzakową i odsącz krótko na papierowym ręczniku. Czynność powtórz z pozostałymi jajkami.",
+        "Na przygotowanym jogurcie ułóż po dwa ciepłe jajka w koszulce. Całość polej ciepłym masłem z chili i posyp świeżym koperkiem. Podawaj natychmiast z chrupiącymi grzankami z chleba na zakwasie."
+      ],
+      "tip": "Jogurt wyjmij z lodówki 20 minut wcześniej – jeśli będzie zbyt zimny, natychmiast wychłodzi gorące jajka i masło.",
+      "hashtags": [
+        "#sniadanie",
+        "#brunch",
+        "#jajkapoturecku",
+        "#cilbir",
+        "#przepisykulinarne",
+        "#sniadaniemistrzow",
+        "#jajka",
+        "#prostyprzepis",
+        "#kuchniadomowa",
+        "#pomyslnasniadanie"
+      ],
+      "image_prompt": "A realistic culinary photograph of Turkish eggs (Çılbır) served in a shallow rustic ceramic bowl. Two perfectly poached eggs rest on a thick, creamy bed of Greek yogurt, drizzled with warm, vibrant red-orange chili butter and garnished with fresh dill. Slices of golden toasted sourdough bread sit on a dark linen cloth beside the bowl. Shot at a 45-degree angle in soft, natural morning window light, shallow depth of field, food only, no people, no text."
+    },
+    "image": "media/2026-10-25-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-25T02:03:15.734238+00:00",
+    "image_note": "⚠️ Zdjęcie z generatora rezerwowego (pollinations), może mieć znak wodny. gemini: Gemini nie odpowiedział poprawnie (gemini-2.5-flash-image: HTTP 429)"
+  },
   "telegram_offset": 64485453
 }

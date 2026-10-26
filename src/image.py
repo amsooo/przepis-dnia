@@ -27,7 +27,8 @@ def _magnific(prompt):
     key = config.env("MAGNIFIC_API_KEY")
     url = "https://api.magnific.com/v1/ai/text-to-image"
     headers = {"x-magnific-api-key": key, "Content-Type": "application/json"}
-    body = {"prompt": prompt, "num_images": 1}
+    body = {"prompt": prompt, "num_images": 1,
+            "negative_prompt": "fork, spoon, knife, cutlery, extra plates, side dishes, hands, text, watermark, deformed"}
     size = config.env("MAGNIFIC_IMAGE_SIZE", "", required=False)
     if size:
         body["image"] = {"size": size}

@@ -29,7 +29,7 @@ def _send_preview(pending):
 
 def _make_image(pending, prompt):
     """Generuje zdjęcie; gdy zadziałał dostawca rezerwowy, dopisuje ostrzeżenie do podglądu."""
-    provider, errors = image.generate(prompt, ROOT / pending["image"])
+    provider, errors = image.generate(f"{prompt} {recipe.IMAGE_RULES}", ROOT / pending["image"])
     if errors:
         pending["image_note"] = f"⚠️ Zdjęcie z generatora rezerwowego ({provider}), może mieć znak wodny. {errors[0][:250]}"
     else:

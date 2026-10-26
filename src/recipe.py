@@ -20,6 +20,11 @@ Piszesz po polsku, ciepło i konkretnie, bez przesadnej egzaltacji.
 Przepisy muszą być realne, wykonalne w domowej kuchni, z dokładnymi ilościami (g, ml, łyżki) i czasami.
 Zwracasz WYŁĄCZNIE obiekt JSON, bez komentarza i bez bloku markdown."""
 
+# Dopisywane do każdego promptu zdjęcia: modele obrazów psują sztućce i dokładają dodatkowe talerze.
+IMAGE_RULES = ("Composition: exactly one plate or bowl with the finished dish, centered, on a plain simple surface. "
+               "No cutlery, no forks or spoons, no additional plates, side dishes or other food items, no hands, no text. "
+               "Realistic, physically correct objects.")
+
 SCHEMA = """Format JSON:
 {
   "title": "nazwa dania",
@@ -30,7 +35,7 @@ SCHEMA = """Format JSON:
   "steps": ["krok 1", "..."],
   "tip": "krótka wskazówka albo pusty napis",
   "hashtags": ["#przepis", "..."],  // 8-12 sztuk
-  "image_prompt": "opis zdjęcia gotowego dania PO ANGIELSKU: realistyczna fotografia kulinarna, naturalne światło, ujęcie 45 stopni, danie na talerzu, bez ludzi i bez tekstu"
+  "image_prompt": "opis zdjęcia gotowego dania PO ANGIELSKU: realistyczna fotografia kulinarna, naturalne światło, ujęcie 45 stopni, jedno danie na jednym talerzu, bez sztućców, bez dodatków obok, bez ludzi i bez tekstu"
 }"""
 
 

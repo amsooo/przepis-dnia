@@ -51,4 +51,8 @@ def get_updates(offset):
 
 
 def answer_callback(callback_id, text=""):
-    _call("answerCallbackQuery", callback_query_id=callback_id, text=text)
+    # Telegram przyjmuje odpowiedź tylko przez chwilę po kliknięciu; przy opóźnionym odbiorze 400 jest normalny.
+    try:
+        _call("answerCallbackQuery", callback_query_id=callback_id, text=text)
+    except requests.HTTPError:
+        pass

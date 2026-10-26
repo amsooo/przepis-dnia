@@ -156,3 +156,14 @@ def test_unconfigured_provider_is_skipped_silently(tmp_path, monkeypatch):
     monkeypatch.setattr(image, "PROVIDERS", {"magnific": lambda p: 1 / 0, "pollinations": lambda p: buf.getvalue()})
     name, errors = image.generate("zupa", tmp_path / "x.jpg")
     assert name == "pollinations" and errors == []
+
+
+def test_failing_update_does_not_block_queue(env, monkeypatch):
+    main.propose()
+    monkeypatch.setattr(main, "publish", lambda st: 1 / 0)
+    updates(monkeypatch, [cb("approve", n=7)])
+    main.poll()
+    st = state.load_state()
+    assert st["telegram_offset"] == 8          # kliknięcie uznane za odebrane
+    assert st["pending"] is not None           # przepis nadal czeka
+    assert any("Nie udało się" in m for m in env)

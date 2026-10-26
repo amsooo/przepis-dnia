@@ -4,6 +4,7 @@ propose - raz dziennie: wymyśla przepis i wysyła podgląd na Telegram.
 poll    - co kilka minut: odbiera kliknięcia i uwagi z Telegrama, poprawia lub publikuje.
 """
 import sys
+import traceback
 from datetime import datetime, timezone
 
 from . import config, image, instagram, recipe, state, telegram
@@ -108,14 +109,18 @@ def poll():
     allowed = telegram.chat_id()
     for upd in telegram.get_updates(st["telegram_offset"]):
         st["telegram_offset"] = upd["update_id"] + 1
-        if "callback_query" in upd:
-            cb = upd["callback_query"]
-            if cb["from"]["id"] == allowed:  # tylko właściciel konta
-                _handle_callback(st, cb)
-        elif "message" in upd:
-            msg = upd["message"]
-            if msg["chat"]["id"] == allowed:
-                _handle_message(st, msg)
+        try:
+            if "callback_query" in upd:
+                cb = upd["callback_query"]
+                if cb["from"]["id"] == allowed:  # tylko właściciel konta
+                    _handle_callback(st, cb)
+            elif "message" in upd:
+                msg = upd["message"]
+                if msg["chat"]["id"] == allowed:
+                    _handle_message(st, msg)
+        except Exception as exc:  # jedna wadliwa wiadomość nie może blokować kolejki
+            traceback.print_exc()
+            telegram.send_text(f"⚠️ Nie udało się obsłużyć ostatniej akcji: {str(exc)[:300]}")
     hours = config.auto_publish_after_hours()
     p = st["pending"]
     if hours and p and p["status"] == "awaiting":

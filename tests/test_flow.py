@@ -189,3 +189,11 @@ def test_gemini_timeout_switches_to_next_model(monkeypatch):
     monkeypatch.setattr(gemini.requests, "post", post)
     assert gemini.generate("text", "X", "f", {}) == {"ok": True}
     assert calls == ["m1", "m2"]                # timeout nie jest ponawiany na tym samym modelu
+
+
+def test_magnific_async_task_formats():
+    from src import image
+    # odpowiedź z "data" (dokumentacja v5-pro) i z polami na wierzchu (v5-lite)
+    assert image._extract_image({"data": {"task_id": "t", "status": "IN_PROGRESS", "generated": []}}) is None
+    assert image._task({"task_id": "t", "status": "CREATED", "generated": []})["task_id"] == "t"
+    assert image._task({"data": {"task_id": "t2"}})["task_id"] == "t2"

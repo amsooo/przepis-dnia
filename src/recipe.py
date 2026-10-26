@@ -21,9 +21,12 @@ Przepisy muszą być realne, wykonalne w domowej kuchni, z dokładnymi ilościam
 Zwracasz WYŁĄCZNIE obiekt JSON, bez komentarza i bez bloku markdown."""
 
 # Dopisywane do każdego promptu zdjęcia: modele obrazów psują sztućce i dokładają dodatkowe talerze.
-IMAGE_RULES = ("Composition: exactly one plate or bowl with the finished dish, centered, on a plain simple surface. "
-               "No cutlery, no forks or spoons, no additional plates, side dishes or other food items, no hands, no text. "
-               "Realistic, physically correct objects.")
+IMAGE_RULES = (
+    "Photorealistic documentary food photography, shot on a full-frame camera with an 85mm lens at f/2.8, "
+    "soft natural window light from the side, true-to-life muted colors, visible food texture, small natural "
+    "imperfections, a little steam, a few crumbs or drips, unretouched, not CGI, not a 3D render, not an illustration. "
+    "Close-up composition: one single serving fills most of the frame, on a plain table surface with nothing else on it."
+)
 
 SCHEMA = """Format JSON:
 {

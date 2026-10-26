@@ -23,23 +23,36 @@ def _gemini(prompt):
 
 
 def _magnific(prompt):
-    """Magnific API (kredyty z planu). Format odpowiedzi obsługiwany defensywnie: base64, URL lub zadanie asynchroniczne."""
+    """Magnific API (kredyty z planu). Model z MAGNIFIC_MODEL (domyślnie seedream-v5-pro), zadania asynchroniczne.
+
+    MAGNIFIC_MODEL=classic wywołuje starszy endpoint /v1/ai/text-to-image.
+    """
     key = config.env("MAGNIFIC_API_KEY")
-    url = "https://api.magnific.com/v1/ai/text-to-image"
+    model = config.env("MAGNIFIC_MODEL", "seedream-v5-pro", required=False)
+    base = "https://api.magnific.com/v1/ai/text-to-image"
+    url = base if model == "classic" else f"{base}/{model}"
     headers = {"x-magnific-api-key": key, "Content-Type": "application/json"}
-    body = {"prompt": prompt, "num_images": 1,
-            "negative_prompt": "fork, spoon, knife, cutlery, extra plates, side dishes, hands, text, watermark, deformed"}
-    size = config.env("MAGNIFIC_IMAGE_SIZE", "", required=False)
-    if size:
-        body["image"] = {"size": size}
-    resp = requests.post(url, headers=headers, json=body, timeout=180)
+    body = {"prompt": prompt}
+    if model == "classic":
+        body["num_images"] = 1
+        body["negative_prompt"] = "fork, spoon, knife, cutlery, extra plates, side dishes, hands, text, watermark, deformed"
+    aspect = config.env("MAGNIFIC_ASPECT_RATIO", "traditional_3_4", required=False)
+    if aspect:
+        body["aspect_ratio"] = aspect
+    resp = requests.post(url, headers=headers, json=body, timeout=120)
+    if resp.status_code == 400 and "aspect_ratio" in body:  # nieznana nazwa proporcji: bierzemy domyślną
+        print(f"[magnific] 400 przy aspect_ratio={aspect}: {resp.text[:200]}", file=sys.stderr)
+        body.pop("aspect_ratio")
+        resp = requests.post(url, headers=headers, json=body, timeout=120)
     resp.raise_for_status()
     data = resp.json()
-    for _ in range(30):  # jeśli API zwróciło zadanie, czekamy na wynik
+    for _ in range(45):  # zadanie asynchroniczne: czekamy na wynik (do ok. 3 min)
         found = _extract_image(data)
         if found:
             return found
-        task = (data.get("data") or {}) if isinstance(data.get("data"), dict) else {}
+        task = _task(data)
+        if str(task.get("status", "")).upper() in ("FAILED", "ERROR"):
+            raise RuntimeError(f"Magnific: zadanie nieudane: {str(data)[:200]}")
         task_id = task.get("task_id")
         if not task_id:
             break
@@ -47,13 +60,19 @@ def _magnific(prompt):
         poll = requests.get(f"{url}/{task_id}", headers=headers, timeout=60)
         poll.raise_for_status()
         data = poll.json()
-    raise RuntimeError(f"Magnific: nieznany format odpowiedzi: {str(data)[:200]}")
+    raise RuntimeError(f"Magnific: brak wyniku lub nieznany format odpowiedzi: {str(data)[:200]}")
+
+
+def _task(data):
+    """Dokumentacja bywa niespójna: pola zadania są w data albo na wierzchu."""
+    inner = data.get("data")
+    return inner if isinstance(inner, dict) else data
 
 
 def _extract_image(data):
-    items = data.get("data")
-    if isinstance(items, dict):
-        items = items.get("generated") or []
+    items = _task(data).get("generated") if isinstance(_task(data), dict) else None
+    if items is None and isinstance(data.get("data"), list):
+        items = data["data"]
     for item in items or []:
         if isinstance(item, dict) and item.get("base64"):
             return base64.b64decode(item["base64"])

@@ -1,6 +1,7 @@
 import base64
 import io
 import sys
+import time
 import urllib.parse
 
 import requests
@@ -21,6 +22,48 @@ def _gemini(prompt):
     raise RuntimeError("Gemini nie zwrócił obrazu")
 
 
+def _magnific(prompt):
+    """Magnific API (kredyty z planu). Format odpowiedzi obsługiwany defensywnie: base64, URL lub zadanie asynchroniczne."""
+    key = config.env("MAGNIFIC_API_KEY")
+    url = "https://api.magnific.com/v1/ai/text-to-image"
+    headers = {"x-magnific-api-key": key, "Content-Type": "application/json"}
+    body = {"prompt": prompt, "num_images": 1}
+    size = config.env("MAGNIFIC_IMAGE_SIZE", "", required=False)
+    if size:
+        body["image"] = {"size": size}
+    resp = requests.post(url, headers=headers, json=body, timeout=180)
+    resp.raise_for_status()
+    data = resp.json()
+    for _ in range(30):  # jeśli API zwróciło zadanie, czekamy na wynik
+        found = _extract_image(data)
+        if found:
+            return found
+        task = (data.get("data") or {}) if isinstance(data.get("data"), dict) else {}
+        task_id = task.get("task_id")
+        if not task_id:
+            break
+        time.sleep(4)
+        poll = requests.get(f"{url}/{task_id}", headers=headers, timeout=60)
+        poll.raise_for_status()
+        data = poll.json()
+    raise RuntimeError(f"Magnific: nieznany format odpowiedzi: {str(data)[:200]}")
+
+
+def _extract_image(data):
+    items = data.get("data")
+    if isinstance(items, dict):
+        items = items.get("generated") or []
+    for item in items or []:
+        if isinstance(item, dict) and item.get("base64"):
+            return base64.b64decode(item["base64"])
+        link = item.get("url") if isinstance(item, dict) else item
+        if isinstance(link, str) and link.startswith("http"):
+            r = requests.get(link, timeout=120)
+            r.raise_for_status()
+            return r.content
+    return None
+
+
 def _pollinations(prompt):
     url = "https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) + "?width=1024&height=1280&nologo=true"
     resp = requests.get(url, timeout=180)
@@ -39,7 +82,10 @@ def _openai(prompt):
     return base64.b64decode(resp.json()["data"][0]["b64_json"])
 
 
-PROVIDERS = {"gemini": _gemini, "pollinations": _pollinations, "openai": _openai}
+PROVIDERS = {"magnific": _magnific, "gemini": _gemini, "pollinations": _pollinations, "openai": _openai}
+
+
+REQUIRED_KEYS = {"magnific": "MAGNIFIC_API_KEY", "gemini": "GEMINI_API_KEY", "openai": "OPENAI_API_KEY"}
 
 
 def generate(prompt, out_path):
@@ -47,6 +93,8 @@ def generate(prompt, out_path):
     errors = []
     for name in config.image_providers():
         name = name.strip()
+        if name in REQUIRED_KEYS and not config.env(REQUIRED_KEYS[name], "", required=False):
+            continue  # dostawca bez klucza to nie błąd, tylko nieskonfigurowany
         try:
             raw = PROVIDERS[name](prompt)
             img = Image.open(io.BytesIO(raw)).convert("RGB")

@@ -18,6 +18,7 @@ jobs:
       - run: python -m src.setup_check ${{ inputs.krok }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MAGNIFIC_API_KEY: ${{ secrets.MAGNIFIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}

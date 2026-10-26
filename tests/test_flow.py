@@ -136,3 +136,23 @@ def test_gemini_retries_5xx_then_next_model(monkeypatch):
     monkeypatch.setattr(gemini.requests, "post", post)
     assert gemini.generate("text", "X", "f", {}) == {"ok": True}
     assert calls == ["m1:generateContent"] * 3 + ["m2:generateContent"]
+
+
+def test_magnific_response_formats(monkeypatch):
+    import base64
+    from src import image
+    raw = base64.b64encode(b"jpegbytes").decode()
+    assert image._extract_image({"data": [{"base64": raw}]}) == b"jpegbytes"
+    assert image._extract_image({"data": {"generated": [], "task_id": "x"}}) is None
+
+
+def test_unconfigured_provider_is_skipped_silently(tmp_path, monkeypatch):
+    import io
+    from PIL import Image
+    from src import image
+    buf = io.BytesIO(); Image.new("RGB", (100, 100)).save(buf, "PNG")
+    monkeypatch.delenv("MAGNIFIC_API_KEY", raising=False)
+    monkeypatch.setattr(image.config, "image_providers", lambda: ["magnific", "pollinations"])
+    monkeypatch.setattr(image, "PROVIDERS", {"magnific": lambda p: 1 / 0, "pollinations": lambda p: buf.getvalue()})
+    name, errors = image.generate("zupa", tmp_path / "x.jpg")
+    assert name == "pollinations" and errors == []

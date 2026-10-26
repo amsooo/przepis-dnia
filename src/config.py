@@ -20,7 +20,7 @@ def image_model():
 
 def image_providers():
     """Kolejność prób generowania zdjęcia; pierwszy, który zadziała, wygrywa."""
-    return env("IMAGE_PROVIDERS", "gemini,pollinations", required=False).split(",")
+    return env("IMAGE_PROVIDERS", "magnific,gemini,pollinations", required=False).split(",")
 
 
 def auto_publish_after_hours():

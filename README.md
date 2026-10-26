@@ -23,8 +23,9 @@ W repo nie ma sekretów — wszystkie klucze siedzą w *Settings → Secrets and
    (krok `whoami`) — bot odpisze Ci `chat_id` → secret `TELEGRAM_CHAT_ID`. Krok `check` sprawdza brakujące sekrety.
    Bot reaguje wyłącznie na ten jeden czat.
 3. Klucz `GEMINI_API_KEY` z aistudio.google.com (tekst przepisów mieści się w darmowym limicie). Zdjęcia przez API Gemini
-   zwykle wymagają płatnego konta, dlatego `IMAGE_PROVIDERS` (domyślnie `gemini,pollinations`) próbuje dostawców po kolei.
-   Opcjonalnie `OPENAI_API_KEY` i `IMAGE_PROVIDERS=gemini,pollinations,openai`.
+   zwykle wymagają płatnego konta, dlatego `IMAGE_PROVIDERS` (domyślnie `magnific,gemini,pollinations`) próbuje dostawców po kolei.
+   Zdjęcia najlepiej z Magnific: klucz API (Magnific → „Utwórz klucz API”, zużywa kredyty planu) jako secret
+   `MAGNIFIC_API_KEY`; dostawcy bez klucza są pomijani. Opcjonalnie `OPENAI_API_KEY` i `IMAGE_PROVIDERS=gemini,pollinations,openai`.
 4. Secrets w repo: `GEMINI_API_KEY`, (opcjonalnie `OPENAI_API_KEY`), `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `IG_USER_ID`, `IG_ACCESS_TOKEN`.
    Zmienne opcjonalne (jako env w workflow): `TEXT_MODEL`, `IMAGE_MODEL`, `IMAGE_PROVIDERS`, `AUTO_PUBLISH_AFTER_HOURS`.
 5. Uruchom ręcznie workflow „Codzienny przepis” (Actions → Run workflow) i sprawdź Telegram.

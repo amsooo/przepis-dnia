@@ -33,3 +33,17 @@ def public_base_url():
     repo = env("GITHUB_REPOSITORY")
     branch = env("PUBLIC_BRANCH", "main", required=False)
     return f"https://raw.githubusercontent.com/{repo}/{branch}"
+
+
+def ig_host():
+    """Adres Graph API dla Instagrama.
+
+    Jawnie z IG_GRAPH_HOST; w przeciwnym razie po prefiksie tokenu: tokeny z logowania przez Instagram
+    zaczynają się od "IG" (graph.instagram.com), tokeny strony z Facebooka od "EAA" (graph.facebook.com).
+    """
+    explicit = env("IG_GRAPH_HOST", "", required=False)
+    if explicit:
+        return explicit
+    if env("IG_ACCESS_TOKEN", "", required=False).startswith("IG"):
+        return "https://graph.instagram.com/v21.0"
+    return "https://graph.facebook.com/v21.0"

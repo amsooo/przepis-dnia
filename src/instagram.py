@@ -4,12 +4,8 @@ import requests
 
 from . import config
 
-# Domyślnie logowanie przez Facebooka (token strony). Dla "Instagram API with Instagram Login"
-# ustaw IG_GRAPH_HOST=https://graph.instagram.com/v21.0 (token z panelu aplikacji, ważny 60 dni).
-GRAPH = config.env("IG_GRAPH_HOST", "", required=False) or "https://graph.facebook.com/v21.0"  # puste = domyślny
-
-
 def publish_photo(image_url, caption):
+    GRAPH = config.ig_host()
     user_id = config.env("IG_USER_ID")
     token = config.env("IG_ACCESS_TOKEN")
     r = requests.post(f"{GRAPH}/{user_id}/media",

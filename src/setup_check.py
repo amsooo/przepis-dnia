@@ -33,11 +33,17 @@ def check():
     status = "Brakuje sekretów: " + ", ".join(missing) if missing else "Wszystkie sekrety są ustawione."
     print(status)  # same nazwy, bez wartości
     if os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"):
-        host = os.environ.get("IG_GRAPH_HOST") or "https://graph.facebook.com/v21.0"
+        from . import config
+        host = config.ig_host()
         r = requests.get(f"{host}/{os.environ['IG_USER_ID']}",
                          params={"fields": "username", "access_token": os.environ["IG_ACCESS_TOKEN"]}, timeout=60)
-        status += f"\nInstagram: @{r.json().get('username')} ✅" if r.ok else f"\nInstagram: błąd {r.status_code} ❌"
-        print("Instagram:", "OK" if r.ok else f"błąd {r.status_code}")
+        if r.ok:
+            status += f"\nInstagram: @{r.json().get('username')} ✅"
+            print("Instagram: OK")
+        else:  # komunikat błędu Meta nie zawiera tokenu
+            reason = r.json().get("error", {}).get("message", r.text[:200]) if r.headers.get("content-type", "").startswith(("application/json", "text/javascript")) else r.text[:200]
+            status += f"\nInstagram: błąd {r.status_code} ❌ ({host.split('//')[1].split('/')[0]}): {reason}"
+            print("Instagram: błąd", r.status_code, reason)
     if os.environ.get("TELEGRAM_CHAT_ID"):
         _api("sendMessage", chat_id=int(os.environ["TELEGRAM_CHAT_ID"]), text=f"Bot działa ✅\n{status}")
 

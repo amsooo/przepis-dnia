@@ -33,7 +33,8 @@ def check():
     status = "Brakuje sekretów: " + ", ".join(missing) if missing else "Wszystkie sekrety są ustawione."
     print(status)  # same nazwy, bez wartości
     if os.environ.get("IG_USER_ID") and os.environ.get("IG_ACCESS_TOKEN"):
-        r = requests.get(f"https://graph.facebook.com/v21.0/{os.environ['IG_USER_ID']}",
+        host = os.environ.get("IG_GRAPH_HOST") or "https://graph.facebook.com/v21.0"
+        r = requests.get(f"{host}/{os.environ['IG_USER_ID']}",
                          params={"fields": "username", "access_token": os.environ["IG_ACCESS_TOKEN"]}, timeout=60)
         status += f"\nInstagram: @{r.json().get('username')} ✅" if r.ok else f"\nInstagram: błąd {r.status_code} ❌"
         print("Instagram:", "OK" if r.ok else f"błąd {r.status_code}")

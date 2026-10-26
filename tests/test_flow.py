@@ -167,3 +167,25 @@ def test_failing_update_does_not_block_queue(env, monkeypatch):
     assert st["telegram_offset"] == 8          # kliknięcie uznane za odebrane
     assert st["pending"] is not None           # przepis nadal czeka
     assert any("Nie udało się" in m for m in env)
+
+
+def test_gemini_timeout_switches_to_next_model(monkeypatch):
+    from src import gemini
+    monkeypatch.setattr(gemini.time, "sleep", lambda s: None)
+    monkeypatch.setattr(gemini, "model_chain", lambda *a, **k: ["m1", "m2"])
+    monkeypatch.setattr(gemini.config, "env", lambda *a, **k: "key")
+    calls = []
+
+    class R:
+        status_code, ok = 200, True
+        def json(self): return {"ok": True}
+
+    def post(url, **kw):
+        calls.append(url.split("/models/")[1].split(":")[0])
+        if "m1" in url:
+            raise gemini.requests.Timeout()
+        return R()
+
+    monkeypatch.setattr(gemini.requests, "post", post)
+    assert gemini.generate("text", "X", "f", {}) == {"ok": True}
+    assert calls == ["m1", "m2"]                # timeout nie jest ponawiany na tym samym modelu

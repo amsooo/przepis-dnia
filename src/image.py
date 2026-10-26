@@ -14,7 +14,7 @@ def _gemini(prompt):
     data = gemini.generate("image", "IMAGE_MODEL", "gemini-2.5-flash-image", {
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": "4:5"}},
-    })
+    }, timeout=150)
     for part in data["candidates"][0]["content"]["parts"]:
         inline = part.get("inlineData") or part.get("inline_data")
         if inline:

@@ -74,17 +74,28 @@ def model_chain(kind, override_var, fallback, limit=3):
         return [fallback]
 
 
-def generate(kind, override_var, fallback, body, retries=3, timeout=180):
-    """POST generateContent z ponawianiem przy 5xx (z odstępem) i przełączaniem na kolejny model.
+def generate(kind, override_var, fallback, body, retries=3, timeout=90):
+    """POST generateContent z ponawianiem i przełączaniem na kolejny model.
 
-    Błąd 4xx (np. 429 limit, 404) nie jest ponawiany: przechodzimy od razu do następnego modelu.
+    5xx i błędy połączenia: ponawiamy z odstępem. Timeout (model się zawiesił) oraz 4xx
+    (np. 429 limit, 404): od razu następny model, bo ponawianie tego samego nic nie da.
     """
     last = None
     for model in model_chain(kind, override_var, fallback):
         for attempt in range(retries):
-            resp = requests.post(f"{BASE}/models/{model}:generateContent",
-                                 headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},
-                                 json=body, timeout=timeout)
+            try:
+                resp = requests.post(f"{BASE}/models/{model}:generateContent",
+                                     headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},
+                                     json=body, timeout=timeout)
+            except requests.Timeout:
+                last = f"{model}: brak odpowiedzi w {timeout} s"
+                print(f"[gemini] {last}", file=sys.stderr)
+                break
+            except requests.ConnectionError as exc:
+                last = f"{model}: błąd połączenia ({type(exc).__name__})"
+                print(f"[gemini] {last}", file=sys.stderr)
+                time.sleep(5 * (attempt + 1))
+                continue
             if resp.ok:
                 return resp.json()
             last = f"{model}: HTTP {resp.status_code}"

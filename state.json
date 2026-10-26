@@ -43,11 +43,11 @@
       ],
       "image_prompt": "Realistic culinary photography, 45-degree angle. A warm, rustic ceramic bowl filled with rich and creamy Tuscan soup containing diced potatoes, ribbons of bright green kale, and white cannellini beans in a creamy savory broth. The dish is garnished with golden crispy bacon crumbles and finely grated parmesan cheese. Gentle steam rises from the hot soup. A thick slice of toasted artisan sourdough rests beside the bowl on a dark rustic wooden table. Soft, natural side daylight, cozy atmosphere, no people, no text."
     },
-    "image": "media/2026-10-26-2.jpg",
+    "image": "media/2026-10-26-3.jpg",
     "status": "awaiting",
-    "version": 2,
+    "version": 3,
     "created": "2026-10-26T10:48:39.630444+00:00",
     "image_note": ""
   },
-  "telegram_offset": 64485464
+  "telegram_offset": 64485466
 }

@@ -107,7 +107,9 @@ def _handle_message(st, msg):
 def poll():
     st = state.load_state()
     allowed = telegram.chat_id()
-    for upd in telegram.get_updates(st["telegram_offset"]):
+    updates = telegram.get_updates(st["telegram_offset"])
+    print(f"[poll] odebrano {len(updates)} akcji z Telegrama (offset {st['telegram_offset']})")
+    for upd in updates:
         st["telegram_offset"] = upd["update_id"] + 1
         try:
             if "callback_query" in upd:

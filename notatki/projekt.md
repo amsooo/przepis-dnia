@@ -62,3 +62,9 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
 Odradzone: profil udający prawdziwą osobę (wygenerowana twarz, wymyślone bio „mama gotuje dla rodziny"): wprowadza w błąd, narusza zasady Meta
 dot. oznaczania treści AI i autentyczności konta (ryzyko ograniczenia zasięgu/blokady), a w opisie posta jest uczciwy dopisek o zdjęciach AI.
 Rekomendowane: wyraźnie fikcyjna maskotka (rysunkowa/ilustracyjna) i nazwa-marka, bez udawania człowieka.
+
+## Wizerunek: ustalone (2026-10-28)
+- Maskotka: rysunkowy, okrągły kucharz „Szef Wąsik" (wersja 2) na turkusowym tle (alternatywa: żółte). Pliki w `branding/`.
+- Nazwa wyświetlana: „Przepisy dnia | Szef Wąsik" (26 znaków). `@przepisy_dnia` bez zmian (zmiana @ psuje linki).
+- Opis (118–120 znaków, trzy warianty do wyboru): maskotka konta, codziennie nowy przepis, składniki na drugim slajdzie, zdjęcia z AI.
+- Wgrywa właściciel ręcznie w aplikacji Instagram (API nie pozwala ustawić zdjęcia profilowego/nazwy).

@@ -34,8 +34,10 @@ def send_photo(path, caption):
     return resp.json()["result"]
 
 
-def send_preview(image_path, title, caption, note=""):
+def send_preview(image_path, title, caption, note="", card_path=None):
     send_photo(image_path, f"{note}\n\n{title}" if note else title)
+    if card_path:
+        send_photo(card_path, "Slajd 2: składniki")
     keyboard = [[
         {"text": "✅ Akceptuj", "callback_data": "approve"},
         {"text": "✏️ Popraw", "callback_data": "edit"},

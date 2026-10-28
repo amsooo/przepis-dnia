@@ -17,6 +17,12 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
 - Bot reaguje tylko na jeden czat (`TELEGRAM_CHAT_ID`). Błąd pojedynczej akcji idzie na Telegram jako ostrzeżenie i nie blokuje kolejki.
 - Workflow pomocnicze: `setup.yml` (kroki `whoami`, `check`, `models`), `ig-setup.yml` (tylko dla ścieżki z logowaniem przez Facebooka).
 
+## Karuzela i hashtagi (od 2026-10-28)
+- Post to karuzela 2 slajdów: (1) zdjęcie dania, (2) karta ze składnikami rysowana lokalnie w Pillow (`src/card.py`, czcionki DejaVu w `assets/fonts/`),
+  żeby polskie litery były zawsze poprawne. Karta powstaje na nowo przy każdej zmianie przepisu. Przepisy sprzed karuzeli publikują się jako pojedyncze zdjęcie.
+- Hashtagi składa kod (`finalize_hashtags` w `src/recipe.py`): 3 popularne polskie tagi kulinarne rotowane dniami + 2 tagi kategorii dania + 2 tagi specyficzne od modelu
+  (bez polskich znaków). Razem do 7. Pula `BROAD_TAGS` pochodzi z zestawień popularnych polskich tagów (liczb postów nie udało się zweryfikować).
+
 ## Dostawcy
 - Tekst: Gemini API (klucz z AI Studio). Model wybierany automatycznie z listy dostępnej dla klucza
   (najnowszy stabilny „flash"), ponawianie przy 5xx, timeout 90 s, potem kolejny model. Wymuś zmienną `TEXT_MODEL`.

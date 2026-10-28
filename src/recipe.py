@@ -20,6 +20,40 @@ Piszesz po polsku, ciepło i konkretnie, bez przesadnej egzaltacji.
 Przepisy muszą być realne, wykonalne w domowej kuchni, z dokładnymi ilościami (g, ml, łyżki) i czasami.
 Zwracasz WYŁĄCZNIE obiekt JSON, bez komentarza i bez bloku markdown."""
 
+# Hashtagi: popularne polskie tagi kulinarne (z zestawień dla Polski), rotowane dniami,
+# + tagi kategorii dania + 2 tagi specyficzne dla przepisu od modelu. Instagram zaleca kilka, nie kilkadziesiąt.
+BROAD_TAGS = ["#przepisy", "#jedzenie", "#foodie", "#smaczne", "#kuchniapolska", "#obiad"]
+CATEGORY_TAGS = {
+    "śniadanie lub brunch": ["#sniadanie", "#brunch"],
+    "zupa": ["#zupa", "#zdrowejedzenie"],
+    "obiad z mięsem lub rybą": ["#obiad", "#pomyslnaobiad"],
+    "danie wegetariańskie lub wegańskie": ["#wegetarianskie", "#zdrowejedzenie"],
+    "makaron, ryż lub kasza": ["#makaron", "#pomyslnaobiad"],
+    "deser lub wypiek": ["#deser", "#slodkosci"],
+    "szybka przekąska lub kolacja": ["#kolacja", "#szybkieprzepisy"],
+}
+_ASCII = str.maketrans("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ", "acelnoszzACELNOSZZ")
+
+
+def _clean_tag(tag):
+    tag = "".join(ch for ch in tag.translate(_ASCII).lower() if ch.isalnum() or ch == "#").lstrip("#")
+    return f"#{tag}" if 3 <= len(tag) <= 30 else ""
+
+
+def finalize_hashtags(recipe, category, today=None):
+    today = today or date.today()
+    start = today.toordinal() % len(BROAD_TAGS)
+    broad = [BROAD_TAGS[(start + i) % len(BROAD_TAGS)] for i in range(3)]
+    specific = [t for t in (_clean_tag(h) for h in recipe.get("hashtags", [])) if t][:2]
+    tags = []
+    for tag in broad + CATEGORY_TAGS.get(category, []) + specific:
+        if tag and tag not in tags:
+            tags.append(tag)
+    recipe["hashtags"] = tags
+    recipe["category"] = category
+    return recipe
+
+
 # Dopisywane do każdego promptu zdjęcia: modele obrazów psują sztućce i dokładają dodatkowe talerze.
 IMAGE_RULES = (
     "Photorealistic documentary food photography, shot on a full-frame camera with an 85mm lens at f/2.8, "
@@ -37,7 +71,7 @@ SCHEMA = """Format JSON:
   "ingredients": ["300 g ...", "..."],
   "steps": ["krok 1", "..."],
   "tip": "krótka wskazówka albo pusty napis",
-  "hashtags": ["#przepis", "..."],  // 8-12 sztuk
+  "hashtags": ["#zupafasolowa", "#..."],  // dokładnie 2 popularne polskie hashtagi specyficzne dla tego dania (nazwa dania/główny składnik), małe litery
   "image_prompt": "opis zdjęcia gotowego dania PO ANGIELSKU: realistyczna fotografia kulinarna, naturalne światło, ujęcie 45 stopni, jedno danie na jednym talerzu, bez sztućców, bez dodatków obok, bez ludzi i bez tekstu"
 }"""
 
@@ -75,7 +109,7 @@ def generate(recent_titles, today=None):
         f"Wymyśl jeden przepis na dziś. Kategoria: {category}. Kuchnia dowolna, może być polska lub światowa.\n"
         f"Nie powtarzaj tych dań ani ich bliskich wariantów: {avoid}.\n{SCHEMA}"
     )
-    return _ask(prompt)
+    return finalize_hashtags(_ask(prompt), category, today)
 
 
 def revise(recipe, feedback):
@@ -90,11 +124,12 @@ def revise(recipe, feedback):
     )
     data = _ask(prompt)
     regenerate = bool(data.pop("regenerate_image", False))
-    return data, regenerate
+    return finalize_hashtags(data, recipe.get("category", "")), regenerate
 
 
 def build_caption(recipe, ai_disclosure=True):
-    lines = [recipe["title"].upper(), "", recipe["intro"], ""]
+    lines = [recipe["title"].upper(), "", recipe["intro"], "", "👉 Przesuń w prawo: składniki na drugim slajdzie"]
+    lines.append("")
     lines.append(f"⏱ {recipe['time_min']} min  |  🍽 porcje: {recipe['servings']}")
     lines += ["", "SKŁADNIKI:"] + [f"• {i}" for i in recipe["ingredients"]]
     lines += ["", "PRZYGOTOWANIE:"] + [f"{n}. {s}" for n, s in enumerate(recipe["steps"], 1)]
@@ -102,7 +137,7 @@ def build_caption(recipe, ai_disclosure=True):
         lines += ["", f"💡 {recipe['tip']}"]
     if ai_disclosure:
         lines += ["", "Zdjęcie wygenerowane przez AI."]
-    tags = " ".join(recipe["hashtags"][:15])
+    tags = " ".join(recipe["hashtags"][:10])
     caption = "\n".join(lines) + "\n\n" + tags
     if len(caption) > 2200:  # limit Instagrama; ucinamy hashtagi, potem wskazówkę
         caption = "\n".join(lines) + "\n\n" + " ".join(recipe["hashtags"][:5])

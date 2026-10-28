@@ -9,6 +9,9 @@ RECIPE = {"title": "Szakszuka", "intro": "Jajka w sosie.", "time_min": 20, "serv
           "tip": "", "hashtags": ["#szakszuka"], "image_prompt": "shakshuka"}
 
 
+published = []
+
+
 @pytest.fixture
 def env(tmp_path, monkeypatch):
     monkeypatch.setattr(state, "STATE", tmp_path / "state.json")
@@ -17,6 +20,7 @@ def env(tmp_path, monkeypatch):
     (tmp_path / "history.json").write_text("[]")
     state.save_state({"pending": None, "telegram_offset": 0})
     sent = []
+    published.clear()
     monkeypatch.setattr(main.telegram, "chat_id", lambda: 1)
     monkeypatch.setattr(main.telegram, "send_text", lambda t, k=None: sent.append(t))
     monkeypatch.setattr(main.telegram, "send_preview", lambda *a: sent.append("preview"))
@@ -24,6 +28,7 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(main.image, "generate", lambda p, out: ("gemini", []))
     monkeypatch.setattr(main.recipe, "generate", lambda titles: dict(RECIPE))
     monkeypatch.setattr(main.instagram, "publish_photo", lambda url, cap: "ig123")
+    monkeypatch.setattr(main.instagram, "publish_carousel", lambda urls, cap: published.append(urls) or "ig123")
     monkeypatch.setattr(main.config, "public_base_url", lambda: "https://x")
     return sent
 
@@ -197,3 +202,30 @@ def test_magnific_async_task_formats():
     assert image._extract_image({"data": {"task_id": "t", "status": "IN_PROGRESS", "generated": []}}) is None
     assert image._task({"task_id": "t", "status": "CREATED", "generated": []})["task_id"] == "t"
     assert image._task({"data": {"task_id": "t2"}})["task_id"] == "t2"
+
+
+def test_carousel_published_with_both_slides(env, monkeypatch):
+    main.propose()
+    p = state.load_state()["pending"]
+    assert p["card"].endswith("-skladniki.jpg")
+    updates(monkeypatch, [cb("approve")])
+    main.poll()
+    assert len(published) == 1 and len(published[0]) == 2
+    assert published[0][0].endswith(p["image"]) and published[0][1].endswith(p["card"])
+
+
+def test_hashtags_mix_and_cleaning():
+    from datetime import date
+    r = recipe.finalize_hashtags({"hashtags": ["#Zupa Fasolowa", "#żurek", "#ok"]}, "zupa", date(2026, 10, 28))
+    tags = r["hashtags"]
+    assert len(tags) == len(set(tags)) and len(tags) <= 7
+    assert "#zupa" in tags and "#zurek" in tags and all(t.startswith("#") for t in tags)
+    assert "#ok" not in tags            # za krótki, odrzucony
+
+
+def test_card_renders_with_polish_text(tmp_path):
+    from PIL import Image
+    from src import card
+    out = tmp_path / "c.jpg"
+    card.render(dict(RECIPE, ingredients=["1 łyżka śmietany"] * 30), out)
+    assert Image.open(out).size == (1080, 1350)

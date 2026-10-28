@@ -7,7 +7,7 @@ import sys
 import traceback
 from datetime import datetime, timezone
 
-from . import config, image, instagram, recipe, state, telegram
+from . import card, config, image, instagram, recipe, state, telegram
 from .state import ROOT
 
 
@@ -24,7 +24,15 @@ def _make_pending(data, version_suffix):
 def _send_preview(pending):
     caption = recipe.build_caption(pending["recipe"])
     telegram.send_preview(ROOT / pending["image"], pending["recipe"]["title"], caption,
-                          pending.get("image_note", ""))
+                          pending.get("image_note", ""),
+                          ROOT / pending["card"] if pending.get("card") else None)
+
+
+def _make_card(pending):
+    """Slajd 2 zależy od przepisu, więc powstaje na nowo za każdym razem, gdy przepis się zmienia."""
+    pending["card"] = f"media/{_now().strftime('%Y-%m-%d')}-{pending['version']}-skladniki.jpg"
+    (ROOT / pending["card"]).parent.mkdir(parents=True, exist_ok=True)
+    card.render(pending["recipe"], ROOT / pending["card"])
 
 
 def _make_image(pending, prompt):
@@ -46,6 +54,7 @@ def _new_pending(st, version):
     st["pending"] = {"recipe": data, "image": rel, "status": "awaiting",
                      "version": version, "created": _now().isoformat()}
     _make_image(st["pending"], data["image_prompt"])
+    _make_card(st["pending"])
     _send_preview(st["pending"])
 
 
@@ -60,8 +69,12 @@ def propose():
 
 def publish(st):
     p = st["pending"]
-    url = f"{config.public_base_url()}/{p['image']}"
-    post_id = instagram.publish_photo(url, recipe.build_caption(p["recipe"]))
+    base = config.public_base_url()
+    caption = recipe.build_caption(p["recipe"])
+    if p.get("card"):
+        post_id = instagram.publish_carousel([f"{base}/{p['image']}", f"{base}/{p['card']}"], caption)
+    else:  # przepis przygotowany jeszcze przed wprowadzeniem karuzeli
+        post_id = instagram.publish_photo(f"{base}/{p['image']}", caption)
     state.append_history({"date": _now().date().isoformat(), "title": p["recipe"]["title"],
                           "instagram_id": post_id})
     st["pending"] = None
@@ -86,6 +99,7 @@ def _handle_callback(st, cb):
         p["version"] += 1
         p["image"] = _make_pending(p["recipe"], p["version"])
         _make_image(p, p["recipe"]["image_prompt"])
+        _make_card(p)  # przepisy sprzed karuzeli dostają kartę przy okazji
         _send_preview(p)
 
 
@@ -100,6 +114,7 @@ def _handle_message(st, msg):
     if regen:
         p["image"] = _make_pending(new_recipe, p["version"])
         _make_image(p, new_recipe["image_prompt"])
+    _make_card(p)
     p["status"] = "awaiting"
     _send_preview(p)
 

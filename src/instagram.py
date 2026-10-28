@@ -12,6 +12,8 @@ def _check(resp):
     try:
         err = resp.json().get("error", {})
         detail = err.get("error_user_msg") or err.get("message") or resp.text[:200]
+        if err.get("code") == 190:
+            detail += " (token wygasł lub jest nieprawidłowy: wygeneruj nowy w panelu aplikacji Meta i podmień IG_ACCESS_TOKEN)"
     except ValueError:
         detail = resp.text[:200]
     raise RuntimeError(f"Instagram {resp.status_code}: {detail}")

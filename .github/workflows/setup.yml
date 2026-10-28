@@ -24,3 +24,4 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
+          IG_TOKEN_DATE: ${{ vars.IG_TOKEN_DATE }}

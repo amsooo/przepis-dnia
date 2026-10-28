@@ -39,7 +39,7 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
   uprawnienie `instagram_business_content_publish` dodane w Permissions and features. Aplikacja zostaje w trybie Development (bez App Review),
   konto ma rolę Instagram Tester.
 - Token generowany w panelu aplikacji (API setup with Instagram login → Generate token). Ważny ok. 60 dni, potem trzeba wygenerować nowy
-  i podmienić secret `IG_ACCESS_TOKEN`. Brak jeszcze automatycznego przypomnienia.
+  i podmienić secret `IG_ACCESS_TOKEN`. Przypomnienie: zmienna repo `IG_TOKEN_DATE` (RRRR-MM-DD, data wygenerowania tokenu); od 15 dni przed wygaśnięciem `propose` wysyła codziennie ostrzeżenie na Telegram (`src/reminders.py`). Po odnowieniu tokenu zaktualizuj zarówno secret `IG_ACCESS_TOKEN`, jak i `IG_TOKEN_DATE`.
 - Host API wybierany po prefiksie tokenu (`IG...` → graph.instagram.com, `EAA...` → graph.facebook.com); `IG_GRAPH_HOST` jest opcjonalne.
 - **Repo musi być publiczne**: Instagram pobiera zdjęcie z raw.githubusercontent.com, w prywatnym repo dostaje 404 (publikacja kończy się 400).
 - Secrets: `GEMINI_API_KEY`, `MAGNIFIC_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `IG_USER_ID`, `IG_ACCESS_TOKEN`. Nic z tego nie leży w repo.
@@ -54,6 +54,5 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
 - Panel Meta: tworzenie konta developera na nowym urządzeniu bywa blokowane („You can't make this change at the moment"); przejść z zaufanego urządzenia.
 
 ## Pomysły na później
-- Przypomnienie na Telegramie o odnowieniu tokenu IG (ok. 50 dni).
 - Stała godzina publikacji (np. 18:00) zamiast „po odbiorze kliknięcia"; automatyczna publikacja po upływie czasu.
 - Szybszy odbiór kliknięć: webhook Telegrama przez Cloudflare Worker + `repository_dispatch`.

@@ -7,7 +7,7 @@ import sys
 import traceback
 from datetime import datetime, timezone
 
-from . import card, config, image, instagram, recipe, state, telegram
+from . import card, config, image, instagram, recipe, reminders, state, telegram
 from .state import ROOT
 
 
@@ -59,6 +59,9 @@ def _new_pending(st, version):
 
 
 def propose():
+    notice = reminders.token_notice(config.env("IG_TOKEN_DATE", "", required=False))
+    if notice:
+        telegram.send_text(notice)
     st = state.load_state()
     if st["pending"]:
         telegram.send_text("Poprzedni przepis nadal czeka na decyzję, więc dziś nie generuję nowego.")

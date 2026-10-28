@@ -229,3 +229,21 @@ def test_card_renders_with_polish_text(tmp_path):
     out = tmp_path / "c.jpg"
     card.render(dict(RECIPE, ingredients=["1 łyżka śmietany"] * 30), out)
     assert Image.open(out).size == (1080, 1350)
+
+
+def test_token_reminder_windows():
+    from datetime import date
+    from src import reminders
+    today = date(2026, 12, 1)
+    assert reminders.token_notice("", today) is None
+    assert reminders.token_notice("2026-10-26", today) is None            # 36 dni: jeszcze za wcześnie
+    assert "za około 15 dni" in reminders.token_notice("2026-10-17", today)  # 45 dni
+    assert "wygasa za około 0 dni" in reminders.token_notice("2026-10-02", today)  # 60 dni
+    assert "już wygasł" in reminders.token_notice("2026-09-01", today)
+    assert "zły format" in reminders.token_notice("wczoraj", today)
+
+
+def test_propose_sends_token_notice(env, monkeypatch):
+    monkeypatch.setenv("IG_TOKEN_DATE", "2000-01-01")
+    main.propose()
+    assert any("Token Instagrama" in m for m in env)

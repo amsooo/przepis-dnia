@@ -44,6 +44,12 @@ def check():
             reason = r.json().get("error", {}).get("message", r.text[:200]) if r.headers.get("content-type", "").startswith(("application/json", "text/javascript")) else r.text[:200]
             status += f"\nInstagram: błąd {r.status_code} ❌ ({host.split('//')[1].split('/')[0]}): {reason}"
             print("Instagram: błąd", r.status_code, reason)
+    from . import reminders
+    token_date = os.environ.get("IG_TOKEN_DATE", "")
+    if not token_date:
+        status += "\nIG_TOKEN_DATE: nie ustawiona (zmienna z datą wygenerowania tokenu IG, RRRR-MM-DD, bez niej nie będzie przypomnień)"
+    elif reminders.token_notice(token_date):
+        status += "\n" + reminders.token_notice(token_date)
     if os.environ.get("TELEGRAM_CHAT_ID"):
         _api("sendMessage", chat_id=int(os.environ["TELEGRAM_CHAT_ID"]), text=f"Bot działa ✅\n{status}")
 

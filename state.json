@@ -42,11 +42,12 @@
       ],
       "image_prompt": "A realistic food photograph taken from a 45-degree angle in soft natural window lighting, featuring a deep ceramic bowl filled with creamy lemon orzo pasta, wilted dark green baby spinach, melted creamy sauce, topped with chunks of white feta cheese and fine lemon zest. Single dish centered on one rustic plate, clean composition, no cutlery, no loose ingredients or garnish around, no people, no text."
     },
-    "image": "media/2026-10-28-1.jpg",
+    "image": "media/2026-10-28-2.jpg",
     "status": "awaiting",
-    "version": 1,
+    "version": 2,
     "created": "2026-10-28T06:28:17.962376+00:00",
-    "image_note": ""
+    "image_note": "",
+    "card": "media/2026-10-28-2-skladniki.jpg"
   },
-  "telegram_offset": 64485472
+  "telegram_offset": 64485476
 }

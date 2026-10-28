@@ -56,10 +56,10 @@ def finalize_hashtags(recipe, category, today=None):
 
 # Dopisywane do każdego promptu zdjęcia: modele obrazów psują sztućce i dokładają dodatkowe talerze.
 IMAGE_RULES = (
-    "Photorealistic documentary food photography, shot on a full-frame camera with an 85mm lens at f/2.8, "
-    "soft natural window light from the side, true-to-life muted colors, visible food texture, small natural "
-    "imperfections, a little steam, a few crumbs or drips, unretouched, not CGI, not a 3D render, not an illustration. "
-    "Close-up composition: one single serving fills most of the frame, on a plain table surface with nothing else on it."
+    "Vibrant, appetizing food photography that stops the scroll: bright high-key natural window light, rich saturated "
+    "colors, fresh colorful ingredients, a contrasting colored plate and a bright colorful surface so the dish pops. "
+    "Still realistic with natural texture, a little steam, a few crumbs or drips, not CGI, not a 3D render, not an illustration. "
+    "Close-up composition: one single serving fills most of the frame, on a clean surface with nothing else on it."
 )
 
 SCHEMA = """Format JSON:

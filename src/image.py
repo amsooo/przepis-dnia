@@ -5,7 +5,7 @@ import time
 import urllib.parse
 
 import requests
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 from . import config, gemini
 
@@ -105,6 +105,7 @@ def _openai(prompt):
 PROVIDERS = {"magnific": _magnific, "gemini": _gemini, "pollinations": _pollinations, "openai": _openai}
 
 
+COLOR_BOOST, CONTRAST_BOOST = 1.25, 1.08
 REQUIRED_KEYS = {"magnific": "MAGNIFIC_API_KEY", "gemini": "GEMINI_API_KEY", "openai": "OPENAI_API_KEY"}
 
 
@@ -124,6 +125,8 @@ def generate(prompt, out_path):
             print(f"[obraz] {name} nie zadziałał: {exc}", file=sys.stderr)
     else:
         raise RuntimeError("Żaden dostawca obrazów nie zadziałał: " + " | ".join(errors))
+    img = ImageEnhance.Color(img).enhance(COLOR_BOOST)       # żywsze kolory, żeby zdjęcie przyciągało wzrok
+    img = ImageEnhance.Contrast(img).enhance(CONTRAST_BOOST)
     w, h = img.size
     target_h = int(w * 5 / 4)
     if h > target_h:

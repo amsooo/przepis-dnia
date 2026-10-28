@@ -32,6 +32,7 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
   3. Pollinations: darmowy, ale słaby i ze znakiem wodnym. Pod zdjęciem z rezerwy bot dopisuje ostrzeżenie.
 - Do każdego promptu zdjęcia dopisywane są reguły realizmu i kompozycji (`IMAGE_RULES` w `src/recipe.py`): jedna porcja, ścisły kadr,
   bez wzmianki o sztućcach (modele rysują to, co się wymieni).
+- Kolory: prompt prosi o żywe, nasycone barwy i kontrastowy talerz/tło, a po generowaniu `image.generate` podbija nasycenie (x1.25) i kontrast (x1.08).
 - Zdjęcie jest przycinane do proporcji 4:5 (Instagram odrzuca węższe).
 
 ## Instagram
@@ -56,3 +57,8 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
 ## Pomysły na później
 - Stała godzina publikacji (np. 18:00) zamiast „po odbiorze kliknięcia"; automatyczna publikacja po upływie czasu.
 - Szybszy odbiór kliknięć: webhook Telegrama przez Cloudflare Worker + `repository_dispatch`.
+
+## Decyzja o wizerunku konta (2026-10-28)
+Odradzone: profil udający prawdziwą osobę (wygenerowana twarz, wymyślone bio „mama gotuje dla rodziny"): wprowadza w błąd, narusza zasady Meta
+dot. oznaczania treści AI i autentyczności konta (ryzyko ograniczenia zasięgu/blokady), a w opisie posta jest uczciwy dopisek o zdjęciach AI.
+Rekomendowane: wyraźnie fikcyjna maskotka (rysunkowa/ilustracyjna) i nazwa-marka, bez udawania człowieka.

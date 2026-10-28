@@ -1,5 +1,54 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Aromatyczny dahl z czerwonej soczewicy i pomidorów",
+      "intro": "Gęsty, kremowy dahl to niezawodny sposób na sycący, roślinny obiad z jednego garnka. Połączenie mleka kokosowego i korzennych przypraw idealnie otula i zachwyca głębokim smakiem.",
+      "time_min": 35,
+      "servings": 4,
+      "ingredients": [
+        "200 g suchej czerwonej soczewicy",
+        "400 ml mleka kokosowego (z puszki)",
+        "400 g krojonych pomidorów z puszki",
+        "350 ml bulionu warzywnego",
+        "1 średnia cebula (ok. 100 g)",
+        "2 ząbki czosnku",
+        "15 g świeżego imbiru",
+        "1 łyżka oleju rzepakowego",
+        "1 łyżeczka mielonego kminu rzymskiego",
+        "1 łyżeczka kurkumy",
+        "1/2 łyżeczki garam masala",
+        "1/2 łyżeczki soli",
+        "1 łyżka soku z limonki",
+        "10 g świeżej kolendry"
+      ],
+      "steps": [
+        "Cebulę pokrój w drobną kostkę, a czosnek i obrany imbir zetrzyj na tarce o drobnych oczkach.",
+        "W garnku z grubym dnem rozgrzej 1 łyżkę oleju i podsmażaj cebulę na średnim ogniu przez 4-5 minut, aż zmięknie i się zeszkli.",
+        "Dodaj czosnek, imbir, kmin rzymski, kurkumę oraz garam masala. Smaż całość przez około 1 minutę, cały czas mieszając, aż przyprawy zaczną intensywnie pachnieć.",
+        "Wsyp przepłukaną na sitku soczewicę, dodaj pomidory z puszki, mleko kokosowe oraz bulion. Całość dokładnie wymieszaj i doprowadź do wrzenia.",
+        "Zmniejsz płomień na mały, przykryj garnek lekko uchyloną pokrywką i gotuj przez 18-20 minut, mieszając od dna co kilka minut, aż soczewica zmięknie i sos zgęstnieje.",
+        "Zdejmij garnek z ognia, wmieszaj sól, świeży sok z limonki oraz posiekaną kolendrę. Odstaw na 2 minuty pod przykryciem przed podaniem."
+      ],
+      "tip": "Jeśli sos wyda Ci się zbyt gęsty, dolej na koniec 50 ml wrzątku lub bulionu; jeśli wolisz jeszcze bardziej kremową teksturę, rozgnieć część soczewicy tłuczkiem do ziemniaków bezpośrednio w garnku.",
+      "hashtags": [
+        "#smaczne",
+        "#kuchniapolska",
+        "#obiad",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#dahl",
+        "#soczewica"
+      ],
+      "image_prompt": "Realistic food photography of a bowl of thick creamy red lentil dahl garnished with a swirl of coconut cream and fresh chopped cilantro, served in a shallow dark ceramic bowl, 45-degree angle shot, soft natural morning window light, single dish on a plate, no cutlery, no side dishes, no people, no text",
+      "category": "danie wegetariańskie lub wegańskie"
+    },
+    "image": "media/2026-10-28-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-28T10:23:44.322986+00:00",
+    "image_note": "",
+    "card": "media/2026-10-28-1-skladniki.jpg"
+  },
   "telegram_offset": 64485478,
   "last_update_id": 64485477
 }

@@ -1,4 +1,52 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Kremowe cytrynowe orzo ze szpinakiem i fetą",
+      "intro": "Błyskawiczny, jednogarnkowy obiad, który smakuje jak z małej śródziemnomorskiej tawerny. Kremowy makaron orzo w aksamitnym sosie z cytryną, świeżym szpinakiem i słoną fetą zrobisz w niespełna 25 minut.",
+      "time_min": 25,
+      "servings": 3,
+      "ingredients": [
+        "250 g makaronu orzo",
+        "1 mała szalotka (ok. 60 g)",
+        "2 ząbki czosnku",
+        "20 ml oliwy z oliwek (2 łyżki)",
+        "650 ml gorącego bulionu warzywnego",
+        "100 g świeżego szpinaku baby",
+        "120 g sera feta",
+        "50 ml słodkiej śmietanki 30% (lub gęstego mleczka kokosowego)",
+        "1 łyżka soku z cytryny",
+        "1 łyżeczka startej skórki ze sparzonej cytryny",
+        "0.5 łyżeczki płatków chili",
+        "0.5 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Szalotkę i czosnek posiekaj w bardzo drobną kostkę.",
+        "W głębokiej patelni lub garnku rozgrzej 20 ml oliwy. Wrzuć szalotkę i smaż na średnim ogniu przez 3 minuty do zeszklenia. Dodaj czosnek oraz płatki chili i smaż jeszcze przez 1 minutę, pilnując, by czosnek się nie przypalił.",
+        "Wsyp suchy makaron orzo i praż go na patelni przez 2 minuty, regularnie mieszając, aż lekko zbieleje i wchłonie aromatyczną oliwę.",
+        "Wlej 650 ml gorącego bulionu, zamieszaj i doprowadź do wrzenia. Zmniejsz ogień do małego i gotuj bez przykrycia przez 9-10 minut, często mieszając od spodu, aby makaron nie przywarł.",
+        "Gdy orzo będzie al dente i wchłonie większość płynu, wlej 50 ml śmietanki, dodaj sok oraz skórkę z cytryny, a następnie dorzuć szpinak. Mieszaj przez 2 minuty, aż liście całkowicie zwiędną.",
+        "Zdejmij patelnię z ognia. Wkrusz 80 g sera feta, dopraw świeżo mielonym pieprzem i dokładnie wymieszaj do uzyskania kremowej konsystencji. Pozostałe 40 g fety pokrusz na wierzch przed podaniem."
+      ],
+      "tip": "Makaron orzo błyskawicznie chłonie płyn po ugotowaniu – jeśli danie postoi chwilę i zbytnio zgęstnieje, wystarczy dolać 2-3 łyżki gorącej wody lub bulionu, by przywrócić mu aksamitność.",
+      "hashtags": [
+        "#obiadwegetarianski",
+        "#wegetarianskie",
+        "#szybkiobiad",
+        "#makaronorzo",
+        "#jednogarnkowe",
+        "#przepisnaobiad",
+        "#prostyprzepis",
+        "#kuchniasrodziemnomorska",
+        "#bezmiesa",
+        "#domowejedzenie"
+      ],
+      "image_prompt": "A realistic food photograph taken from a 45-degree angle in soft natural window lighting, featuring a deep ceramic bowl filled with creamy lemon orzo pasta, wilted dark green baby spinach, melted creamy sauce, topped with chunks of white feta cheese and fine lemon zest. Single dish centered on one rustic plate, clean composition, no cutlery, no loose ingredients or garnish around, no people, no text."
+    },
+    "image": "media/2026-10-28-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-28T06:28:17.962376+00:00",
+    "image_note": ""
+  },
   "telegram_offset": 64485472
 }

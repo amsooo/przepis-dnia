@@ -19,6 +19,11 @@ def _api(method, **payload):
 
 
 def whoami():
+    known = os.environ.get("TELEGRAM_CHAT_ID")
+    if known:  # chat_id jest już w sekrecie: odsyłamy go na Telegram (nie do logów Actions)
+        _api("sendMessage", chat_id=int(known), text=f"Twoje chat_id to: {known}")
+        print("Wysłano chat_id na Telegram.")
+        return
     seen = {u["message"]["chat"]["id"] for u in _api("getUpdates") if "message" in u}
     if not seen:
         sys.exit("Brak wiadomości do bota. Otwórz bota w Telegramie, kliknij Start, napisz „cześć” i odpal ponownie.")

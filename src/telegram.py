@@ -58,3 +58,8 @@ def answer_callback(callback_id, text=""):
         _call("answerCallbackQuery", callback_query_id=callback_id, text=text)
     except requests.HTTPError:
         pass
+
+
+def webhook_active():
+    """Gdy webhook jest ustawiony, Telegram nie pozwala na getUpdates: kliknięcia przychodzą z Workera."""
+    return bool(_call("getWebhookInfo").get("url"))

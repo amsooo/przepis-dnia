@@ -3,6 +3,7 @@
 propose - raz dziennie: wymyśla przepis i wysyła podgląd na Telegram.
 poll    - co kilka minut: odbiera kliknięcia i uwagi z Telegrama, poprawia lub publikuje.
 """
+import json
 import sys
 import traceback
 from datetime import datetime, timezone
@@ -122,13 +123,27 @@ def _handle_message(st, msg):
     _send_preview(p)
 
 
+def _incoming(st):
+    """Akcje do obsłużenia: pojedyncza z Workera (UPDATE_JSON), brak w trybie webhooka, inaczej getUpdates."""
+    raw = config.env("UPDATE_JSON", "", required=False)
+    if raw:
+        return [json.loads(raw)]
+    if telegram.webhook_active():
+        return []  # w trybie webhooka akcje przychodzą pojedynczo z Workera
+    updates = telegram.get_updates(st["telegram_offset"])
+    print(f"[poll] odebrano {len(updates)} akcji z Telegrama (offset {st['telegram_offset']})")
+    return updates
+
+
 def poll():
     st = state.load_state()
     allowed = telegram.chat_id()
-    updates = telegram.get_updates(st["telegram_offset"])
-    print(f"[poll] odebrano {len(updates)} akcji z Telegrama (offset {st['telegram_offset']})")
-    for upd in updates:
-        st["telegram_offset"] = upd["update_id"] + 1
+    for upd in _incoming(st):
+        uid = upd["update_id"]
+        st["telegram_offset"] = max(st["telegram_offset"], uid + 1)
+        if uid <= st.get("last_update_id", -1):
+            continue  # ta akcja była już obsłużona (ponowne dostarczenie przez Telegram)
+        st["last_update_id"] = uid
         try:
             if "callback_query" in upd:
                 cb = upd["callback_query"]

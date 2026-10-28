@@ -22,6 +22,8 @@ def env(tmp_path, monkeypatch):
     sent = []
     published.clear()
     monkeypatch.setattr(main.telegram, "chat_id", lambda: 1)
+    monkeypatch.setattr(main.telegram, "webhook_active", lambda: False)
+    monkeypatch.delenv("UPDATE_JSON", raising=False)
     monkeypatch.setattr(main.telegram, "send_text", lambda t, k=None: sent.append(t))
     monkeypatch.setattr(main.telegram, "send_preview", lambda *a: sent.append("preview"))
     monkeypatch.setattr(main.telegram, "answer_callback", lambda *a: None)
@@ -247,3 +249,30 @@ def test_propose_sends_token_notice(env, monkeypatch):
     monkeypatch.setenv("IG_TOKEN_DATE", "2000-01-01")
     main.propose()
     assert any("Token Instagrama" in m for m in env)
+
+
+def test_single_update_from_worker(env, monkeypatch):
+    import json
+    main.propose()
+    monkeypatch.setenv("UPDATE_JSON", json.dumps(cb("approve", n=50)))
+    monkeypatch.setattr(main.telegram, "get_updates", lambda off: 1 / 0)   # nie wolno odpytywać Telegrama
+    main.poll()
+    st = state.load_state()
+    assert st["pending"] is None and st["last_update_id"] == 50
+    assert len(published) == 1
+
+
+def test_duplicate_update_ignored(env, monkeypatch):
+    import json
+    main.propose()
+    monkeypatch.setenv("UPDATE_JSON", json.dumps(cb("approve", n=60)))
+    main.poll()
+    main.propose()                                     # nowy przepis czeka na decyzję
+    main.poll()                                        # ta sama akcja dostarczona drugi raz
+    assert len(published) == 1 and state.load_state()["pending"] is not None
+
+
+def test_webhook_mode_scheduled_run_does_not_poll(env, monkeypatch):
+    monkeypatch.setattr(main.telegram, "webhook_active", lambda: True)
+    monkeypatch.setattr(main.telegram, "get_updates", lambda off: 1 / 0)
+    main.poll()                                        # nie rzuca wyjątku, bo nie pyta o akcje

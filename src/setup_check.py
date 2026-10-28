@@ -1,4 +1,4 @@
-"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models
+"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models | webhook-on | webhook-off | webhook-info
 
 whoami - odpowiada na Telegramie Twoim chat_id (nie trafia do logów Actions).
 check  - sprawdza, których sekretów brakuje, i wysyła wiadomość testową.
@@ -65,5 +65,25 @@ def models():
     print("Wybrany obraz:", config.image_model())
 
 
+def webhook_on():
+    url, secret = os.environ["WORKER_URL"], os.environ["TELEGRAM_WEBHOOK_SECRET"]
+    _api("setWebhook", url=url, secret_token=secret, allowed_updates=["message", "callback_query"])
+    print("Webhook ustawiony.")
+    webhook_info()
+
+
+def webhook_off():
+    _api("deleteWebhook", drop_pending_updates=False)
+    print("Webhook usunięty (bot wraca do odpytywania co kilkadziesiąt minut).")
+
+
+def webhook_info():
+    info = _api("getWebhookInfo")
+    # bez sekretów: adres, liczba oczekujących, ostatni błąd
+    print("url:", info.get("url") or "(brak)", "| oczekujące:", info.get("pending_update_count"),
+          "| ostatni błąd:", info.get("last_error_message", "-"))
+
+
 if __name__ == "__main__":
-    {"whoami": whoami, "check": check, "models": models}[sys.argv[1]]()
+    {"whoami": whoami, "check": check, "models": models,
+     "webhook-on": webhook_on, "webhook-off": webhook_off, "webhook-info": webhook_info}[sys.argv[1]]()

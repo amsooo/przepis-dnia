@@ -56,7 +56,7 @@ Pierwszy post opublikowany. Logo i opis profilu ustawia właściciel ręcznie w 
 
 ## Pomysły na później
 - Stała godzina publikacji (np. 18:00) zamiast „po odbiorze kliknięcia"; automatyczna publikacja po upływie czasu.
-- Szybszy odbiór kliknięć: webhook Telegrama przez Cloudflare Worker + `repository_dispatch`.
+- (zrobione w kodzie, do uruchomienia przez właściciela) Szybszy odbiór kliknięć: `worker/` (Cloudflare Worker → `workflow_dispatch` z akcją w `UPDATE_JSON`), instrukcja w `worker/README.md`. Webhook włącza krok `webhook-on` w „Konfiguracja”.
 
 ## Decyzja o wizerunku konta (2026-10-28)
 Odradzone: profil udający prawdziwą osobę (wygenerowana twarz, wymyślone bio „mama gotuje dla rodziny"): wprowadza w błąd, narusza zasady Meta
@@ -68,3 +68,8 @@ Rekomendowane: wyraźnie fikcyjna maskotka (rysunkowa/ilustracyjna) i nazwa-mark
 - Nazwa wyświetlana: „Przepisy dnia | Szef Wąsik" (26 znaków). `@przepisy_dnia` bez zmian (zmiana @ psuje linki).
 - Opis (118–120 znaków, trzy warianty do wyboru): maskotka konta, codziennie nowy przepis, składniki na drugim slajdzie, zdjęcia z AI.
 - Wgrywa właściciel ręcznie w aplikacji Instagram (API nie pozwala ustawić zdjęcia profilowego/nazwy).
+
+## Odbiór kliknięć przez webhook (2026-10-28)
+Kod gotowy: `worker/index.js`, `poll.yml` przyjmuje wejście `update`, `src/main.py` obsługuje pojedynczą akcję (deduplikacja po `last_update_id`)
+i w trybie webhooka nie wywołuje getUpdates. Kroki konfiguracji: `worker/README.md`. Uwaga: GitHub kolejkuje max jedno oczekujące uruchomienie na grupę
+`ig-bot`, więc przy kilku kliknięciach w ułamku sekundy jedno może zginąć (kliknąć ponownie).

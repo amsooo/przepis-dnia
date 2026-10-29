@@ -1,5 +1,51 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Kremowe pęczakotto z pieczarkami i tymiankiem",
+      "intro": "Aksamitne, wyraziste i niesamowicie sycące danie z polskiej kaszy pęczak. Całość przygotujesz w jednym naczyniu w niewiele ponad pół godziny.",
+      "time_min": 35,
+      "servings": 3,
+      "ingredients": [
+        "200 g kaszy pęczak",
+        "350 g pieczarek brunatnych",
+        "1 średnia cebula (ok. 100 g)",
+        "2 ząbki czosnku",
+        "2 łyżki oliwy z oliwek (20 ml)",
+        "1 łyżka masła (15 g)",
+        "650 ml gorącego bulionu warzywnego",
+        "40 g drobno startego parmezanu",
+        "1 łyżeczka świeżych listków tymianku",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Pieczarki oczyść i pokrój w średniej grubości plasterki. Cebulę posiekaj w drobną kostkę, a czosnek przeciśnij przez praskę.",
+        "W głębokiej patelni lub szerokim rondlu rozgrzej 1 łyżkę oliwy i masło. Wrzuć pieczarki i smaż na średnim ogniu przez 6–7 minut, aż odparują i ładnie się zrumienią. Połowę grzybów przełóż na mały talerzyk do dekoracji.",
+        "Do pozostałych na patelni pieczarek dodaj drugą łyżkę oliwy, cebulę oraz czosnek. Smaż przez 3 minuty, aż cebula zmięknie i stanie się szklista.",
+        "Wsyp suchą kaszę pęczak. Smaż całość przez 1–2 minuty, stale mieszając, aż ziarna dobrze pokryją się tłuszczem.",
+        "Wlej około 200 ml gorącego bulionu, dodaj listki tymianku, sól oraz pieprz. Gotuj na małym ogniu, mieszając co chwilę. Gdy płyn wsiąknie, dolewaj kolejną porcję bulionu. Powtarzaj przez 18–20 minut, aż kasza zmięknie, zachowując delikatną sprężystość w środku.",
+        "Zdejmij patelnię z ognia, wsyp starty parmezan i energicznie wymieszaj, tworząc kremowy sos. Przykryj na 2 minuty, a następnie wyłóż na talerze i udekoruj odłożonymi wcześniej pieczarkami."
+      ],
+      "tip": "Przed pierwszym dolaniem bulionu możesz wlać na patelnię 60 ml wytrawnego białego wina i całkowicie je odparować – nada to daniu głębszego, restauracyjnego aromatu.",
+      "hashtags": [
+        "#kuchniapolska",
+        "#obiad",
+        "#przepisy",
+        "#makaron",
+        "#pomyslnaobiad",
+        "#peczakotto",
+        "#peczak"
+      ],
+      "image_prompt": "A realistic food photograph taken in soft natural window light at a 45-degree angle showing a ceramic shallow bowl filled with creamy pearl barley risotto cooked with brown mushrooms and fresh thyme, garnished with golden sauteed sliced mushrooms and finely grated parmesan on top. Single dish on one rustic dark ceramic plate, no cutlery, no side dishes around, no people, no text.",
+      "category": "makaron, ryż lub kasza"
+    },
+    "image": "media/2026-10-29-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-29T06:30:51.481759+00:00",
+    "image_note": "",
+    "card": "media/2026-10-29-1-skladniki.jpg"
+  },
   "telegram_offset": 64485480,
   "last_update_id": 64485479
 }

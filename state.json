@@ -1,5 +1,47 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Aksamitny sernik baskijski",
+      "intro": "Niewiarygodnie kremowy w środku, z charakterystyczną, niemal przypaloną skórką o głębokiej nucie karmelu. Robi się go zaskakująco prosto – wystarczy połączyć składniki i zaufać wysokiej temperaturze piekarnika.",
+      "time_min": 65,
+      "servings": 8,
+      "ingredients": [
+        "700 g serka kremowego typu Philadelphia w temperaturze pokojowej",
+        "250 ml śmietanki 36% w temperaturze pokojowej",
+        "180 g drobnego cukru",
+        "4 duże jajka w temperaturze pokojowej",
+        "15 g mąki pszennej (1 czubata łyżka)",
+        "1 łyżeczka ekstraktu z wanilii",
+        "1/4 łyżeczki drobnej soli"
+      ],
+      "steps": [
+        "Piekarnik nagrzej do 220°C w trybie góra-dół. Tortownicę o średnicy 20 cm wyłóż dwoma arkuszami pogniecionego wcześniej papieru do pieczenia tak, by papier wystawał około 5 cm ponad krawędź formy.",
+        "W dużej misce utrzyj serek z cukrem na niskich obrotach miksera przez 2 minuty, tylko do uzyskania jednolitej masy i rozpuszczenia cukru.",
+        "Dodawaj jajka po jednym, krótko miksując na najniższych obrotach po każdym dodaniu (nie napowietrzaj masy).",
+        "Wlej śmietankę, ekstrakt z wanilii oraz sól. Na koniec przesiej mąkę pszenną i delikatnie wymieszaj całość szpatułką do całkowitego połączenia składników.",
+        "Przelej płynną masę do formy i wstaw do piekarnika. Piecz przez 45-50 minut, aż wierzch mocno się skarmelizuje i zbrązowieje, a środek ciasta przy delikatnym poruszeniu tortownicą będzie wyraźnie galaretowaty.",
+        "Wyjmij sernik z piekarnika i ostudź w temperaturze pokojowej, a następnie wstaw do lodówki na minimum 5 godzin (najlepiej na całą noc) przed krojeniem."
+      ],
+      "tip": "Wszystkie składniki muszą mieć temperaturę pokojową, a po upieczeniu środek sernika musi się wyraźnie trząść – ciasto idealnie stężeje dopiero w chłodzie.",
+      "hashtags": [
+        "#obiad",
+        "#przepisy",
+        "#jedzenie",
+        "#deser",
+        "#slodkosci",
+        "#sernikbaskijski",
+        "#sernik"
+      ],
+      "image_prompt": "A slice of authentic Basque burnt cheesecake with a rich caramelized dark brown top crust and an ultra-creamy, soft center, placed on a simple neutral ceramic plate, 45-degree angle shot, realistic food photography, natural bright soft daylight, no cutlery, no background elements, no people, no text",
+      "category": "deser lub wypiek"
+    },
+    "image": "media/2026-10-30-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-30T06:29:36.855731+00:00",
+    "image_note": "",
+    "card": "media/2026-10-30-1-skladniki.jpg"
+  },
   "telegram_offset": 64485481,
   "last_update_id": 64485480
 }

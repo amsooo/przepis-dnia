@@ -1,5 +1,47 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Chrupiąca quesadilla z kurczakiem i serem",
+      "intro": "Szukasz pomysłu na ekspresową i pożywną kolację? Ta złocista quesadilla z roztopionym serem i soczystym kurczakiem powstaje w zaledwie kilkanaście minut.",
+      "time_min": 20,
+      "servings": 2,
+      "ingredients": [
+        "2 duże placki tortilli pszennej",
+        "150 g upieczonej lub usmażonej piersi z kurczaka",
+        "100 g sera cheddar lub gouda (startego na wiórki)",
+        "60 g kukurydzy z puszki (4 łyżki)",
+        "70 g czerwonej papryki (1/2 sztuki)",
+        "15 ml oleju roślinnego (1 łyżka)",
+        "1/2 łyżeczki słodkiej papryki w proszku",
+        "1/2 łyżeczki kminu rzymskiego"
+      ],
+      "steps": [
+        "Mięso z kurczaka poszarp na drobne kawałki, a czerwoną paprykę pokrój w niewielką kostkę.",
+        "W misce wymieszaj kurczaka, paprykę, osączoną kukurydzę, słodką paprykę oraz kmin rzymski.",
+        "Na jednej połowie każdego placka tortilli posyp część startego sera, wyłóż przygotowany farsz i przykryj pozostałym serem. Złóż placki na pół.",
+        "Na patelni rozgrzej olej i smaż quesadillas na średnim ogniu po około 3-4 minuty z każdej strony, aż tortille będą złociste i chrupiące, a ser dobrze się roztopi.",
+        "Zdejmij z patelni, pokrój każdą połowę na dwa trójkąty i podawaj od razu."
+      ],
+      "tip": "Quesadillę możesz również przygotować w opiekaczu do paninis lub upiec w piekarniku nagrzanym do 200°C przez 10 minut.",
+      "hashtags": [
+        "#przepisy",
+        "#jedzenie",
+        "#foodie",
+        "#kolacja",
+        "#szybkieprzepisy",
+        "#quesadilla",
+        "#szybkakolacja"
+      ],
+      "image_prompt": "Realistic food photography, natural light, 45-degree angle shot of a crispy golden chicken and melted cheese quesadilla cut into triangles, served on a single plain white ceramic plate, no cutlery, no side dishes, no people, no text",
+      "category": "szybka przekąska lub kolacja"
+    },
+    "image": "media/2026-10-31-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-10-31T06:31:04.275128+00:00",
+    "image_note": "",
+    "card": "media/2026-10-31-1-skladniki.jpg"
+  },
   "telegram_offset": 64485482,
   "last_update_id": 64485481
 }

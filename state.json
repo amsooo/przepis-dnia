@@ -1,49 +1,6 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Tureckie jajka çilbir z palonym masłem chili",
-      "intro": "Aksamitny jogurt z czosnkiem, jajka w koszulkach i gorące, aromatyczne masło z dodatkiem chili. To pyszne śniadanie przygotujesz w zaledwie 15 minut.",
-      "time_min": 15,
-      "servings": 2,
-      "ingredients": [
-        "4 duże jajka",
-        "400 g jogurtu greckiego (w temperaturze pokojowej)",
-        "1 ząbek czosnku",
-        "40 g masła",
-        "1 łyżeczka płatków chili",
-        "1/2 łyżeczki wędzonej papryki",
-        "1 łyżka octu spirytusowego",
-        "2 szczypty soli",
-        "2 gałązki świeżego koperku"
-      ],
-      "steps": [
-        "Jogurt grecki wymieszaj w miseczce z przeciśniętym przez praskę czosnkiem oraz szczyptą soli. Rozdziel go równomiernie na dwa głębokie talerze.",
-        "W małym garnku zagotuj wodę z dodatkiem łyżki octu. Zmniejsz ogień, aby woda ledwo pyrkotała, i wymieszaj ją łyżką, tworząc na środku delikatny wir.",
-        "Wbijaj jajka pojedynczo do małej miseczki i przelewaj w środek wiru. Gotuj w koszulce przez około 3 minuty, aż białko się zetnie, a żółtko pozostanie płynne. Wyjmij łyżką cedzakową na talerz z jogurtem.",
-        "Na małej patelni rozpuść masło. Gdy zacznie się pienić i nabierze orzechowego zapachu, zdejmij patelnię z ognia, dodaj płatki chili oraz wędzoną paprykę i wymieszaj.",
-        "Ułożone na jogurcie jajka polej obficie gorącym masłem z chili i posyp posiekanym świeżym koperkiem."
-      ],
-      "tip": "Pamiętaj, aby jogurt miał temperaturę pokojową – zimny jogurt wyciągnięty prosto z lodówki za szybko schłodzi gorące jajka.",
-      "hashtags": [
-        "#jedzenie",
-        "#foodie",
-        "#smaczne",
-        "#sniadanie",
-        "#brunch",
-        "#jajka",
-        "#cilbir"
-      ],
-      "image_prompt": "Realistic culinary photograph of Turkish eggs Cilbir, served on a shallow white plate. Two soft poached eggs rest on a smooth bed of white garlic yogurt, drizzled with bright red paprika chili butter and sprinkled with chopped fresh dill. 45-degree angle shot, natural soft daylight, single dish on a plate, no cutlery, no side items, no people, no text.",
-      "category": "śniadanie lub brunch"
-    },
-    "image": "media/2026-11-01-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-01T18:50:01.714832+00:00",
-    "image_note": "",
-    "card": "media/2026-11-01-1-skladniki.jpg"
-  },
-  "telegram_offset": 64485483,
-  "last_update_id": 64485482,
+  "pending": null,
+  "telegram_offset": 64485484,
+  "last_update_id": 64485483,
   "last_proposed": "2026-11-01"
 }

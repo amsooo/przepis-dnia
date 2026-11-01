@@ -77,3 +77,8 @@ i w trybie webhooka nie wywołuje getUpdates. Kroki konfiguracji: `worker/README
 - Konfiguracja produkcyjna: Worker `przepis-dnia-bot` na workers.dev; secrets w Workerze: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_WEBHOOK_SECRET`, `GITHUB_TOKEN` (fine-grained PAT, tylko to repo, Actions: Read and write, wygasa: odnowić); zmienne: `ALLOWED_CHAT_ID`, `GITHUB_REPO`.
   W repo: secret `TELEGRAM_WEBHOOK_SECRET`, zmienna `WORKER_URL` (adres `.workers.dev`, NIE adres panelu Cloudflare).
 - Powrót do trybu odpytywania: krok `webhook-off` w „Konfiguracja”. Nie klikać kolejnych przycisków, zanim bot odpowie na poprzednie.
+
+## Awaria generowania przepisu (2026-11-01)
+Gemini bywa przeciążony (503 / brak odpowiedzi na wszystkich modelach naraz); wcześniej bot milczał. Teraz: dłuższe odstępy ponowień i do 4 modeli w łańcuchu,
+powiadomienie na Telegramie o błędzie oraz ponowne próby z harmonogramu o 09:00 i 12:00 UTC (strażnik `last_proposed` w `state.json` robi z nich ciche no-opy,
+jeśli przepis już był; ręczne uruchomienie „Codzienny przepis” zawsze generuje).

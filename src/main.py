@@ -64,10 +64,22 @@ def propose():
     if notice:
         telegram.send_text(notice)
     st = state.load_state()
+    today = _now().date().isoformat()
+    manual = config.env("GITHUB_EVENT_NAME", "", required=False) == "workflow_dispatch"
+    if st.get("last_proposed") == today and not manual:
+        return  # dzisiejszy przepis już był (ponowne próby z harmonogramu są wtedy ciche)
     if st["pending"]:
         telegram.send_text("Poprzedni przepis nadal czeka na decyzję, więc dziś nie generuję nowego.")
+        st["last_proposed"] = today
+        state.save_state(st)
         return
-    _new_pending(st, 1)
+    try:
+        _new_pending(st, 1)
+    except Exception as exc:
+        telegram.send_text(f"⚠️ Nie udało się wygenerować dzisiejszego przepisu: {str(exc)[:300]}\n"
+                           "Spróbuję jeszcze raz później; możesz też ręcznie uruchomić „Codzienny przepis”.")
+        raise
+    st["last_proposed"] = today
     state.save_state(st)
 
 

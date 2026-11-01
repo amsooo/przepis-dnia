@@ -24,6 +24,7 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(main.telegram, "chat_id", lambda: 1)
     monkeypatch.setattr(main.telegram, "webhook_active", lambda: False)
     monkeypatch.delenv("UPDATE_JSON", raising=False)
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "workflow_dispatch")  # ręczne uruchomienie omija strażnika dziennego
     monkeypatch.setattr(main.telegram, "send_text", lambda t, k=None: sent.append(t))
     monkeypatch.setattr(main.telegram, "send_preview", lambda *a: sent.append("preview"))
     monkeypatch.setattr(main.telegram, "answer_callback", lambda *a: None)
@@ -276,3 +277,21 @@ def test_webhook_mode_scheduled_run_does_not_poll(env, monkeypatch):
     monkeypatch.setattr(main.telegram, "webhook_active", lambda: True)
     monkeypatch.setattr(main.telegram, "get_updates", lambda off: 1 / 0)
     main.poll()                                        # nie rzuca wyjątku, bo nie pyta o akcje
+
+
+def test_scheduled_retry_is_silent_when_already_proposed(env, monkeypatch):
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
+    main.propose()
+    before = len(env)
+    main.propose()                                      # ponowna próba z harmonogramu tego samego dnia
+    assert len(env) == before                           # nic nowego na Telegramie
+    assert state.load_state()["last_proposed"]
+
+
+def test_generation_failure_notifies_and_allows_retry(env, monkeypatch):
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
+    monkeypatch.setattr(main.recipe, "generate", lambda titles: (_ for _ in ()).throw(RuntimeError("Gemini 503")))
+    with pytest.raises(RuntimeError):
+        main.propose()
+    assert any("Nie udało się wygenerować" in m for m in env)
+    assert state.load_state().get("last_proposed") is None   # kolejna próba nie jest zablokowana

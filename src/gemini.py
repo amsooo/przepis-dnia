@@ -63,7 +63,7 @@ def model_for(kind, override_var, fallback):
         return fallback
 
 
-def model_chain(kind, override_var, fallback, limit=3):
+def model_chain(kind, override_var, fallback, limit=4):
     """Lista modeli do wypróbowania po kolei: jawnie ustawiony albo najlepsze z autodetekcji."""
     explicit = config.env(override_var, "", required=False)
     if explicit:
@@ -94,7 +94,7 @@ def generate(kind, override_var, fallback, body, retries=3, timeout=90):
             except requests.ConnectionError as exc:
                 last = f"{model}: błąd połączenia ({type(exc).__name__})"
                 print(f"[gemini] {last}", file=sys.stderr)
-                time.sleep(5 * (attempt + 1))
+                time.sleep(10 * (attempt + 1))
                 continue
             if resp.ok:
                 return resp.json()
@@ -102,5 +102,5 @@ def generate(kind, override_var, fallback, body, retries=3, timeout=90):
             print(f"[gemini] {last}", file=sys.stderr)
             if resp.status_code < 500:
                 break
-            time.sleep(5 * (attempt + 1))
+            time.sleep((10, 30, 60)[min(attempt, 2)])  # przeciążenie po stronie Google zwykle mija po chwili
     raise RuntimeError(f"Gemini nie odpowiedział poprawnie ({last})")

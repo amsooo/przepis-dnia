@@ -1,6 +1,51 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Tajska zupa z kurczakiem i mleczkiem kokosowym",
+      "intro": "Wyrazista, lekko pikantna i niezwykle aromatyczna zupa, która błyskawicznie rozgrzewa. Przygotujesz ją w 30 minut z prostych i łatwo dostępnych składników.",
+      "time_min": 30,
+      "servings": 4,
+      "ingredients": [
+        "500 g piersi z kurczaka",
+        "400 ml mleczka kokosowego (min. 80% ekstraktu)",
+        "750 ml bulionu drobiowego",
+        "200 g pieczarek",
+        "2 łyżki czerwonej pasty curry",
+        "1 łyżka świeżo startego imbiru",
+        "2 ząbki czosnku",
+        "2 łyżki sosu rybnego",
+        "2 łyżki soku z limonki",
+        "1 łyżka oleju roślinnego",
+        "15 g świeżej kolendry"
+      ],
+      "steps": [
+        "Pierś z kurczaka pokrój w cienkie paski, pieczarki w plasterki, a czosnek drobno posiekaj.",
+        "W garnku rozgrzej olej, dodaj posiekany czosnek, starty imbir oraz pastę curry. Smaż na średnim ogniu przez około 1 minutę, stale mieszając, aż przyprawy uwolnią aromat.",
+        "Wlej do garnka bulion oraz mleczko kokosowe, dokładnie wymieszaj i doprowadź do wrzenia.",
+        "Zmniejsz ogień, dodaj pokrojonego kurczaka i pieczarki. Gotuj na wolnym ogniu przez 10-12 minut, aż mięso będzie miękkie i ugotowane.",
+        "Zdejmij garnek z ognia. Wlej sos rybny i sok z limonki, po czym delikatnie wymieszaj. Rozlej zupę do misek i posyp posiekaną świeżą kolendrą."
+      ],
+      "tip": "Jeśli lubisz bardziej sycące dania, podaj zupę z ugotowanym wcześniej makaronem ryżowym.",
+      "hashtags": [
+        "#foodie",
+        "#smaczne",
+        "#kuchniapolska",
+        "#zupa",
+        "#zdrowejedzenie",
+        "#zupatajska",
+        "#tomkha"
+      ],
+      "image_prompt": "A realistic food photograph of a single ceramic bowl filled with fragrant Thai chicken coconut soup topped with fresh cilantro leaves, shot at a 45-degree angle, bright natural daylight, clean simple surface, single bowl only, no cutlery, no side dishes, no text, no people",
+      "category": "zupa"
+    },
+    "image": "media/2026-11-02-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-02T06:57:27.288916+00:00",
+    "image_note": "",
+    "card": "media/2026-11-02-1-skladniki.jpg"
+  },
   "telegram_offset": 64485484,
   "last_update_id": 64485483,
-  "last_proposed": "2026-11-01"
+  "last_proposed": "2026-11-02"
 }

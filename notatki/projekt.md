@@ -105,3 +105,7 @@ Powód: 10 postów bez wyświetleń (status konta w porządku, profil publiczny)
   miksuje (zapętlenie, wejście 0,8 s, wyciszenie 1,5 s, głośność 0,8). Render nie zużywa już limitu ElevenLabs.
 - Brak biblioteki / zły klucz = cichy film (ostrzeżenie na Telegramie); wyłączenie muzyki: zmienna repo `REEL_MUSIC=0`.
 - Plan ElevenLabs właściciela obejmuje muzykę; warunki komercyjne sprawdzić w Eleven Music Terms. Próbka bez przepisu: „Konfiguracja” → `music-test`.
+
+## Gemini: łańcuch modeli (2026-11-03)
+Najnowsze modele „flash” bywają przeciążone godzinami (503 na wszystkich naraz). Łańcuch tekstu ma teraz do 8 modeli: stabilne nie-lite od najnowszego, potem testowe,
+na końcu warianty „lite”; po 2 próby na model (przerwy 8 i 20 s), przy timeoucie od razu następny. Zdjęcia: do 3 modeli bez lite.

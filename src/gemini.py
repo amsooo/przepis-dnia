@@ -16,26 +16,30 @@ def _version_key(name):
 
 
 def ranked(models, kind):
-    """Wybiera najlepszy model z listy zwróconej przez API.
+    """Modele do wypróbowania po kolei, od najlepszego.
 
-    kind="text"  -> rodzina flash (bez lite/image/live/tts), "image" -> modele generujące obrazy.
-    Preferuje wersje stabilne (bez preview/exp), potem najwyższy numer wersji.
+    kind="text"  -> rodzina flash (bez image/live/tts); warianty "lite" idą na koniec jako ostatnia deska ratunku,
+    kind="image" -> modele generujące obrazy (bez lite).
+    Kolejność: nie-lite przed lite, stabilne (bez preview/exp) przed testowymi, potem najwyższa wersja.
     """
     candidates = []
     for m in models:
         name = m["name"].removeprefix("models/")
         if "generateContent" not in m.get("supportedGenerationMethods", []):
             continue
-        if not name.startswith("gemini-") or any(x in name for x in ("lite", "live", "tts", "audio", "embedding", "robotics", "computer-use")):
+        if not name.startswith("gemini-") or any(x in name for x in ("live", "tts", "audio", "embedding", "robotics", "computer-use")):
             continue
         is_image = "image" in name
         if kind == "image" and not is_image:
             continue
         if kind == "text" and (is_image or "flash" not in name):
             continue
+        is_lite = "lite" in name
+        if kind == "image" and is_lite:
+            continue
         stable = not any(x in name for x in ("preview", "exp"))
-        candidates.append((stable, _version_key(name), name))
-    return [name for _, _, name in sorted(candidates, reverse=True)]
+        candidates.append((not is_lite, stable, _version_key(name), name))
+    return [c[-1] for c in sorted(candidates, reverse=True)]
 
 
 def pick(models, kind):
@@ -63,18 +67,19 @@ def model_for(kind, override_var, fallback):
         return fallback
 
 
-def model_chain(kind, override_var, fallback, limit=4):
+def model_chain(kind, override_var, fallback, limit=None):
     """Lista modeli do wypróbowania po kolei: jawnie ustawiony albo najlepsze z autodetekcji."""
     explicit = config.env(override_var, "", required=False)
     if explicit:
         return [explicit]
+    limit = limit or (8 if kind == "text" else 3)   # przy przeciążeniu najnowszych modeli sięgamy do starszych
     try:
         return ranked(list_models(), kind)[:limit] or [fallback]
     except requests.RequestException:
         return [fallback]
 
 
-def generate(kind, override_var, fallback, body, retries=3, timeout=90):
+def generate(kind, override_var, fallback, body, retries=2, timeout=90):
     """POST generateContent z ponawianiem i przełączaniem na kolejny model.
 
     5xx i błędy połączenia: ponawiamy z odstępem. Timeout (model się zawiesił) oraz 4xx
@@ -102,5 +107,5 @@ def generate(kind, override_var, fallback, body, retries=3, timeout=90):
             print(f"[gemini] {last}", file=sys.stderr)
             if resp.status_code < 500:
                 break
-            time.sleep((10, 30, 60)[min(attempt, 2)])  # przeciążenie po stronie Google zwykle mija po chwili
+            time.sleep((8, 20)[min(attempt, 1)])  # krótko: przy przeciążeniu lepiej szybko przejść do innego modelu
     raise RuntimeError(f"Gemini nie odpowiedział poprawnie ({last})")

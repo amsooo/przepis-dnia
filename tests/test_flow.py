@@ -146,7 +146,7 @@ def test_gemini_retries_5xx_then_next_model(monkeypatch):
 
     monkeypatch.setattr(gemini.requests, "post", post)
     assert gemini.generate("text", "X", "f", {}) == {"ok": True}
-    assert calls == ["m1:generateContent"] * 3 + ["m2:generateContent"]
+    assert calls == ["m1:generateContent"] * 2 + ["m2:generateContent"]
 
 
 def test_magnific_response_formats(monkeypatch):
@@ -437,3 +437,16 @@ def test_rekey_moves_library_to_music_key(tmp_path, monkeypatch):
     monkeypatch.setenv("TELEGRAM_WEBHOOK_SECRET", "zupelnie-inny")      # zmiana sekretu webhooka już niczego nie psuje
     assert music.decrypt_to(f, tmp_path / "o.mp3") == "MUSIC_KEY"
     assert (tmp_path / "o.mp3").read_bytes() == b"AUDIO"
+
+
+def test_model_chain_reaches_older_and_lite_models():
+    from src import gemini
+    gc = ("generateContent",)
+    names = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3.1-flash-lite",
+             "gemini-3.8-flash-preview", "gemini-3.1-flash-image", "gemini-3.1-flash-lite-image"]
+    models = [{"name": f"models/{n}", "supportedGenerationMethods": gc} for n in names]
+    text = gemini.ranked(models, "text")
+    assert text[:3] == ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-2.5-flash"]   # stabilne nie-lite, od najnowszego
+    assert text.index("gemini-2.5-flash") < text.index("gemini-3.1-flash-lite")        # lite dopiero na końcu
+    assert text.index("gemini-3.8-flash-preview") < text.index("gemini-2.5-flash-lite")
+    assert gemini.ranked(models, "image") == ["gemini-3.1-flash-image"]                  # obrazy bez lite

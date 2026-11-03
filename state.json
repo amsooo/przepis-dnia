@@ -1,5 +1,51 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Aromatyczne kofty wołowe z sosem tzatziki",
+      "hook": "Soczysty obiad w 35 minut: domowe kofty wołowe z orzeźwiającym sosem tzatziki",
+      "intro": "Połączenie dobrze przyprawionego mięsa i chłodnego sosu jogurtowego to idealny pomysł na sycący posiłek. To danie przeniesie smaki wakacji prosto do Twojej kuchni.",
+      "time_min": 35,
+      "servings": 2,
+      "ingredients": [
+        "400 g mielonej wołowiny",
+        "1 mała cebula",
+        "2 ząbki czosnku",
+        "1 łyżeczka mielonego kminu rzymskiego",
+        "1 łyżeczka słodkiej papryki",
+        "1/2 łyżeczki cynamonu",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki czarnego pieprzu",
+        "1 łyżka posiekanej natki pietruszki",
+        "150 g gęstego jogurtu greckiego",
+        "1/2 ogórka szklarniowego",
+        "1 łyżka oliwy z oliwek"
+      ],
+      "steps": [
+        "Cebulę i jeden ząbek czosnku posiekaj bardzo drobno lub zetrzyj na tarce o małych oczkach.",
+        "W misce wymieszaj mięso wołowe z cebulą, czosnkiem, natką pietruszki oraz przyprawami: kminem, papryką, cynamonem, solą i pieprzem.",
+        "Zwilżonymi dłońmi uformuj z mięsa 6 podłużnych kotlecików (koft). Możesz je opcjonalnie nadziać na patyczki do szaszłyków.",
+        "Na patelni rozgrzej oliwę i smaż kofty na średnim ogniu przez około 10 minut, regularnie je obracając, aż będą rumiane z każdej strony.",
+        "W międzyczasie zetrzyj ogórka na tarce, odciśnij go mocno z nadmiaru wody i wymieszaj z jogurtem oraz drugim przeciśniętym ząbkiem czosnku."
+      ],
+      "tip": "Jeśli masz czas, odstaw mięso z przyprawami do lodówki na 30 minut, aby smaki lepiej się przegryzły.",
+      "hashtags": [
+        "#smaczne",
+        "#obiad",
+        "#pomyslnaobiad",
+        "#kofty",
+        "#wolowina"
+      ],
+      "image_prompt": "Realistic food photography, spiced beef kofta kebabs on a simple ceramic plate, served with a dollop of creamy tzatziki sauce, natural light, 45-degree angle, single plate, no cutlery, no extras, no people, no text",
+      "category": "obiad z mięsem lub rybą"
+    },
+    "image": "media/2026-11-03-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-03T13:01:09.023148+00:00",
+    "image_note": "",
+    "card": "media/2026-11-03-1-skladniki.jpg",
+    "video": "media/2026-11-03-1-reel.mp4"
+  },
   "telegram_offset": 64485487,
   "last_update_id": 64485486,
   "last_proposed": "2026-11-03"

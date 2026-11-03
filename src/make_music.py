@@ -30,5 +30,14 @@ def main(count):
         sys.exit(1)
 
 
+def rekey():
+    """Przeszyfrowuje istniejące ścieżki na klucz główny (bez ponownego generowania i bez kosztów)."""
+    if not music.config.env("MUSIC_KEY", "", required=False):
+        sys.exit("MUSIC_KEY nie jest ustawiony, nie ma na co przeszyfrować.")
+    changed = sum(1 for t in music.library() if music.rekey(t))
+    print(f"Przeszyfrowano {changed} z {len(music.library())} ścieżek na {music.primary_key_name()}.")
+
+
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 10)
+    arg = sys.argv[1] if len(sys.argv) > 1 else "10"
+    rekey() if arg == "rekey" else main(int(arg))

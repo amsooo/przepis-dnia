@@ -94,3 +94,26 @@ def library():
 def pick(tracks, index):
     """Kolejne posty dostają kolejne ścieżki (index = liczba dotychczasowych publikacji)."""
     return tracks[index % len(tracks)] if tracks else None
+
+
+def primary_key_name():
+    return _fernets()[0][0]
+
+
+def rekey(path):
+    """Odszyfrowuje dowolnym dostępnym kluczem i zapisuje ponownie kluczem głównym (MUSIC_KEY, jeśli ustawiony).
+    Zwraca True, gdy plik został przeszyfrowany."""
+    data = Path(path).read_bytes()
+    name, primary = _fernets()[0]
+    try:
+        primary.decrypt(data)
+        return False  # już zaszyfrowany kluczem głównym
+    except InvalidToken:
+        pass
+    for _, fernet in _fernets()[1:]:
+        try:
+            Path(path).write_bytes(primary.encrypt(fernet.decrypt(data)))
+            return True
+        except InvalidToken:
+            continue
+    raise RuntimeError(f"{Path(path).name}: żaden klucz nie pasuje")

@@ -422,3 +422,18 @@ def test_music_styles_rotate():
     from datetime import date
     from src import music
     assert music.style_for(date(2026, 11, 3)) != music.style_for(date(2026, 11, 4))
+
+
+def test_rekey_moves_library_to_music_key(tmp_path, monkeypatch):
+    from src import music
+    monkeypatch.setattr(music, "LIBRARY", tmp_path)
+    monkeypatch.delenv("MUSIC_KEY", raising=False)
+    monkeypatch.setenv("TELEGRAM_WEBHOOK_SECRET", "zapasowy")
+    raw = tmp_path / "r.mp3"; raw.write_bytes(b"AUDIO")
+    f = tmp_path / "track-01.mp3.enc"
+    music.encrypt_file(raw, f)
+    monkeypatch.setenv("MUSIC_KEY", "nowy")
+    assert music.rekey(f) is True and music.rekey(f) is False          # drugi raz nic do roboty
+    monkeypatch.setenv("TELEGRAM_WEBHOOK_SECRET", "zupelnie-inny")      # zmiana sekretu webhooka już niczego nie psuje
+    assert music.decrypt_to(f, tmp_path / "o.mp3") == "MUSIC_KEY"
+    assert (tmp_path / "o.mp3").read_bytes() == b"AUDIO"

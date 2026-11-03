@@ -5,10 +5,12 @@ poll    - co kilka minut: odbiera kliknięcia i uwagi z Telegrama, poprawia lub 
 """
 import json
 import sys
+import tempfile
 import traceback
 from datetime import datetime, timezone
+from pathlib import Path
 
-from . import card, config, image, instagram, recipe, reel, reminders, state, telegram
+from . import card, config, image, instagram, music, recipe, reel, reminders, state, telegram
 from .state import ROOT
 
 
@@ -31,14 +33,26 @@ def _send_preview(pending):
 
 
 def _make_video(pending):
-    """Reel zależy od zdjęcia i karty, więc powstaje po każdej ich zmianie. Awaria filmu nie blokuje karuzeli."""
+    """Reel zależy od zdjęcia i karty, więc powstaje po każdej ich zmianie. Awaria filmu nie blokuje karuzeli,
+    a awaria muzyki oznacza tylko cichy film."""
     pending["video"] = f"media/{_now().strftime('%Y-%m-%d')}-{pending['version']}-reel.mp4"
-    try:
-        reel.render(ROOT / pending["image"], ROOT / pending["card"], pending["recipe"], ROOT / pending["video"])
-    except Exception as exc:
-        traceback.print_exc()
-        pending["video"] = None
-        telegram.send_text(f"⚠️ Nie udało się zrobić Reela (karuzela działa): {str(exc)[:200]}")
+    with tempfile.TemporaryDirectory() as tmp:
+        audio = None
+        if (config.env("REEL_MUSIC", "", required=False) or "1") != "0":
+            try:
+                path = Path(tmp) / "podklad.mp3"
+                if music.generate(path, reel.duration(pending["recipe"])):
+                    audio = path
+            except Exception as exc:
+                traceback.print_exc()
+                telegram.send_text(f"⚠️ Reel bez muzyki (podkład się nie wygenerował): {str(exc)[:200]}")
+        try:
+            reel.render(ROOT / pending["image"], ROOT / pending["card"], pending["recipe"],
+                        ROOT / pending["video"], audio_path=audio)
+        except Exception as exc:
+            traceback.print_exc()
+            pending["video"] = None
+            telegram.send_text(f"⚠️ Nie udało się zrobić Reela (karuzela działa): {str(exc)[:200]}")
 
 
 def _make_card(pending):

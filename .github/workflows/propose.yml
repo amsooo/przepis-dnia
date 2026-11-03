@@ -28,6 +28,8 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST }}
           POST_FORMAT: ${{ vars.POST_FORMAT }}
+          REEL_MUSIC: ${{ vars.REEL_MUSIC }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           IG_TOKEN_DATE: ${{ vars.IG_TOKEN_DATE }}
           GITHUB_REPOSITORY: ${{ github.repository }}
       - name: Zapisz stan

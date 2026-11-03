@@ -333,3 +333,49 @@ def test_caption_hook_and_five_hashtags():
     assert cap.splitlines()[0] == "Szybki obiad w 20 minut: szakszuka z jajkami"
     assert len(r["hashtags"]) <= 5 and "Zapisz ten przepis" in cap
     assert len(cap) <= 2200
+
+
+def test_music_requires_key_and_writes_file(tmp_path, monkeypatch):
+    from src import music
+    monkeypatch.delenv("ELEVENLABS_API_KEY", raising=False)
+    assert music.generate(tmp_path / "a.mp3", 12) is False
+
+    sent = {}
+
+    class R:
+        ok, status_code, content, text = True, 200, b"MP3DATA", ""
+
+    def post(url, **kw):
+        sent.update(url=url, **kw)
+        return R()
+
+    monkeypatch.setenv("ELEVENLABS_API_KEY", "k")
+    monkeypatch.setattr(music.requests, "post", post)
+    assert music.generate(tmp_path / "b.mp3", 13) is True
+    assert (tmp_path / "b.mp3").read_bytes() == b"MP3DATA"
+    assert sent["json"]["force_instrumental"] is True and sent["json"]["music_length_ms"] == 14000
+    assert sent["headers"]["xi-api-key"] == "k" and sent["url"].endswith("/v1/music")
+
+
+def test_video_uses_music_and_survives_music_failure(env, monkeypatch):
+    calls = []
+    monkeypatch.setattr(main.reel, "render", lambda *a, **k: calls.append(k.get("audio_path")))
+    monkeypatch.setattr(main.music, "generate", lambda path, seconds, today=None: True)
+    main.propose()
+    assert calls and calls[-1] is not None                  # podkład trafił do montażu
+    def boom(path, seconds, today=None):
+        raise RuntimeError("ElevenLabs 402: limit")
+    monkeypatch.setattr(main.music, "generate", boom)
+    p = state.load_state()["pending"]
+    main._make_video(p)
+    assert calls[-1] is None and p["video"]                  # film powstał, tylko bez muzyki
+    assert any("bez muzyki" in m for m in env)
+    monkeypatch.setenv("REEL_MUSIC", "0")
+    n = len(calls); main._make_video(p)
+    assert calls[-1] is None and len(calls) == n + 1
+
+
+def test_music_styles_rotate():
+    from datetime import date
+    from src import music
+    assert music.style_for(date(2026, 11, 3)) != music.style_for(date(2026, 11, 4))

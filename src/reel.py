@@ -19,6 +19,13 @@ def _ffmpeg():
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
+def _audio_input(audio_path, total):
+    if audio_path:  # podkład zapętlony, z wejściem i wyciszeniem na końcu, ściszony pod film
+        return ["-stream_loop", "-1", "-i", str(audio_path),
+                "-af", f"afade=t=in:st=0:d=0.8,afade=t=out:st={max(total - 1.5, 0):.2f}:d=1.5,volume=0.8"]
+    return ["-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100"]
+
+
 def _font(name, size):
     return ImageFont.truetype(str(FONTS / name), size)
 
@@ -72,17 +79,27 @@ def _segment_b(card_img):
     return bg
 
 
-def render(photo_path, card_path, recipe, out_path, seconds_a=5.0):
+def _frames(recipe, seconds_a=5.0):
+    return int(seconds_a * FPS), int(min(9.0, 4.0 + 0.4 * len(recipe["ingredients"])) * FPS)
+
+
+def duration(recipe, seconds_a=5.0):
+    """Całkowita długość filmu w sekundach (do dobrania długości podkładu)."""
+    n_a, n_b = _frames(recipe, seconds_a)
+    return (n_a + FADE + n_b) / FPS
+
+
+def render(photo_path, card_path, recipe, out_path, seconds_a=5.0, audio_path=None):
     photo = Image.open(photo_path).convert("RGB")
     card_img = Image.open(card_path).convert("RGB")
     fg, bg_a, top = _segment_a(photo, recipe)
     frame_b = _segment_b(card_img)
-    n_a = int(seconds_a * FPS)
-    n_b = int(min(9.0, 4.0 + 0.4 * len(recipe["ingredients"])) * FPS)
+    n_a, n_b = _frames(recipe, seconds_a)
+    total = duration(recipe, seconds_a)
 
     cmd = [_ffmpeg(), "-y", "-loglevel", "error",
            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-           "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=44100", "-shortest",
+           *_audio_input(audio_path, total), "-shortest",
            "-c:v", "libx264", "-preset", "medium", "-crf", "27", "-pix_fmt", "yuv420p", "-r", str(FPS),
            "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(out_path)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.PIPE)

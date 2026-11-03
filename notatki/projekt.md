@@ -93,3 +93,13 @@ Powód: 10 postów bez wyświetleń (status konta w porządku, profil publiczny)
 - Hashtagi: 5 (1 popularny rotowany + 2 kategorii + 2 specyficzne dla dania).
 - Nieprzetestowane na prawdziwym Instagramie (publish_reel): pierwszą publikację sprawdzić; w razie błędu ustawić `POST_FORMAT=carousel`.
 - Uwaga: Reel dokłada plik mp4 do repo przy każdym przepisie (rośnie historia git); w razie potrzeby czyścić stare media/.
+
+## Muzyka do Reela (2026-11-03)
+- Muzyka z biblioteki Instagrama niedostępna przez API (wybiera się ją tylko ręcznie w aplikacji).
+- Podkład generuje ElevenLabs (Eleven Music, `POST /v1/music`, instrumentalny, ok. 15 s, 6 rotowanych klimatów w `src/music.py`),
+  `ELEVENLABS_API_KEY` jako secret. Plan właściciela obejmuje muzykę; warunki komercyjne sprawdzić w Eleven Music Terms.
+- Ścieżki NIE są zapisywane w repo (jest publiczne, nie chcemy udostępniać samodzielnych plików): powstają w katalogu tymczasowym przy każdym renderze
+  filmu i są miksowane tylko do mp4 (zapętlenie, wejście 0,8 s, wyciszenie 1,5 s, głośność 0,8). Każdy render (też po „Inne zdjęcie”/„Popraw”) = jedno
+  generowanie, czyli zużycie limitu ElevenLabs. Wyłączenie: zmienna repo `REEL_MUSIC=0`.
+- Awaria muzyki = cichy film (ostrzeżenie na Telegramie), awaria filmu = tylko karuzela.
+- Szybki test klucza bez generowania przepisu: „Konfiguracja” → `music-test` (wysyła próbkę na Telegram).

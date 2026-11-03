@@ -1,4 +1,4 @@
-"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models | webhook-on | webhook-off | webhook-info
+"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models | webhook-on | webhook-off | webhook-info | music-test
 
 whoami - odpowiada na Telegramie Twoim chat_id (nie trafia do logów Actions).
 check  - sprawdza, których sekretów brakuje, i wysyła wiadomość testową.
@@ -89,6 +89,26 @@ def webhook_info():
           "| ostatni błąd:", info.get("last_error_message", "-"))
 
 
+def music_test():
+    """Generuje 10-sekundowy podkład i wysyła go na Telegram (nic nie trafia do repo)."""
+    import tempfile
+    from pathlib import Path
+
+    from . import music
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "podklad.mp3"
+        if not music.generate(path, 9):
+            sys.exit("Brak ELEVENLABS_API_KEY.")
+        token = os.environ["TELEGRAM_BOT_TOKEN"]
+        with open(path, "rb") as fh:
+            r = requests.post(f"https://api.telegram.org/bot{token}/sendAudio",
+                              data={"chat_id": int(os.environ["TELEGRAM_CHAT_ID"]),
+                                    "caption": f"Test podkładu: {music.style_for()}"},
+                              files={"audio": ("podklad.mp3", fh)}, timeout=120)
+        r.raise_for_status()
+    print("Podkład wysłany na Telegram.")
+
+
 if __name__ == "__main__":
     {"whoami": whoami, "check": check, "models": models,
-     "webhook-on": webhook_on, "webhook-off": webhook_off, "webhook-info": webhook_info}[sys.argv[1]]()
+     "webhook-on": webhook_on, "webhook-off": webhook_off, "webhook-info": webhook_info, "music-test": music_test}[sys.argv[1]]()

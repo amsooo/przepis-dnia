@@ -40,12 +40,14 @@ def _make_video(pending):
         audio = None
         if (config.env("REEL_MUSIC", "", required=False) or "1") != "0":
             try:
-                path = Path(tmp) / "podklad.mp3"
-                if music.generate(path, reel.duration(pending["recipe"])):
-                    audio = path
+                track = music.pick(music.library(), len(state.load_history()))
+                if track:
+                    audio = Path(tmp) / "podklad.mp3"
+                    music.decrypt_to(track, audio)
             except Exception as exc:
                 traceback.print_exc()
-                telegram.send_text(f"⚠️ Reel bez muzyki (podkład się nie wygenerował): {str(exc)[:200]}")
+                audio = None
+                telegram.send_text(f"⚠️ Reel bez muzyki (podkład się nie odszyfrował): {str(exc)[:200]}")
         try:
             reel.render(ROOT / pending["image"], ROOT / pending["card"], pending["recipe"],
                         ROOT / pending["video"], audio_path=audio)

@@ -96,10 +96,12 @@ Powód: 10 postów bez wyświetleń (status konta w porządku, profil publiczny)
 
 ## Muzyka do Reela (2026-11-03)
 - Muzyka z biblioteki Instagrama niedostępna przez API (wybiera się ją tylko ręcznie w aplikacji).
-- Podkład generuje ElevenLabs (Eleven Music, `POST /v1/music`, instrumentalny, ok. 15 s, 6 rotowanych klimatów w `src/music.py`),
-  `ELEVENLABS_API_KEY` jako secret. Plan właściciela obejmuje muzykę; warunki komercyjne sprawdzić w Eleven Music Terms.
-- Ścieżki NIE są zapisywane w repo (jest publiczne, nie chcemy udostępniać samodzielnych plików): powstają w katalogu tymczasowym przy każdym renderze
-  filmu i są miksowane tylko do mp4 (zapętlenie, wejście 0,8 s, wyciszenie 1,5 s, głośność 0,8). Każdy render (też po „Inne zdjęcie”/„Popraw”) = jedno
-  generowanie, czyli zużycie limitu ElevenLabs. Wyłączenie: zmienna repo `REEL_MUSIC=0`.
-- Awaria muzyki = cichy film (ostrzeżenie na Telegramie), awaria filmu = tylko karuzela.
-- Szybki test klucza bez generowania przepisu: „Konfiguracja” → `music-test` (wysyła próbkę na Telegram).
+- Biblioteka ok. 10 instrumentalnych ścieżek (po ok. 19 s) z ElevenLabs (Eleven Music, `POST /v1/music`) generowana JEDEN raz workflow „Muzyka – wygeneruj
+  bibliotekę podkładów” (`src/make_music.py`, 10 różnych klimatów w `src/music.py`; istniejące pliki są pomijane, więc ponowne uruchomienie dokańcza brakujące).
+- Repo jest publiczne, a warunków ElevenLabs co do udostępniania samodzielnych plików nie zweryfikowano, więc ścieżki leżą w `assets/music/*.mp3.enc`
+  ZASZYFROWANE (Fernet, klucz z PBKDF2 z sekretu `MUSIC_KEY`; gdy go brak, z `TELEGRAM_WEBHOOK_SECRET`). UWAGA: zmiana tego sekretu = nie do odszyfrowania,
+  trzeba usunąć pliki i wygenerować bibliotekę od nowa (koszt kredytów).
+- Przy renderze filmu bot odszyfrowuje jedną ścieżkę do katalogu tymczasowego: kolejność rotuje wg liczby dotychczasowych publikacji (`len(history)`),
+  miksuje (zapętlenie, wejście 0,8 s, wyciszenie 1,5 s, głośność 0,8). Render nie zużywa już limitu ElevenLabs.
+- Brak biblioteki / zły klucz = cichy film (ostrzeżenie na Telegramie); wyłączenie muzyki: zmienna repo `REEL_MUSIC=0`.
+- Plan ElevenLabs właściciela obejmuje muzykę; warunki komercyjne sprawdzić w Eleven Music Terms. Próbka bez przepisu: „Konfiguracja” → `music-test`.

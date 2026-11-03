@@ -357,22 +357,53 @@ def test_music_requires_key_and_writes_file(tmp_path, monkeypatch):
     assert sent["headers"]["xi-api-key"] == "k" and sent["url"].endswith("/v1/music")
 
 
-def test_video_uses_music_and_survives_music_failure(env, monkeypatch):
+def test_music_library_roundtrip_and_rotation(tmp_path, monkeypatch):
+    from src import music
+    monkeypatch.setenv("MUSIC_KEY", "tajny-klucz")
+    monkeypatch.setattr(music, "LIBRARY", tmp_path)
+    for i in (1, 2, 3):
+        raw = tmp_path / f"r{i}.mp3"
+        raw.write_bytes(b"AUDIO" + bytes([i]))
+        music.encrypt_file(raw, tmp_path / f"track-{i:02d}.mp3.enc")
+    tracks = music.library()
+    assert [t.name for t in tracks] == ["track-01.mp3.enc", "track-02.mp3.enc", "track-03.mp3.enc"]
+    assert b"AUDIO" not in tracks[0].read_bytes()                  # w repo leży szyfrogram
+    music.decrypt_to(music.pick(tracks, 4), tmp_path / "out.mp3")  # 4 % 3 = 1, czyli druga ścieżka
+    assert (tmp_path / "out.mp3").read_bytes() == b"AUDIO\x02"
+    monkeypatch.setenv("MUSIC_KEY", "inny")
+    with pytest.raises(Exception):
+        music.decrypt_to(tracks[0], tmp_path / "zly.mp3")          # zły klucz nie odszyfruje
+    assert music.pick([], 5) is None
+
+
+def test_video_uses_library_track_and_survives_failures(env, monkeypatch, tmp_path):
     calls = []
     monkeypatch.setattr(main.reel, "render", lambda *a, **k: calls.append(k.get("audio_path")))
-    monkeypatch.setattr(main.music, "generate", lambda path, seconds, today=None: True)
+    fake = tmp_path / "track-01.mp3.enc"; fake.write_bytes(b"x")
+    monkeypatch.setattr(main.music, "library", lambda: [fake])
+    monkeypatch.setattr(main.music, "decrypt_to", lambda src, dst: pathlib_write(dst))
     main.propose()
-    assert calls and calls[-1] is not None                  # podkład trafił do montażu
-    def boom(path, seconds, today=None):
-        raise RuntimeError("ElevenLabs 402: limit")
-    monkeypatch.setattr(main.music, "generate", boom)
+    assert calls and calls[-1] is not None                          # podkład trafił do montażu
     p = state.load_state()["pending"]
+
+    def boom(src, dst):
+        raise RuntimeError("zły klucz")
+    monkeypatch.setattr(main.music, "decrypt_to", boom)
     main._make_video(p)
-    assert calls[-1] is None and p["video"]                  # film powstał, tylko bez muzyki
-    assert any("bez muzyki" in m for m in env)
+    assert calls[-1] is None and p["video"] and any("bez muzyki" in m for m in env)
+
+    monkeypatch.setattr(main.music, "library", lambda: [])          # pusta biblioteka: cicho, bez wywołań API
+    monkeypatch.setattr(main.music, "generate", lambda *a, **k: 1 / 0)
+    main._make_video(p)
+    assert calls[-1] is None
     monkeypatch.setenv("REEL_MUSIC", "0")
     n = len(calls); main._make_video(p)
     assert calls[-1] is None and len(calls) == n + 1
+
+
+def pathlib_write(dst):
+    import pathlib as _p
+    _p.Path(dst).write_bytes(b"audio")
 
 
 def test_music_styles_rotate():

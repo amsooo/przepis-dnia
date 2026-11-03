@@ -1,6 +1,49 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Dorsz pieczony pod ziołowo-cytrynową kruszonką",
+      "intro": "Szukasz pomysłu na szybki, lekki i niezwykle aromatyczny obiad? Ten soczysty dorsz z chrupiącą ziołową kruszonką robi ogromne wrażenie, a przygotujesz go w mniej niż pół godziny.",
+      "time_min": 25,
+      "servings": 2,
+      "ingredients": [
+        "400 g świeżego fileta z dorsza (bez skóry)",
+        "40 g bułki tartej panko (lub zwykłej)",
+        "25 g masła (roztopionego)",
+        "1 łyżka soku z cytryny",
+        "1 łyżeczka startej skórki z cytryny",
+        "2 łyżki posiekanej świeżej natki pietruszki",
+        "1 ząbek czosnku",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki świeżo mielonego czarnego pieprzu",
+        "1 łyżka oliwy z oliwek"
+      ],
+      "steps": [
+        "Piekarnik rozgrzej do 200°C w trybie góra-dół.",
+        "Filety z dorsza osusz dokładnie papierowym ręcznikiem, dopraw z obu stron solą oraz pieprzem i ułóż w naczyniu żaroodpornym wysmarowanym oliwą.",
+        "W miseczce wymieszaj bułkę tartą, roztopione masło, sok i skórkę z cytryny, posiekaną natkę pietruszki oraz przeciśnięty przez praskę czosnek.",
+        "Wykładaj przygotowaną kruszonkę na wierzch ryby, delikatnie dociskając ją dłonią, aby utworzyła równomierną warstwę.",
+        "Piecz w rozgrzanym piekarniku przez 12-15 minut, aż ryba będzie zrobiona w środku, a kruszonka zyska złocisty kolor."
+      ],
+      "tip": "Jeśli ryba jest bardzo gruba, wydłuż czas pieczenia o 2-3 minuty, a na ostatnią minutę włącz funkcję grilla, by kruszonka była wyjątkowo chrupiąca.",
+      "hashtags": [
+        "#smaczne",
+        "#kuchniapolska",
+        "#obiad",
+        "#pomyslnaobiad",
+        "#dorsz",
+        "#dorszpieczony"
+      ],
+      "image_prompt": "A realistic culinary photograph of a tender baked cod fillet topped with a crispy golden-brown herb and lemon panko crust, placed in the center of a simple white ceramic plate. Soft natural lighting, 45-degree angle close-up shot. No cutlery, no side dishes, no garnishes around the plate, no people, no text.",
+      "category": "obiad z mięsem lub rybą"
+    },
+    "image": "media/2026-11-03-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-03T06:50:36.182987+00:00",
+    "image_note": "",
+    "card": "media/2026-11-03-1-skladniki.jpg"
+  },
   "telegram_offset": 64485485,
   "last_update_id": 64485484,
-  "last_proposed": "2026-11-02"
+  "last_proposed": "2026-11-03"
 }

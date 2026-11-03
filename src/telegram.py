@@ -34,10 +34,25 @@ def send_photo(path, caption):
     return resp.json()["result"]
 
 
-def send_preview(image_path, title, caption, note="", card_path=None):
+def send_video(path, caption):
+    token = config.env("TELEGRAM_BOT_TOKEN")
+    with open(path, "rb") as fh:
+        resp = requests.post(
+            f"https://api.telegram.org/bot{token}/sendVideo",
+            data={"chat_id": chat_id(), "caption": caption[:1024], "supports_streaming": "true"},
+            files={"video": fh},
+            timeout=180,
+        )
+    resp.raise_for_status()
+    return resp.json()["result"]
+
+
+def send_preview(image_path, title, caption, note="", card_path=None, video_path=None):
     send_photo(image_path, f"{note}\n\n{title}" if note else title)
     if card_path:
         send_photo(card_path, "Slajd 2: składniki")
+    if video_path:
+        send_video(video_path, "Reel (podgląd)")
     keyboard = [[
         {"text": "✅ Akceptuj", "callback_data": "approve"},
         {"text": "✏️ Popraw", "callback_data": "edit"},

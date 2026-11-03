@@ -47,3 +47,9 @@ def ig_host():
     if env("IG_ACCESS_TOKEN", "", required=False).startswith("IG"):
         return "https://graph.instagram.com/v21.0"
     return "https://graph.facebook.com/v21.0"
+
+
+def post_formats():
+    """Co publikować po akceptacji: reel, carousel albo both (domyślnie both)."""
+    value = env("POST_FORMAT", "", required=False).strip().lower() or "both"
+    return {"reel": ["reel"], "carousel": ["carousel"]}.get(value, ["carousel", "reel"])

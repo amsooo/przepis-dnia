@@ -82,3 +82,14 @@ i w trybie webhooka nie wywołuje getUpdates. Kroki konfiguracji: `worker/README
 Gemini bywa przeciążony (503 / brak odpowiedzi na wszystkich modelach naraz); wcześniej bot milczał. Teraz: dłuższe odstępy ponowień i do 4 modeli w łańcuchu,
 powiadomienie na Telegramie o błędzie oraz ponowne próby z harmonogramu o 09:00 i 12:00 UTC (strażnik `last_proposed` w `state.json` robi z nich ciche no-opy,
 jeśli przepis już był; ręczne uruchomienie „Codzienny przepis” zawsze generuje).
+
+## Reel, hak w opisie, mniej hashtagów (2026-11-03)
+Powód: 10 postów bez wyświetleń (status konta w porządku, profil publiczny): problem w dystrybucji, nie w blokadzie.
+- Reel 9:16 (ok. 14 s, ok. 0,8 MB, `src/reel.py`): zdjęcie z powolnym przybliżeniem na rozmytym tle, tytuł, czas i porcje, potem karta składników; bez muzyki.
+  Montaż ffmpeg (systemowy albo `imageio-ffmpeg` z pip). Powstaje po każdej zmianie zdjęcia/karty; awaria filmu nie blokuje karuzeli.
+- Publikacja: zmienna repo `POST_FORMAT` = `both` (domyślnie: karuzela + reel), `reel` albo `carousel`. Postęp zapisywany w `pending.published`,
+  więc po awarii w połowie ponowny Akceptuj nie dubluje już opublikowanych formatów.
+- Opis: pierwsza linia to „hak” od modelu (`hook`, ze słowami kluczowymi), na końcu „Zapisz ten przepis na później”.
+- Hashtagi: 5 (1 popularny rotowany + 2 kategorii + 2 specyficzne dla dania).
+- Nieprzetestowane na prawdziwym Instagramie (publish_reel): pierwszą publikację sprawdzić; w razie błędu ustawić `POST_FORMAT=carousel`.
+- Uwaga: Reel dokłada plik mp4 do repo przy każdym przepisie (rośnie historia git); w razie potrzeby czyścić stare media/.

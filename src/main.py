@@ -8,7 +8,7 @@ import sys
 import traceback
 from datetime import datetime, timezone
 
-from . import card, config, image, instagram, recipe, reminders, state, telegram
+from . import card, config, image, instagram, recipe, reel, reminders, state, telegram
 from .state import ROOT
 
 
@@ -26,7 +26,19 @@ def _send_preview(pending):
     caption = recipe.build_caption(pending["recipe"])
     telegram.send_preview(ROOT / pending["image"], pending["recipe"]["title"], caption,
                           pending.get("image_note", ""),
-                          ROOT / pending["card"] if pending.get("card") else None)
+                          ROOT / pending["card"] if pending.get("card") else None,
+                          ROOT / pending["video"] if pending.get("video") else None)
+
+
+def _make_video(pending):
+    """Reel zależy od zdjęcia i karty, więc powstaje po każdej ich zmianie. Awaria filmu nie blokuje karuzeli."""
+    pending["video"] = f"media/{_now().strftime('%Y-%m-%d')}-{pending['version']}-reel.mp4"
+    try:
+        reel.render(ROOT / pending["image"], ROOT / pending["card"], pending["recipe"], ROOT / pending["video"])
+    except Exception as exc:
+        traceback.print_exc()
+        pending["video"] = None
+        telegram.send_text(f"⚠️ Nie udało się zrobić Reela (karuzela działa): {str(exc)[:200]}")
 
 
 def _make_card(pending):
@@ -56,6 +68,7 @@ def _new_pending(st, version):
                      "version": version, "created": _now().isoformat()}
     _make_image(st["pending"], data["image_prompt"])
     _make_card(st["pending"])
+    _make_video(st["pending"])
     _send_preview(st["pending"])
 
 
@@ -87,14 +100,22 @@ def publish(st):
     p = st["pending"]
     base = config.public_base_url()
     caption = recipe.build_caption(p["recipe"])
-    if p.get("card"):
-        post_id = instagram.publish_carousel([f"{base}/{p['image']}", f"{base}/{p['card']}"], caption)
-    else:  # przepis przygotowany jeszcze przed wprowadzeniem karuzeli
-        post_id = instagram.publish_photo(f"{base}/{p['image']}", caption)
+    done = p.setdefault("published", {})     # po awarii w połowie nie dublujemy już opublikowanych formatów
+    for fmt in config.post_formats():
+        if fmt in done:
+            continue
+        if fmt == "reel" and not p.get("video"):
+            continue
+        if fmt == "reel":
+            done[fmt] = instagram.publish_reel(f"{base}/{p['video']}", caption)
+        elif p.get("card"):
+            done[fmt] = instagram.publish_carousel([f"{base}/{p['image']}", f"{base}/{p['card']}"], caption)
+        else:  # przepis przygotowany jeszcze przed wprowadzeniem karuzeli
+            done[fmt] = instagram.publish_photo(f"{base}/{p['image']}", caption)
     state.append_history({"date": _now().date().isoformat(), "title": p["recipe"]["title"],
-                          "instagram_id": post_id})
+                          "instagram_id": ",".join(done.values())})
     st["pending"] = None
-    telegram.send_text(f"✅ Opublikowano: {p['recipe']['title']}")
+    telegram.send_text(f"✅ Opublikowano ({', '.join(done)}): {p['recipe']['title']}")
 
 
 def _handle_callback(st, cb):
@@ -116,6 +137,7 @@ def _handle_callback(st, cb):
         p["image"] = _make_pending(p["recipe"], p["version"])
         _make_image(p, p["recipe"]["image_prompt"])
         _make_card(p)  # przepisy sprzed karuzeli dostają kartę przy okazji
+        _make_video(p)
         _send_preview(p)
 
 
@@ -131,6 +153,7 @@ def _handle_message(st, msg):
         p["image"] = _make_pending(new_recipe, p["version"])
         _make_image(p, new_recipe["image_prompt"])
     _make_card(p)
+    _make_video(p)
     p["status"] = "awaiting"
     _send_preview(p)
 

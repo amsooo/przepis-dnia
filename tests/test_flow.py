@@ -32,6 +32,9 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(main.recipe, "generate", lambda titles: dict(RECIPE))
     monkeypatch.setattr(main.instagram, "publish_photo", lambda url, cap: "ig123")
     monkeypatch.setattr(main.instagram, "publish_carousel", lambda urls, cap: published.append(urls) or "ig123")
+    monkeypatch.setattr(main.instagram, "publish_reel", lambda url, cap: published.append([url]) or "igreel")
+    monkeypatch.setattr(main.reel, "render", lambda *a, **k: None)
+    monkeypatch.delenv("POST_FORMAT", raising=False)
     monkeypatch.setattr(main.config, "public_base_url", lambda: "https://x")
     return sent
 
@@ -51,7 +54,7 @@ def test_propose_then_approve(env, monkeypatch):
     main.poll()
     st = state.load_state()
     assert st["pending"] is None
-    assert state.load_history()[0]["instagram_id"] == "ig123"
+    assert state.load_history()[0]["instagram_id"] == "ig123,igreel"
 
 
 def test_edit_loop(env, monkeypatch):
@@ -213,7 +216,8 @@ def test_carousel_published_with_both_slides(env, monkeypatch):
     assert p["card"].endswith("-skladniki.jpg")
     updates(monkeypatch, [cb("approve")])
     main.poll()
-    assert len(published) == 1 and len(published[0]) == 2
+    assert len(published) == 2                                    # karuzela + reel (domyślnie both)
+    assert len(published[0]) == 2 and published[1][0].endswith("-reel.mp4")
     assert published[0][0].endswith(p["image"]) and published[0][1].endswith(p["card"])
 
 
@@ -260,7 +264,7 @@ def test_single_update_from_worker(env, monkeypatch):
     main.poll()
     st = state.load_state()
     assert st["pending"] is None and st["last_update_id"] == 50
-    assert len(published) == 1
+    assert len(published) == 2
 
 
 def test_duplicate_update_ignored(env, monkeypatch):
@@ -270,7 +274,7 @@ def test_duplicate_update_ignored(env, monkeypatch):
     main.poll()
     main.propose()                                     # nowy przepis czeka na decyzję
     main.poll()                                        # ta sama akcja dostarczona drugi raz
-    assert len(published) == 1 and state.load_state()["pending"] is not None
+    assert len(published) == 2 and state.load_state()["pending"] is not None
 
 
 def test_webhook_mode_scheduled_run_does_not_poll(env, monkeypatch):
@@ -295,3 +299,37 @@ def test_generation_failure_notifies_and_allows_retry(env, monkeypatch):
         main.propose()
     assert any("Nie udało się wygenerować" in m for m in env)
     assert state.load_state().get("last_proposed") is None   # kolejna próba nie jest zablokowana
+
+
+def test_post_format_selection(env, monkeypatch):
+    monkeypatch.setenv("POST_FORMAT", "reel")
+    main.propose()
+    updates(monkeypatch, [cb("approve")])
+    main.poll()
+    assert len(published) == 1 and published[0][0].endswith("-reel.mp4")
+
+
+def test_partial_publish_resumes_without_duplicates(env, monkeypatch):
+    main.propose()
+    def boom(url, cap):
+        raise RuntimeError("Instagram 400: reel odrzucony")
+    monkeypatch.setattr(main.instagram, "publish_reel", boom)
+    updates(monkeypatch, [cb("approve", n=1)])
+    main.poll()
+    st = state.load_state()
+    assert st["pending"]["published"] == {"carousel": "ig123"}        # karuzela poszła, reel nie
+    assert any("Nie udało się" in m for m in env)
+    monkeypatch.setattr(main.instagram, "publish_reel", lambda url, cap: published.append([url]) or "igreel")
+    updates(monkeypatch, [cb("approve", n=2)])
+    main.poll()
+    assert state.load_state()["pending"] is None
+    assert len([u for u in published if len(u) == 2]) == 1             # karuzela tylko raz
+
+
+def test_caption_hook_and_five_hashtags():
+    r = dict(RECIPE, hook="Szybki obiad w 20 minut: szakszuka z jajkami")
+    r = recipe.finalize_hashtags(dict(r, hashtags=["#szakszuka", "#jajka", "#trzeci"]), "zupa")
+    cap = recipe.build_caption(r)
+    assert cap.splitlines()[0] == "Szybki obiad w 20 minut: szakszuka z jajkami"
+    assert len(r["hashtags"]) <= 5 and "Zapisz ten przepis" in cap
+    assert len(cap) <= 2200

@@ -18,15 +18,16 @@ def _check(resp):
         detail = resp.text[:200]
     raise RuntimeError(f"Instagram {resp.status_code}: {detail}")
 
-def _wait_ready(graph, container_id, token):
-    for _ in range(30):  # czekamy aż Meta przetworzy zdjęcie
+def _wait_ready(graph, container_id, token, tries=30, pause=3):
+    for _ in range(tries):  # czekamy aż Meta przetworzy zdjęcie
         st = requests.get(f"{graph}/{container_id}",
                           params={"fields": "status_code", "access_token": token}, timeout=30).json()
         if st.get("status_code") == "FINISHED":
             return
         if st.get("status_code") == "ERROR":
             raise RuntimeError(f"Instagram odrzucił zdjęcie: {st}")
-        time.sleep(3)
+        time.sleep(pause)
+    raise RuntimeError("Instagram nie przetworzył materiału w oczekiwanym czasie")
 
 
 def _publish(graph, user_id, creation_id, token):
@@ -63,4 +64,16 @@ def publish_carousel(image_urls, caption):
     _check(r)
     creation_id = r.json()["id"]
     _wait_ready(graph, creation_id, token)
+    return _publish(graph, user_id, creation_id, token)
+
+
+def publish_reel(video_url, caption):
+    """Reel (pionowy film); przetwarzanie wideo trwa dłużej niż zdjęcia, więc czekamy do ok. 5 minut."""
+    graph, user_id, token = config.ig_host(), config.env("IG_USER_ID"), config.env("IG_ACCESS_TOKEN")
+    r = requests.post(f"{graph}/{user_id}/media",
+                      data={"media_type": "REELS", "video_url": video_url, "caption": caption,
+                            "share_to_feed": "true", "access_token": token}, timeout=60)
+    _check(r)
+    creation_id = r.json()["id"]
+    _wait_ready(graph, creation_id, token, tries=60, pause=5)
     return _publish(graph, user_id, creation_id, token)

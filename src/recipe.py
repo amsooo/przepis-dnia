@@ -20,8 +20,8 @@ Piszesz po polsku, ciepło i konkretnie, bez przesadnej egzaltacji.
 Przepisy muszą być realne, wykonalne w domowej kuchni, z dokładnymi ilościami (g, ml, łyżki) i czasami.
 Zwracasz WYŁĄCZNIE obiekt JSON, bez komentarza i bez bloku markdown."""
 
-# Hashtagi: popularne polskie tagi kulinarne (z zestawień dla Polski), rotowane dniami,
-# + tagi kategorii dania + 2 tagi specyficzne dla przepisu od modelu. Instagram zaleca kilka, nie kilkadziesiąt.
+# Hashtagi (łącznie 5, bo Instagram zaleca kilka, nie kilkadziesiąt): 1 popularny polski tag kulinarny rotowany dniami
+# + 2 tagi kategorii dania + 2 tagi specyficzne dla przepisu od modelu.
 BROAD_TAGS = ["#przepisy", "#jedzenie", "#foodie", "#smaczne", "#kuchniapolska", "#obiad"]
 CATEGORY_TAGS = {
     "śniadanie lub brunch": ["#sniadanie", "#brunch"],
@@ -43,13 +43,13 @@ def _clean_tag(tag):
 def finalize_hashtags(recipe, category, today=None):
     today = today or date.today()
     start = today.toordinal() % len(BROAD_TAGS)
-    broad = [BROAD_TAGS[(start + i) % len(BROAD_TAGS)] for i in range(3)]
+    broad = [BROAD_TAGS[start]]
     specific = [t for t in (_clean_tag(h) for h in recipe.get("hashtags", [])) if t][:2]
     tags = []
     for tag in broad + CATEGORY_TAGS.get(category, []) + specific:
         if tag and tag not in tags:
             tags.append(tag)
-    recipe["hashtags"] = tags
+    recipe["hashtags"] = tags[:5]
     recipe["category"] = category
     return recipe
 
@@ -65,6 +65,7 @@ IMAGE_RULES = (
 SCHEMA = """Format JSON:
 {
   "title": "nazwa dania",
+  "hook": "pierwsza linia opisu posta, maks. 90 znaków: konkretna obietnica ze słowami, po których ludzie szukają (np. 'Szybki obiad w 30 minut: kremowy dahl z soczewicy'), bez emoji i bez wykrzykników",
   "intro": "1-2 zdania zachęty",
   "time_min": liczba minut łącznie,
   "servings": liczba porcji,
@@ -124,20 +125,23 @@ def revise(recipe, feedback):
     )
     data = _ask(prompt)
     regenerate = bool(data.pop("regenerate_image", False))
+    data.setdefault("hook", recipe.get("hook", ""))
     return finalize_hashtags(data, recipe.get("category", "")), regenerate
 
 
 def build_caption(recipe, ai_disclosure=True):
-    lines = [recipe["title"].upper(), "", recipe["intro"], "", "👉 Przesuń w prawo: składniki na drugim slajdzie"]
+    hook = (recipe.get("hook") or recipe["title"]).strip()
+    lines = [hook, "", recipe["intro"], "", "👉 Składniki na drugim slajdzie (w Reelu na końcu filmu)"]
     lines.append("")
     lines.append(f"⏱ {recipe['time_min']} min  |  🍽 porcje: {recipe['servings']}")
     lines += ["", "SKŁADNIKI:"] + [f"• {i}" for i in recipe["ingredients"]]
     lines += ["", "PRZYGOTOWANIE:"] + [f"{n}. {s}" for n, s in enumerate(recipe["steps"], 1)]
     if recipe.get("tip"):
         lines += ["", f"💡 {recipe['tip']}"]
+    lines += ["", "💾 Zapisz ten przepis na później, żeby ugotować w weekend"]
     if ai_disclosure:
-        lines += ["", "Zdjęcie wygenerowane przez AI."]
-    tags = " ".join(recipe["hashtags"][:10])
+        lines += ["", "Zdjęcia wygenerowane przez AI."]
+    tags = " ".join(recipe["hashtags"][:5])
     caption = "\n".join(lines) + "\n\n" + tags
     if len(caption) > 2200:  # limit Instagrama; ucinamy hashtagi, potem wskazówkę
         caption = "\n".join(lines) + "\n\n" + " ".join(recipe["hashtags"][:5])

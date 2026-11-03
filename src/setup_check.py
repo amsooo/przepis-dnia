@@ -1,4 +1,4 @@
-"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models | webhook-on | webhook-off | webhook-info | music-test
+"""Pomoc przy konfiguracji. Użycie: python -m src.setup_check whoami | check | models | webhook-on | webhook-off | webhook-info | music-test | music-check
 
 whoami - odpowiada na Telegramie Twoim chat_id (nie trafia do logów Actions).
 check  - sprawdza, których sekretów brakuje, i wysyła wiadomość testową.
@@ -109,6 +109,31 @@ def music_test():
     print("Podkład wysłany na Telegram.")
 
 
+def music_check():
+    """Sprawdza, czy wszystkie ścieżki biblioteki da się odszyfrować, i podaje, którym kluczem (bez ujawniania sekretów)."""
+    import tempfile
+    from collections import Counter
+    from pathlib import Path
+
+    from . import music
+    tracks = music.library()
+    used, failed = Counter(), []
+    with tempfile.TemporaryDirectory() as tmp:
+        for t in tracks:
+            try:
+                used[music.decrypt_to(t, Path(tmp) / "x.mp3")] += 1
+            except Exception:
+                failed.append(t.name)
+    text = f"Biblioteka muzyki: {len(tracks) - len(failed)}/{len(tracks)} ścieżek OK; klucze: {dict(used) or '-'}"
+    if failed:
+        text += f"\nNie odszyfrowano: {', '.join(failed)}"
+    print(text)
+    if os.environ.get("TELEGRAM_CHAT_ID"):
+        _api("sendMessage", chat_id=int(os.environ["TELEGRAM_CHAT_ID"]), text=text)
+    if failed or not tracks:
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     {"whoami": whoami, "check": check, "models": models,
-     "webhook-on": webhook_on, "webhook-off": webhook_off, "webhook-info": webhook_info, "music-test": music_test}[sys.argv[1]]()
+     "webhook-on": webhook_on, "webhook-off": webhook_off, "webhook-info": webhook_info, "music-test": music_test, "music-check": music_check}[sys.argv[1]]()

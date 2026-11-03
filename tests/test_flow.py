@@ -376,6 +376,18 @@ def test_music_library_roundtrip_and_rotation(tmp_path, monkeypatch):
     assert music.pick([], 5) is None
 
 
+def test_music_old_key_still_works_after_adding_music_key(tmp_path, monkeypatch):
+    from src import music
+    monkeypatch.setattr(music, "LIBRARY", tmp_path)
+    monkeypatch.delenv("MUSIC_KEY", raising=False)
+    monkeypatch.setenv("TELEGRAM_WEBHOOK_SECRET", "zapasowy")
+    raw = tmp_path / "r.mp3"; raw.write_bytes(b"AUDIO")
+    music.encrypt_file(raw, tmp_path / "track-01.mp3.enc")          # biblioteka powstała przed dodaniem MUSIC_KEY
+    monkeypatch.setenv("MUSIC_KEY", "nowy")                          # dodajemy MUSIC_KEY później
+    assert music.decrypt_to(tmp_path / "track-01.mp3.enc", tmp_path / "o.mp3") == "TELEGRAM_WEBHOOK_SECRET"
+    assert (tmp_path / "o.mp3").read_bytes() == b"AUDIO"
+
+
 def test_video_uses_library_track_and_survives_failures(env, monkeypatch, tmp_path):
     calls = []
     monkeypatch.setattr(main.reel, "render", lambda *a, **k: calls.append(k.get("audio_path")))

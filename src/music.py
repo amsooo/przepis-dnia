@@ -10,7 +10,7 @@ from datetime import date
 from pathlib import Path
 
 import requests
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet, InvalidToken
 
 from . import config
 
@@ -57,20 +57,33 @@ def generate(out_path, seconds, today=None, style=None):
     return True
 
 
-def _fernet():
-    secret = config.env("MUSIC_KEY", "", required=False) or config.env("TELEGRAM_WEBHOOK_SECRET", "", required=False)
-    if not secret:
+def _fernets():
+    """Klucze do prób: najpierw MUSIC_KEY, potem zapasowy TELEGRAM_WEBHOOK_SECRET (biblioteka mogła powstać przed dodaniem MUSIC_KEY)."""
+    keys = []
+    for name in ("MUSIC_KEY", "TELEGRAM_WEBHOOK_SECRET"):
+        secret = config.env(name, "", required=False)
+        if secret:
+            raw = hashlib.pbkdf2_hmac("sha256", secret.encode(), b"przepis-dnia-music", 200_000, 32)
+            keys.append((name, Fernet(base64.urlsafe_b64encode(raw))))
+    if not keys:
         raise RuntimeError("Brak MUSIC_KEY (ani TELEGRAM_WEBHOOK_SECRET): nie da się zaszyfrować/odszyfrować podkładów")
-    key = hashlib.pbkdf2_hmac("sha256", secret.encode(), b"przepis-dnia-music", 200_000, 32)
-    return Fernet(base64.urlsafe_b64encode(key))
+    return keys
 
 
 def encrypt_file(src, dst):
-    Path(dst).write_bytes(_fernet().encrypt(Path(src).read_bytes()))
+    Path(dst).write_bytes(_fernets()[0][1].encrypt(Path(src).read_bytes()))
 
 
 def decrypt_to(src, dst):
-    Path(dst).write_bytes(_fernet().decrypt(Path(src).read_bytes()))
+    """Odszyfrowuje plik pierwszym pasującym kluczem; zwraca nazwę użytego sekretu."""
+    data = Path(src).read_bytes()
+    for name, fernet in _fernets():
+        try:
+            Path(dst).write_bytes(fernet.decrypt(data))
+            return name
+        except InvalidToken:
+            continue
+    raise RuntimeError("Żaden dostępny klucz nie odszyfrowuje podkładu")
 
 
 def library():

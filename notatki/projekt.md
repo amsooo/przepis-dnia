@@ -116,3 +116,9 @@ Gemini bywał przeciążony na wszystkich modelach przez wiele godzin (2 nieudan
 (natychmiast, bez Gemini); dopiero gdy zapas jest pusty, generują nowy. Po każdym udanym `propose` zapas jest uzupełniany (do 3 szt., pierwszy błąd przerywa),
 a nocny workflow „Zapas przepisów” (02:17 UTC, `python -m src.main refill`) dobija do pełna. Przy małym zapasie bot pisze na Telegramie.
 Wady: przepis z zapasu może mieć kilka dni; jeśli Gemini nie działa dłużej niż zapas wystarcza, wracamy do błędu jak dawniej.
+
+## Awaria zapisu stanu (2026-11-04)
+Przepis dotarł na Telegram, ale `git push` dostał „remote: Internal Server Error” (chwilowa awaria GitHuba), więc `pending` nie trafił do repo i bot odpowiadał
+„Nie ma niczego do zatwierdzenia”. Dodatkowo uzupełnianie zapasu opóźniało zapis stanu o ok. 10 min. Poprawki: zapis stanu z ponawianiem (5 prób, rosnące przerwy)
+we wszystkich workflow'ach; uzupełnianie zapasu to osobny, późniejszy krok `propose.yml` (`continue-on-error`), a `refill` ma budżet 100 s na wywołanie Gemini.
+Objaw „Nie ma niczego do zatwierdzenia” mimo przepisu na Telegramie = stan niezapisany: sprawdzić ostatni run `propose.yml`.

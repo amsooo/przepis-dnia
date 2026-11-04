@@ -95,7 +95,7 @@ def _refill(st, limit=3):
     while len(queue) < QUEUE_TARGET and made < limit:
         taken = _titles() + [r["title"] for r in queue]
         try:
-            queue.append(recipe.generate(taken, today=_now().date() + timedelta(days=len(queue) + 1)))
+            queue.append(recipe.generate(taken, today=_now().date() + timedelta(days=len(queue) + 1), budget=100))
         except Exception as exc:
             print(f"[zapas] nie udało się uzupełnić: {exc}", file=sys.stderr)
             break
@@ -109,6 +109,8 @@ def refill():
     made = _refill(st, limit=QUEUE_TARGET)
     state.save_state(st)
     print(f"[zapas] dodano {made}, w zapasie {len(st['queue'])}")
+    if not made and len(st["queue"]) < 2:
+        telegram.send_text(f"ℹ️ Zapas przepisów jest mały ({len(st['queue'])}); pewnie Gemini jest przeciążony.")
 
 
 def _new_pending(st, version):
@@ -143,14 +145,7 @@ def propose():
                            "Spróbuję jeszcze raz później; możesz też ręcznie uruchomić „Codzienny przepis”.")
         raise
     st["last_proposed"] = today
-    state.save_state(st)
-    try:  # zapas jest dodatkiem: jego awaria nie psuje dzisiejszego przepisu
-        made = _refill(st)
-        state.save_state(st)
-        if not made and len(st["queue"]) < 2:
-            telegram.send_text(f"ℹ️ Zapas przepisów jest mały ({len(st['queue'])}); pewnie Gemini jest przeciążony.")
-    except Exception:
-        traceback.print_exc()
+    state.save_state(st)  # uzupełnianie zapasu to osobny krok workflow'u, żeby nie opóźniać zapisu stanu
 
 
 def publish(st):

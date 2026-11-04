@@ -79,15 +79,18 @@ def model_chain(kind, override_var, fallback, limit=None):
         return [fallback]
 
 
-def generate(kind, override_var, fallback, body, retries=2, timeout=90):
+def generate(kind, override_var, fallback, body, retries=2, timeout=90, budget=600):
     """POST generateContent z ponawianiem i przełączaniem na kolejny model.
 
     5xx i błędy połączenia: ponawiamy z odstępem. Timeout (model się zawiesił) oraz 4xx
     (np. 429 limit, 404): od razu następny model, bo ponawianie tego samego nic nie da.
     """
     last = None
+    start = time.monotonic()
     for model in model_chain(kind, override_var, fallback):
         for attempt in range(retries):
+            if time.monotonic() - start > budget:
+                raise RuntimeError(f"Gemini: przekroczono limit czasu {budget} s ({last})")
             try:
                 resp = requests.post(f"{BASE}/models/{model}:generateContent",
                                      headers={"x-goog-api-key": config.env("GEMINI_API_KEY")},

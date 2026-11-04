@@ -37,4 +37,29 @@ jobs:
         run: |
           git config user.name "przepis-bot"; git config user.email "bot@users.noreply.github.com"
           git add -A state.json history.json media
-          git diff --cached --quiet || (git commit -m "Nowy przepis do akceptacji" && git pull --rebase origin main && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Nowy przepis do akceptacji"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
+      - name: Uzupełnij zapas przepisów (dodatek, jego awaria nie psuje przepisu na dziś)
+        continue-on-error: true
+        run: python -m src.main refill
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - name: Zapisz zapas
+        if: always()
+        run: |
+          git config user.name "przepis-bot"; git config user.email "bot@users.noreply.github.com"
+          git add -A state.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Zapas przepisów"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

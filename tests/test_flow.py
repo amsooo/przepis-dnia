@@ -463,12 +463,13 @@ def test_proposal_uses_queue_when_gemini_is_down(env, monkeypatch):
     st = state.load_state()
     assert st["pending"]["recipe"]["title"] == "Z zapasu 1"
     assert [r["title"] for r in st["queue"]] == ["Z zapasu 2"]
-    assert any("Zapas przepisów jest mały" in m for m in env)  # uzupełnienie się nie udało, zapas < 2
+    main.refill()                                           # osobny krok: Gemini nadal leży, zapas < 2
+    assert any("Zapas przepisów jest mały" in m for m in env)
 
 
 def test_refill_tops_up_and_stops_at_first_failure(env, monkeypatch):
     calls = []
-    def flaky(titles, today=None):
+    def flaky(titles, today=None, budget=None):
         calls.append(today)
         if len(calls) == 3:
             raise RuntimeError("503")
@@ -484,3 +485,28 @@ def test_next_recipe_prefers_queue_then_generates(env, monkeypatch):
     st = {"queue": [dict(RECIPE, title="Z zapasu")]}
     assert main._next_recipe(st)["title"] == "Z zapasu"
     assert main._next_recipe(st)["title"] == "Szakszuka"   # zapas pusty: świeżo wygenerowany
+
+
+def test_propose_saves_state_without_waiting_for_refill(env, monkeypatch):
+    called = []
+    monkeypatch.setattr(main, "_refill", lambda *a, **k: called.append(1) or 0)
+    main.propose()
+    assert not called                                       # uzupełnianie nie jest już częścią propose
+    assert state.load_state()["pending"] is not None
+
+
+def test_gemini_budget_stops_long_outage(monkeypatch):
+    from src import gemini
+    clock = {"t": 0.0}
+    monkeypatch.setattr(gemini.time, "monotonic", lambda: clock["t"])
+    monkeypatch.setattr(gemini.time, "sleep", lambda s: clock.__setitem__("t", clock["t"] + s))
+    monkeypatch.setattr(gemini, "model_chain", lambda *a, **k: ["m1", "m2", "m3", "m4"])
+    monkeypatch.setattr(gemini.config, "env", lambda *a, **k: "key")
+
+    class R:
+        ok, status_code = False, 503
+
+    monkeypatch.setattr(gemini.requests, "post", lambda *a, **k: clock.__setitem__("t", clock["t"] + 40) or R())
+    with pytest.raises(RuntimeError, match="limit czasu"):
+        gemini.generate("text", "X", "f", {}, budget=100)
+    assert clock["t"] < 200                                  # nie męczy się przez kilkanaście minut

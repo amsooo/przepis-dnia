@@ -87,10 +87,10 @@ def _parse(text):
     return data
 
 
-def _ask(prompt, retries=2):
+def _ask(prompt, retries=2, budget=600):
     last = None
     for _ in range(retries + 1):
-        data = gemini.generate("text", "TEXT_MODEL", "gemini-2.5-flash", {
+        data = gemini.generate("text", "TEXT_MODEL", "gemini-2.5-flash", budget=budget, body={
             "systemInstruction": {"parts": [{"text": SYSTEM}]},
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {"responseMimeType": "application/json", "maxOutputTokens": 8000},
@@ -102,7 +102,7 @@ def _ask(prompt, retries=2):
     raise RuntimeError(f"Gemini nie zwrócił poprawnego JSON-a: {last}")
 
 
-def generate(recent_titles, today=None):
+def generate(recent_titles, today=None, budget=600):
     today = today or date.today()
     category = CATEGORIES[today.toordinal() % len(CATEGORIES)]
     avoid = "; ".join(recent_titles[-60:]) or "brak"
@@ -110,7 +110,7 @@ def generate(recent_titles, today=None):
         f"Wymyśl jeden przepis na dziś. Kategoria: {category}. Kuchnia dowolna, może być polska lub światowa.\n"
         f"Nie powtarzaj tych dań ani ich bliskich wariantów: {avoid}.\n{SCHEMA}"
     )
-    return finalize_hashtags(_ask(prompt), category, today)
+    return finalize_hashtags(_ask(prompt, budget=budget), category, today)
 
 
 def revise(recipe, feedback):

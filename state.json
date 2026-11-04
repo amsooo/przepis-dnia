@@ -50,5 +50,193 @@
   "telegram_offset": 64485490,
   "last_update_id": 64485489,
   "last_proposed": "2026-11-04",
-  "queue": []
+  "queue": [
+    {
+      "title": "Makaron w kremowym sosie z pieczonej papryki i mascarpone",
+      "hook": "Prosty obiad z kilku składników: makaron w aksamitnym sosie z pieczonej papryki",
+      "intro": "To danie udowadnia, że pieczona papryka to jeden z najlepszych fundamentów pod domowy sos. Jest naturalnie słodka, lekko dymna i idealnie komponuje się z delikatnym serem.",
+      "time_min": 45,
+      "servings": 2,
+      "ingredients": [
+        "250 g makaronu typu fusilli lub penne",
+        "3 duże czerwone papryki",
+        "100 g serka mascarpone",
+        "2 ząbki czosnku",
+        "30 g tartego parmezanu",
+        "2 łyżki oliwy z oliwek",
+        "1/2 łyżeczki płatków chili",
+        "1/2 łyżeczki soli",
+        "garść świeżej bazylii"
+      ],
+      "steps": [
+        "Papryki przekrój na pół, usuń gniazda nasienne i ułóż na blaszce wyłożonej papierem skórą do góry.",
+        "Piecz papryki w temperaturze 220 stopni przez około 25 minut, aż ich skórka zacznie czernieć i pojawią się pęcherze.",
+        "Upieczone papryki przełóż do miski i przykryj szczelnie folią lub talerzem na 10 minut, aby łatwiej odeszła skórka.",
+        "Obierz papryki ze skóry i zblenduj miąższ na gładką masę razem z czosnkiem, oliwą oraz płatkami chili.",
+        "Ugotuj makaron al dente w osolonej wodzie, odlewając pół szklanki wody z gotowania przed odcedzeniem.",
+        "Sos paprykowy przelej na patelnię, dodaj mascarpone i podgrzewaj na małym ogniu, mieszając do uzyskania jednolitej konsystencji.",
+        "Wymieszaj sos z makaronem, dodaj parmezan i w razie potrzeby dolej odrobinę wody z gotowania, by sos był bardziej płynny."
+      ],
+      "tip": "Dla głębszego smaku możesz dodać do sosu pół łyżeczki wędzonej papryki w proszku.",
+      "hashtags": [
+        "#obiad",
+        "#makaron",
+        "#pomyslnaobiad",
+        "#soszpapryki"
+      ],
+      "image_prompt": "A white plate of fusilli pasta coated in a thick, vibrant orange-red roasted pepper sauce, garnished with a few fresh basil leaves and a sprinkle of parmesan, 45-degree angle, realistic food photography, natural lighting, single dish",
+      "category": "makaron, ryż lub kasza"
+    },
+    {
+      "title": "Puszyste drożdżówki z serem i borówkami",
+      "hook": "Miękkie jak chmurka domowe drożdżówki z serem i borówkami",
+      "intro": "Te drożdżówki smakują jak dzieciństwo u babci, a ich sekret tkwi w długim wyrabianiu i jakościowym twarogu. Idealnie sprawdzą się jako słodkie drugie śniadanie lub podwieczorek.",
+      "time_min": 150,
+      "servings": 12,
+      "ingredients": [
+        "500 g mąki pszennej typu 550",
+        "250 ml ciepłego mleka",
+        "25 g świeżych drożdży",
+        "100 g drobnego cukru",
+        "100 g roztopionego i ostudzonego masła",
+        "1 jajko L",
+        "szczypta soli",
+        "500 g półtłustego twarogu",
+        "1 żółtko",
+        "3 łyżki cukru pudru",
+        "1 łyżeczka cukru waniliowego",
+        "150 g borówek",
+        "1 jajko do posmarowania brzegów"
+      ],
+      "steps": [
+        "Przygotuj rozczyn: wymieszaj ciepłe mleko z drożdżami, łyżką cukru i dwiema łyżkami mąki, odstaw na 15 minut w ciepłe miejsce.",
+        "Do dużej miski wsyp resztę mąki, cukier, sól, dodaj jajko oraz wyrośnięty rozczyn. Wyrabiaj ciasto, pod koniec wlewając roztopione masło.",
+        "Wyrabiaj ciasto ręcznie lub mikserem z hakiem przez około 10 minut, aż będzie gładkie, a następnie odstaw pod przykryciem na 1,5 godziny do wyrośnięcia.",
+        "Twaróg rozgnieć dokładnie widelcem, wymieszaj z żółtkiem, cukrem pudrem i cukrem waniliowym na jednolitą masę.",
+        "Wyrośnięte ciasto krótko zagnieć, podziel na 12 równych części, uformuj z nich kulki i ułóż na blaszce wyłożonej papierem do pieczenia w dużych odstępach.",
+        "W każdej kulce zrób mocne wgłębienie dnem szklanki, nałóż do środka masę serową i ułóż na wierzchu kilka borówek.",
+        "Brzegi ciasta posmaruj roztrzepanym jajkiem i piecz w piekarniku nagrzanym do 180 stopni przez około 20-25 minut, aż będą złociste."
+      ],
+      "tip": "Po upieczeniu przykryj drożdżówki czystą bawełnianą ściereczką na 5 minut, dzięki temu ich skórka pozostanie niezwykle miękka.",
+      "hashtags": [
+        "#przepisy",
+        "#deser",
+        "#slodkosci",
+        "#drozdzowki",
+        "#twarog"
+      ],
+      "image_prompt": "Realistic food photography of a single golden-brown yeast bun filled with creamy white cottage cheese and dark blue blueberries on a plain ceramic plate, 45-degree angle, natural soft morning light, no cutlery, no extra toppings, no people, no text",
+      "category": "deser lub wypiek"
+    },
+    {
+      "title": "Gnocchi z masłem szałwiowym i parmezanem",
+      "hook": "Szybka kolacja w 15 minut: gnocchi z masłem szałwiowym i parmezanem",
+      "intro": "Proste połączenie, które smakuje jak z najlepszej włoskiej restauracji. Tylko kilka składników, a efekt zachwyca za każdym razem głębokim smakiem i aromatem.",
+      "time_min": 15,
+      "servings": 2,
+      "ingredients": [
+        "500 g gotowych kluseczek gnocchi dobrej jakości",
+        "60 g masła",
+        "12 świeżych listków szałwii",
+        "40 g tartego parmezanu",
+        "1 łyżka soku z cytryny",
+        "1/2 łyżeczki soli do gotowania wody",
+        "1/4 łyżeczki świeżo mielonego pieprzu"
+      ],
+      "steps": [
+        "Zagotuj wodę w dużym garnku, solidnie ją osól i ugotuj gnocchi zgodnie z instrukcją na opakowaniu do momentu, aż wypłyną na powierzchnię.",
+        "W tym samym czasie na szerokiej patelni rozpuść masło na średnim ogniu.",
+        "Gdy masło zacznie lekko bulgotać i się pienić, wrzuć listki szałwii i smaż je przez około 2-3 minuty, aż staną się chrupiące, a masło nabierze złoto-brązowego koloru i orzechowego zapachu.",
+        "Odcedź ugotowane gnocchi, zachowując około 2 łyżki wody z ich gotowania.",
+        "Przełóż gnocchi bezpośrednio na patelnię z masłem szałwiowym, dodaj odłożoną wodę, sok z cytryny oraz świeżo mielony pieprz.",
+        "Potrząsaj patelnią przez minutę, aby masło stworzyło aksamitną emulsję z wodą i dokładnie oblepiło kluseczki.",
+        "Zdejmij z ognia, wsyp połowę tartego parmezanu, wymieszaj i wyłóż na talerze, posypując resztą sera."
+      ],
+      "tip": "Uważaj, aby masło stało się złote, a nie przypalone; proces brązowienia masła postępuje bardzo szybko pod koniec smażenia szałwii.",
+      "hashtags": [
+        "#jedzenie",
+        "#kolacja",
+        "#szybkieprzepisy",
+        "#gnocchi",
+        "#szalwia"
+      ],
+      "image_prompt": "Realistic food photography, natural light, 45-degree angle, one dish of gnocchi coated in brown sage butter on a single white plate, garnished with crispy sage leaves and grated parmesan, no cutlery, no side dishes, no people, no text",
+      "category": "szybka przekąska lub kolacja"
+    },
+    {
+      "title": "Puszysty pieczony omlet Dutch Baby z karmelizowanymi jabłkami",
+      "hook": "Szybkie śniadanie z piekarnika: puszysty omlet Dutch Baby z jabłkami i cynamonem",
+      "intro": "Ten efektowny omlet rośnie w piecu jak szalony, tworząc chrupiące brzegi i miękki środek. To idealny pomysł na ciepłe, słodkie śniadanie, które robi się niemal samo.",
+      "time_min": 30,
+      "servings": 2,
+      "ingredients": [
+        "3 jajka rozmiar L",
+        "150 ml mleka 3,2%",
+        "90 g mąki pszennej typ 500",
+        "1 łyżka cukru waniliowego",
+        "1 szczypta soli",
+        "30 g masła",
+        "2 średnie jabłka",
+        "1 łyżeczka cynamonu",
+        "1 łyżka soku z cytryny"
+      ],
+      "steps": [
+        "Wstaw patelnię żeliwną lub okrągłą formę do pieczenia o średnicy 22-24 cm do piekarnika i rozgrzej go do 220 stopni Celsjusza.",
+        "W misce roztrzep jajka z mlekiem, cukrem waniliowym oraz solą, a następnie stopniowo dosypuj mąkę, mieszając rózgą do uzyskania gładkiej masy bez grudek.",
+        "Jabłka obierz, pokrój w cienkie plasterki i wymieszaj w miseczce z cynamonem oraz sokiem z cytryny.",
+        "Ostrożnie wyjmij gorącą patelnię z piekarnika, wrzuć na nią masło i poczekaj, aż się rozpuści i zacznie lekko pienić.",
+        "Na dnie patelni ułóż plasterki jabłek, a następnie od razu wlej przygotowane ciasto.",
+        "Wstaw patelnię z powrotem do piekarnika i piecz przez 18-20 minut, aż brzegi mocno wyrosną i staną się ciemnozłote.",
+        "Nie otwieraj piekarnika w trakcie pieczenia, aby omlet nie opadł przedwcześnie."
+      ],
+      "tip": "Omlet najlepiej smakuje oprószony cukrem pudrem natychmiast po wyjęciu z pieca, gdy jest najbardziej puszysty.",
+      "hashtags": [
+        "#foodie",
+        "#sniadanie",
+        "#brunch",
+        "#dutchbaby"
+      ],
+      "image_prompt": "Realistic food photography of a golden-brown puffy Dutch Baby pancake with caramelized apple slices in a cast iron skillet, natural light, 45-degree angle, single dish, no cutlery, no extras, no people, no text",
+      "category": "śniadanie lub brunch"
+    },
+    {
+      "title": "Aromatyczna zupa gulaszowa z wołowiną i papryką",
+      "hook": "Sycąca zupa gulaszowa z wołowiną i papryką: obiad z jednego garnka",
+      "intro": "Idealna na chłodniejsze dni, gęsta i pełna smaku zupa, która z powodzeniem zastąpi dwudaniowy posiłek. Mięso staje się kruche i delikatne dzięki wolnemu gotowaniu w aromatycznym sosie.",
+      "time_min": 120,
+      "servings": 4,
+      "ingredients": [
+        "600 g udźca wołowego pokrojonego w kostkę 2 cm",
+        "2 duże cebule (ok. 200 g)",
+        "3 czerwone papryki",
+        "4 średnie ziemniaki (ok. 500 g)",
+        "3 ząbki czosnku",
+        "1,5 l bulionu wołowego",
+        "2 łyżki koncentratu pomidorowego",
+        "2 łyżki smalcu lub oleju rzepakowego",
+        "2 łyżki słodkiej papryki w proszku",
+        "1/2 łyżeczki ostrej papryki w proszku",
+        "1 łyżeczka mielonego kminku",
+        "Sól i świeżo mielony pieprz"
+      ],
+      "steps": [
+        "W dużym garnku z grubym dnem rozgrzej tłuszcz i partiami obsmaż wołowinę na rumiany kolor, a następnie zdejmij mięso z ognia.",
+        "Na pozostałym w garnku tłuszczu podsmaż drobno posiekaną cebulę, aż stanie się szklista i lekko złota.",
+        "Dodaj przeciśnięty przez praskę czosnek, kminek oraz obie papryki w proszku. Smaż przez 30 sekund, intensywnie mieszając, aby papryka nie zgorzkniała.",
+        "Wlej bulion i dodaj podsmażone wcześniej mięso. Gotuj pod przykryciem na małym ogniu przez około 70 minut, aż wołowina zacznie mięknąć.",
+        "Dodaj ziemniaki pokrojone w kostkę oraz paprykę pokrojoną w krótkie paski. Gotuj przez kolejne 25 minut.",
+        "Na koniec dodaj koncentrat pomidorowy, dopraw solą i pieprzem. Gotuj jeszcze 5-10 minut bez przykrycia, aż zupa lekko zgęstnieje."
+      ],
+      "tip": "Zupa smakuje jeszcze lepiej następnego dnia, gdy wszystkie aromaty się przegryzą.",
+      "hashtags": [
+        "#smaczne",
+        "#zupa",
+        "#zdrowejedzenie",
+        "#zupagulaszowa",
+        "#wolowina"
+      ],
+      "image_prompt": "Realistic food photography of a bowl of thick Hungarian goulash soup with chunks of beef and red bell peppers, natural lighting, 45-degree angle, one bowl on a dark wooden table, no cutlery, no side dishes, no people, no text",
+      "category": "zupa"
+    }
+  ]
 }

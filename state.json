@@ -1,6 +1,54 @@
 {
-  "pending": null,
+  "pending": {
+    "recipe": {
+      "title": "Chrupiące tofu w kremowym sosie orzechowym",
+      "hook": "Szybki wegański obiad: chrupiące tofu w kremowym sosie orzechowym z ryżem",
+      "intro": "To danie łączy w sobie idealnie chrupiącą strukturę tofu z aksamitnym, lekko słodkim sosem na bazie masła orzechowego. Przygotujesz je w mniej niż pół godziny z produktów, które prawdopodobnie masz już w szafce.",
+      "time_min": 25,
+      "servings": 2,
+      "ingredients": [
+        "180 g tofu twardego (naturalne lub wędzone)",
+        "2 łyżki mąki ziemniaczanej",
+        "300 g różyczek brokuła",
+        "100 g ryżu jaśminowego",
+        "2 łyżki masła orzechowego (gładkie)",
+        "2 łyżki sosu sojowego",
+        "1 łyżka syropu klonowego",
+        "1 łyżka soku z limonki",
+        "1 ząbek czosnku",
+        "80 ml gorącej wody",
+        "3 łyżki oleju rzepakowego do smażenia"
+      ],
+      "steps": [
+        "Ryż ugotuj w osolonej wodzie zgodnie z instrukcją na opakowaniu.",
+        "Tofu dokładnie osusz ręcznikiem papierowym, pokrój w kostkę o boku 2 cm i wymieszaj w misce z mąką ziemniaczaną, aż każdy kawałek będzie pokryty.",
+        "Na patelni rozgrzej 2 łyżki oleju i smaż tofu na średnim ogniu przez około 8-10 minut, obracając kostki, aż będą złociste i chrupiące z każdej strony. Zdejmij z patelni.",
+        "Na tę samą patelnię dodaj pozostałą łyżkę oleju i wrzuć różyczki brokuła. Smaż przez 5 minut, podlewając w połowie czasu 2 łyżkami wody, aby lekko zmiękły pod przykryciem.",
+        "W małym słoiczku lub misce połącz masło orzechowe, sos sojowy, syrop klonowy, sok z limonki, przeciśnięty przez praskę czosnek oraz 80 ml wody. Wymieszaj na gładką emulsję.",
+        "Wlej sos na patelnię z brokułami, dodaj usmażone tofu i podgrzewaj przez 1-2 minuty, stale mieszając, aż sos zgęstnieje i oblepi składniki.",
+        "Podawaj natychmiast na ugotowanym ryżu."
+      ],
+      "tip": "Aby tofu było jeszcze bardziej chrupiące, po osuszeniu możesz je zamrozić i rozmrozić przed smażeniem, co zmieni jego strukturę na bardziej gąbczastą.",
+      "hashtags": [
+        "#kuchniapolska",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#tofu",
+        "#obiadweganski"
+      ],
+      "image_prompt": "Realistic food photography of a bowl of golden crispy tofu and green broccoli coated in a glossy, creamy peanut sauce, served over white jasmine rice, natural lighting, 45-degree angle, single dish on a plate, no cutlery, no extras, no people, no text",
+      "category": "danie wegetariańskie lub wegańskie"
+    },
+    "image": "media/2026-11-04-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-04T11:24:03.461197+00:00",
+    "image_note": "",
+    "card": "media/2026-11-04-1-skladniki.jpg",
+    "video": "media/2026-11-04-1-reel.mp4"
+  },
   "telegram_offset": 64485490,
   "last_update_id": 64485489,
-  "last_proposed": "2026-11-03"
+  "last_proposed": "2026-11-04",
+  "queue": []
 }

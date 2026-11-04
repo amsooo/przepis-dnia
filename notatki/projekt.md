@@ -109,3 +109,10 @@ Powód: 10 postów bez wyświetleń (status konta w porządku, profil publiczny)
 ## Gemini: łańcuch modeli (2026-11-03)
 Najnowsze modele „flash” bywają przeciążone godzinami (503 na wszystkich naraz). Łańcuch tekstu ma teraz do 8 modeli: stabilne nie-lite od najnowszego, potem testowe,
 na końcu warianty „lite”; po 2 próby na model (przerwy 8 i 20 s), przy timeoucie od razu następny. Zdjęcia: do 3 modeli bez lite.
+
+## Zapas przepisów (2026-11-04)
+Gemini bywał przeciążony na wszystkich modelach przez wiele godzin (2 nieudane poranne próby tego samego dnia). Dlatego `state.json` ma kolejkę `queue`
+(do 5 gotowych przepisów, generowanych z datami z przyszłości dla różnorodności kategorii). `propose` i „Inny przepis” biorą przepis z początku zapasu
+(natychmiast, bez Gemini); dopiero gdy zapas jest pusty, generują nowy. Po każdym udanym `propose` zapas jest uzupełniany (do 3 szt., pierwszy błąd przerywa),
+a nocny workflow „Zapas przepisów” (02:17 UTC, `python -m src.main refill`) dobija do pełna. Przy małym zapasie bot pisze na Telegramie.
+Wady: przepis z zapasu może mieć kilka dni; jeśli Gemini nie działa dłużej niż zapas wystarcza, wracamy do błędu jak dawniej.

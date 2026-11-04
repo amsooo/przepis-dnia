@@ -7,7 +7,7 @@ import json
 import sys
 import tempfile
 import traceback
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from . import card, config, image, instagram, music, recipe, reel, reminders, state, telegram
@@ -77,8 +77,42 @@ def _titles():
     return [h["title"] for h in state.load_history()]
 
 
+QUEUE_TARGET = 5  # ile gotowych przepisów trzymamy w zapasie na wypadek awarii Gemini
+
+
+def _next_recipe(st):
+    """Przepis z zapasu (natychmiast), a gdy go brak, świeżo wygenerowany."""
+    queue = st.setdefault("queue", [])
+    if queue:
+        return queue.pop(0)
+    return recipe.generate(_titles())
+
+
+def _refill(st, limit=3):
+    """Uzupełnia zapas, dopóki Gemini odpowiada. Pierwszy błąd przerywa, bo awarie trwają godzinami."""
+    queue = st.setdefault("queue", [])
+    made = 0
+    while len(queue) < QUEUE_TARGET and made < limit:
+        taken = _titles() + [r["title"] for r in queue]
+        try:
+            queue.append(recipe.generate(taken, today=_now().date() + timedelta(days=len(queue) + 1)))
+        except Exception as exc:
+            print(f"[zapas] nie udało się uzupełnić: {exc}", file=sys.stderr)
+            break
+        made += 1
+    return made
+
+
+def refill():
+    """Osobne uruchomienie (w nocy, gdy Gemini zwykle jest mniej obciążony): dobija zapas do pełna."""
+    st = state.load_state()
+    made = _refill(st, limit=QUEUE_TARGET)
+    state.save_state(st)
+    print(f"[zapas] dodano {made}, w zapasie {len(st['queue'])}")
+
+
 def _new_pending(st, version):
-    data = recipe.generate(_titles())
+    data = _next_recipe(st)
     rel = _make_pending(data, version)
     st["pending"] = {"recipe": data, "image": rel, "status": "awaiting",
                      "version": version, "created": _now().isoformat()}
@@ -110,6 +144,13 @@ def propose():
         raise
     st["last_proposed"] = today
     state.save_state(st)
+    try:  # zapas jest dodatkiem: jego awaria nie psuje dzisiejszego przepisu
+        made = _refill(st)
+        state.save_state(st)
+        if not made and len(st["queue"]) < 2:
+            telegram.send_text(f"ℹ️ Zapas przepisów jest mały ({len(st['queue'])}); pewnie Gemini jest przeciążony.")
+    except Exception:
+        traceback.print_exc()
 
 
 def publish(st):
@@ -217,4 +258,4 @@ def poll():
 
 
 if __name__ == "__main__":
-    {"propose": propose, "poll": poll}[sys.argv[1]]()
+    {"propose": propose, "poll": poll, "refill": refill}[sys.argv[1]]()

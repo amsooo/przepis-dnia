@@ -29,7 +29,7 @@ def env(tmp_path, monkeypatch):
     monkeypatch.setattr(main.telegram, "send_preview", lambda *a: sent.append("preview"))
     monkeypatch.setattr(main.telegram, "answer_callback", lambda *a: None)
     monkeypatch.setattr(main.image, "generate", lambda p, out: ("gemini", []))
-    monkeypatch.setattr(main.recipe, "generate", lambda titles: dict(RECIPE))
+    monkeypatch.setattr(main.recipe, "generate", lambda titles, today=None: dict(RECIPE))
     monkeypatch.setattr(main.instagram, "publish_photo", lambda url, cap: "ig123")
     monkeypatch.setattr(main.instagram, "publish_carousel", lambda urls, cap: published.append(urls) or "ig123")
     monkeypatch.setattr(main.instagram, "publish_reel", lambda url, cap: published.append([url]) or "igreel")
@@ -294,7 +294,7 @@ def test_scheduled_retry_is_silent_when_already_proposed(env, monkeypatch):
 
 def test_generation_failure_notifies_and_allows_retry(env, monkeypatch):
     monkeypatch.setenv("GITHUB_EVENT_NAME", "schedule")
-    monkeypatch.setattr(main.recipe, "generate", lambda titles: (_ for _ in ()).throw(RuntimeError("Gemini 503")))
+    monkeypatch.setattr(main.recipe, "generate", lambda titles, today=None: (_ for _ in ()).throw(RuntimeError("Gemini 503")))
     with pytest.raises(RuntimeError):
         main.propose()
     assert any("Nie udało się wygenerować" in m for m in env)
@@ -450,3 +450,37 @@ def test_model_chain_reaches_older_and_lite_models():
     assert text.index("gemini-2.5-flash") < text.index("gemini-3.1-flash-lite")        # lite dopiero na końcu
     assert text.index("gemini-3.8-flash-preview") < text.index("gemini-2.5-flash-lite")
     assert gemini.ranked(models, "image") == ["gemini-3.1-flash-image"]                  # obrazy bez lite
+
+
+def test_proposal_uses_queue_when_gemini_is_down(env, monkeypatch):
+    st = state.load_state()
+    st["queue"] = [dict(RECIPE, title="Z zapasu 1"), dict(RECIPE, title="Z zapasu 2")]
+    state.save_state(st)
+    def down(titles, today=None):
+        raise RuntimeError("Gemini 503")
+    monkeypatch.setattr(main.recipe, "generate", down)
+    main.propose()                                          # nie rzuca wyjątku, bo bierze z zapasu
+    st = state.load_state()
+    assert st["pending"]["recipe"]["title"] == "Z zapasu 1"
+    assert [r["title"] for r in st["queue"]] == ["Z zapasu 2"]
+    assert any("Zapas przepisów jest mały" in m for m in env)  # uzupełnienie się nie udało, zapas < 2
+
+
+def test_refill_tops_up_and_stops_at_first_failure(env, monkeypatch):
+    calls = []
+    def flaky(titles, today=None):
+        calls.append(today)
+        if len(calls) == 3:
+            raise RuntimeError("503")
+        return dict(RECIPE, title=f"Nowy {len(calls)}")
+    monkeypatch.setattr(main.recipe, "generate", flaky)
+    main.refill()
+    st = state.load_state()
+    assert [r["title"] for r in st["queue"]] == ["Nowy 1", "Nowy 2"] and len(calls) == 3   # po błędzie koniec
+    assert calls[1] > calls[0]                                                           # kolejne dni dla różnorodności kategorii
+
+
+def test_next_recipe_prefers_queue_then_generates(env, monkeypatch):
+    st = {"queue": [dict(RECIPE, title="Z zapasu")]}
+    assert main._next_recipe(st)["title"] == "Z zapasu"
+    assert main._next_recipe(st)["title"] == "Szakszuka"   # zapas pusty: świeżo wygenerowany

@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485491,
-  "last_update_id": 64485490,
-  "last_proposed": "2026-11-04",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Makaron w kremowym sosie z pieczonej papryki i mascarpone",
       "hook": "Prosty obiad z kilku składników: makaron w aksamitnym sosie z pieczonej papryki",
       "intro": "To danie udowadnia, że pieczona papryka to jeden z najlepszych fundamentów pod domowy sos. Jest naturalnie słodka, lekko dymna i idealnie komponuje się z delikatnym serem.",
@@ -40,6 +36,18 @@
       "image_prompt": "A white plate of fusilli pasta coated in a thick, vibrant orange-red roasted pepper sauce, garnished with a few fresh basil leaves and a sprinkle of parmesan, 45-degree angle, realistic food photography, natural lighting, single dish",
       "category": "makaron, ryż lub kasza"
     },
+    "image": "media/2026-11-05-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-05T06:50:41.107877+00:00",
+    "image_note": "",
+    "card": "media/2026-11-05-1-skladniki.jpg",
+    "video": "media/2026-11-05-1-reel.mp4"
+  },
+  "telegram_offset": 64485491,
+  "last_update_id": 64485490,
+  "last_proposed": "2026-11-05",
+  "queue": [
     {
       "title": "Puszyste drożdżówki z serem i borówkami",
       "hook": "Miękkie jak chmurka domowe drożdżówki z serem i borówkami",

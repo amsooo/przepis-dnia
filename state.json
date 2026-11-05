@@ -1,51 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Makaron w kremowym sosie z pieczonej papryki i mascarpone",
-      "hook": "Prosty obiad z kilku składników: makaron w aksamitnym sosie z pieczonej papryki",
-      "intro": "To danie udowadnia, że pieczona papryka to jeden z najlepszych fundamentów pod domowy sos. Jest naturalnie słodka, lekko dymna i idealnie komponuje się z delikatnym serem.",
-      "time_min": 45,
-      "servings": 2,
-      "ingredients": [
-        "250 g makaronu typu fusilli lub penne",
-        "3 duże czerwone papryki",
-        "100 g serka mascarpone",
-        "2 ząbki czosnku",
-        "30 g tartego parmezanu",
-        "2 łyżki oliwy z oliwek",
-        "1/2 łyżeczki płatków chili",
-        "1/2 łyżeczki soli",
-        "garść świeżej bazylii"
-      ],
-      "steps": [
-        "Papryki przekrój na pół, usuń gniazda nasienne i ułóż na blaszce wyłożonej papierem skórą do góry.",
-        "Piecz papryki w temperaturze 220 stopni przez około 25 minut, aż ich skórka zacznie czernieć i pojawią się pęcherze.",
-        "Upieczone papryki przełóż do miski i przykryj szczelnie folią lub talerzem na 10 minut, aby łatwiej odeszła skórka.",
-        "Obierz papryki ze skóry i zblenduj miąższ na gładką masę razem z czosnkiem, oliwą oraz płatkami chili.",
-        "Ugotuj makaron al dente w osolonej wodzie, odlewając pół szklanki wody z gotowania przed odcedzeniem.",
-        "Sos paprykowy przelej na patelnię, dodaj mascarpone i podgrzewaj na małym ogniu, mieszając do uzyskania jednolitej konsystencji.",
-        "Wymieszaj sos z makaronem, dodaj parmezan i w razie potrzeby dolej odrobinę wody z gotowania, by sos był bardziej płynny."
-      ],
-      "tip": "Dla głębszego smaku możesz dodać do sosu pół łyżeczki wędzonej papryki w proszku.",
-      "hashtags": [
-        "#obiad",
-        "#makaron",
-        "#pomyslnaobiad",
-        "#soszpapryki"
-      ],
-      "image_prompt": "A white plate of fusilli pasta coated in a thick, vibrant orange-red roasted pepper sauce, garnished with a few fresh basil leaves and a sprinkle of parmesan, 45-degree angle, realistic food photography, natural lighting, single dish",
-      "category": "makaron, ryż lub kasza"
-    },
-    "image": "media/2026-11-05-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-05T06:50:41.107877+00:00",
-    "image_note": "",
-    "card": "media/2026-11-05-1-skladniki.jpg",
-    "video": "media/2026-11-05-1-reel.mp4"
-  },
-  "telegram_offset": 64485491,
-  "last_update_id": 64485490,
+  "pending": null,
+  "telegram_offset": 64485492,
+  "last_update_id": 64485491,
   "last_proposed": "2026-11-05",
   "queue": [
     {

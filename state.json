@@ -154,6 +154,42 @@
       ],
       "image_prompt": "Realistic food photography of a bowl of thick Hungarian goulash soup with chunks of beef and red bell peppers, natural lighting, 45-degree angle, one bowl on a dark wooden table, no cutlery, no side dishes, no people, no text",
       "category": "zupa"
+    },
+    {
+      "title": "Chrupiące placki z cukinii z fetą i koperkiem",
+      "hook": "Prosty obiad w 25 minut: chrupiące placki z cukinii z fetą i koperkiem",
+      "intro": "Idealny pomysł na lekki obiad lub ciepłą kolację, gdy masz mało czasu. Placki wychodzą idealnie chrupiące z zewnątrz i delikatne w środku.",
+      "time_min": 25,
+      "servings": 3,
+      "ingredients": [
+        "500 g cukinii (2 średnie sztuki)",
+        "100 g sera feta",
+        "2 duże jajka",
+        "60 g mąki pszennej (4 łyżki)",
+        "2 ząbki czosnku",
+        "15 g świeżego koperku (pęczek)",
+        "3 g soli (0.5 łyżeczki)",
+        "1 g czarnego pieprzu (0.25 łyżeczki)",
+        "45 ml oleju roślinnego do smażenia (3 łyżki)"
+      ],
+      "steps": [
+        "Cukinie zetrzyj na tarce o dużych oczkach, wymieszaj z solą i odstaw na 10 minut na sitko.",
+        "Po tym czasie mocno odciśnij nadmiar wody z cukinii za pomocą dłoni lub czystej ściereczki kuchennej.",
+        "Przełóż cukinię do miski, dodaj rozkruszoną fetę, posiekany koperek, przecciśnięty czosnek, jajka, mąkę oraz pieprz.",
+        "Wymieszaj dokładnie wszystkie składniki łyżką do połączenia.",
+        "Na patelni rozgrzej olej na średnim ogniu. Nakładaj porcje masy (po około 1.5 łyżki) i delikatnie spłaszczaj.",
+        "Smaż przez 3-4 minuty z każdej strony na złocisty kolor, a po usmażeniu odsącz z tłuszczu na ręczniku papierowym."
+      ],
+      "tip": "Dokładne odciśnięcie soku z cukinii to klucz do tego, by placki były chrupiące i nie rozpadały się na patelni.",
+      "hashtags": [
+        "#obiad",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#plackizcukinii",
+        "#daniawegetarianskie"
+      ],
+      "image_prompt": "A realistic food photography shot at a 45-degree angle under soft natural daylight. Three golden-brown crispy zucchini fritters with visible speckles of green herbs and white feta, neatly stacked on a minimalist grey ceramic plate. No cutlery, no side dishes beside the plate, no people, no text.",
+      "category": "danie wegetariańskie lub wegańskie"
     }
   ]
 }

@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485492,
-  "last_update_id": 64485491,
-  "last_proposed": "2026-11-05",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Puszyste drożdżówki z serem i borówkami",
       "hook": "Miękkie jak chmurka domowe drożdżówki z serem i borówkami",
       "intro": "Te drożdżówki smakują jak dzieciństwo u babci, a ich sekret tkwi w długim wyrabianiu i jakościowym twarogu. Idealnie sprawdzą się jako słodkie drugie śniadanie lub podwieczorek.",
@@ -45,6 +41,18 @@
       "image_prompt": "Realistic food photography of a single golden-brown yeast bun filled with creamy white cottage cheese and dark blue blueberries on a plain ceramic plate, 45-degree angle, natural soft morning light, no cutlery, no extra toppings, no people, no text",
       "category": "deser lub wypiek"
     },
+    "image": "media/2026-11-06-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-06T06:50:10.491541+00:00",
+    "image_note": "",
+    "card": "media/2026-11-06-1-skladniki.jpg",
+    "video": "media/2026-11-06-1-reel.mp4"
+  },
+  "telegram_offset": 64485492,
+  "last_update_id": 64485491,
+  "last_proposed": "2026-11-06",
+  "queue": [
     {
       "title": "Gnocchi z masłem szałwiowym i parmezanem",
       "hook": "Szybka kolacja w 15 minut: gnocchi z masłem szałwiowym i parmezanem",

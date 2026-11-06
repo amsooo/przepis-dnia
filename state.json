@@ -1,56 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Puszyste drożdżówki z serem i borówkami",
-      "hook": "Miękkie jak chmurka domowe drożdżówki z serem i borówkami",
-      "intro": "Te drożdżówki smakują jak dzieciństwo u babci, a ich sekret tkwi w długim wyrabianiu i jakościowym twarogu. Idealnie sprawdzą się jako słodkie drugie śniadanie lub podwieczorek.",
-      "time_min": 150,
-      "servings": 12,
-      "ingredients": [
-        "500 g mąki pszennej typu 550",
-        "250 ml ciepłego mleka",
-        "25 g świeżych drożdży",
-        "100 g drobnego cukru",
-        "100 g roztopionego i ostudzonego masła",
-        "1 jajko L",
-        "szczypta soli",
-        "500 g półtłustego twarogu",
-        "1 żółtko",
-        "3 łyżki cukru pudru",
-        "1 łyżeczka cukru waniliowego",
-        "150 g borówek",
-        "1 jajko do posmarowania brzegów"
-      ],
-      "steps": [
-        "Przygotuj rozczyn: wymieszaj ciepłe mleko z drożdżami, łyżką cukru i dwiema łyżkami mąki, odstaw na 15 minut w ciepłe miejsce.",
-        "Do dużej miski wsyp resztę mąki, cukier, sól, dodaj jajko oraz wyrośnięty rozczyn. Wyrabiaj ciasto, pod koniec wlewając roztopione masło.",
-        "Wyrabiaj ciasto ręcznie lub mikserem z hakiem przez około 10 minut, aż będzie gładkie, a następnie odstaw pod przykryciem na 1,5 godziny do wyrośnięcia.",
-        "Twaróg rozgnieć dokładnie widelcem, wymieszaj z żółtkiem, cukrem pudrem i cukrem waniliowym na jednolitą masę.",
-        "Wyrośnięte ciasto krótko zagnieć, podziel na 12 równych części, uformuj z nich kulki i ułóż na blaszce wyłożonej papierem do pieczenia w dużych odstępach.",
-        "W każdej kulce zrób mocne wgłębienie dnem szklanki, nałóż do środka masę serową i ułóż na wierzchu kilka borówek.",
-        "Brzegi ciasta posmaruj roztrzepanym jajkiem i piecz w piekarniku nagrzanym do 180 stopni przez około 20-25 minut, aż będą złociste."
-      ],
-      "tip": "Po upieczeniu przykryj drożdżówki czystą bawełnianą ściereczką na 5 minut, dzięki temu ich skórka pozostanie niezwykle miękka.",
-      "hashtags": [
-        "#przepisy",
-        "#deser",
-        "#slodkosci",
-        "#drozdzowki",
-        "#twarog"
-      ],
-      "image_prompt": "Realistic food photography of a single golden-brown yeast bun filled with creamy white cottage cheese and dark blue blueberries on a plain ceramic plate, 45-degree angle, natural soft morning light, no cutlery, no extra toppings, no people, no text",
-      "category": "deser lub wypiek"
-    },
-    "image": "media/2026-11-06-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-06T06:50:10.491541+00:00",
-    "image_note": "",
-    "card": "media/2026-11-06-1-skladniki.jpg",
-    "video": "media/2026-11-06-1-reel.mp4"
-  },
-  "telegram_offset": 64485492,
-  "last_update_id": 64485491,
+  "pending": null,
+  "telegram_offset": 64485493,
+  "last_update_id": 64485492,
   "last_proposed": "2026-11-06",
   "queue": [
     {

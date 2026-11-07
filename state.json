@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485493,
-  "last_update_id": 64485492,
-  "last_proposed": "2026-11-06",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Gnocchi z masłem szałwiowym i parmezanem",
       "hook": "Szybka kolacja w 15 minut: gnocchi z masłem szałwiowym i parmezanem",
       "intro": "Proste połączenie, które smakuje jak z najlepszej włoskiej restauracji. Tylko kilka składników, a efekt zachwyca za każdym razem głębokim smakiem i aromatem.",
@@ -39,6 +35,18 @@
       "image_prompt": "Realistic food photography, natural light, 45-degree angle, one dish of gnocchi coated in brown sage butter on a single white plate, garnished with crispy sage leaves and grated parmesan, no cutlery, no side dishes, no people, no text",
       "category": "szybka przekąska lub kolacja"
     },
+    "image": "media/2026-11-07-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-07T06:34:54.409194+00:00",
+    "image_note": "",
+    "card": "media/2026-11-07-1-skladniki.jpg",
+    "video": "media/2026-11-07-1-reel.mp4"
+  },
+  "telegram_offset": 64485493,
+  "last_update_id": 64485492,
+  "last_proposed": "2026-11-07",
+  "queue": [
     {
       "title": "Puszysty pieczony omlet Dutch Baby z karmelizowanymi jabłkami",
       "hook": "Szybkie śniadanie z piekarnika: puszysty omlet Dutch Baby z jabłkami i cynamonem",

@@ -1,50 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Gnocchi z masłem szałwiowym i parmezanem",
-      "hook": "Szybka kolacja w 15 minut: gnocchi z masłem szałwiowym i parmezanem",
-      "intro": "Proste połączenie, które smakuje jak z najlepszej włoskiej restauracji. Tylko kilka składników, a efekt zachwyca za każdym razem głębokim smakiem i aromatem.",
-      "time_min": 15,
-      "servings": 2,
-      "ingredients": [
-        "500 g gotowych kluseczek gnocchi dobrej jakości",
-        "60 g masła",
-        "12 świeżych listków szałwii",
-        "40 g tartego parmezanu",
-        "1 łyżka soku z cytryny",
-        "1/2 łyżeczki soli do gotowania wody",
-        "1/4 łyżeczki świeżo mielonego pieprzu"
-      ],
-      "steps": [
-        "Zagotuj wodę w dużym garnku, solidnie ją osól i ugotuj gnocchi zgodnie z instrukcją na opakowaniu do momentu, aż wypłyną na powierzchnię.",
-        "W tym samym czasie na szerokiej patelni rozpuść masło na średnim ogniu.",
-        "Gdy masło zacznie lekko bulgotać i się pienić, wrzuć listki szałwii i smaż je przez około 2-3 minuty, aż staną się chrupiące, a masło nabierze złoto-brązowego koloru i orzechowego zapachu.",
-        "Odcedź ugotowane gnocchi, zachowując około 2 łyżki wody z ich gotowania.",
-        "Przełóż gnocchi bezpośrednio na patelnię z masłem szałwiowym, dodaj odłożoną wodę, sok z cytryny oraz świeżo mielony pieprz.",
-        "Potrząsaj patelnią przez minutę, aby masło stworzyło aksamitną emulsję z wodą i dokładnie oblepiło kluseczki.",
-        "Zdejmij z ognia, wsyp połowę tartego parmezanu, wymieszaj i wyłóż na talerze, posypując resztą sera."
-      ],
-      "tip": "Uważaj, aby masło stało się złote, a nie przypalone; proces brązowienia masła postępuje bardzo szybko pod koniec smażenia szałwii.",
-      "hashtags": [
-        "#jedzenie",
-        "#kolacja",
-        "#szybkieprzepisy",
-        "#gnocchi",
-        "#szalwia"
-      ],
-      "image_prompt": "Realistic food photography, natural light, 45-degree angle, one dish of gnocchi coated in brown sage butter on a single white plate, garnished with crispy sage leaves and grated parmesan, no cutlery, no side dishes, no people, no text",
-      "category": "szybka przekąska lub kolacja"
-    },
-    "image": "media/2026-11-07-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-07T06:34:54.409194+00:00",
-    "image_note": "",
-    "card": "media/2026-11-07-1-skladniki.jpg",
-    "video": "media/2026-11-07-1-reel.mp4"
-  },
-  "telegram_offset": 64485493,
-  "last_update_id": 64485492,
+  "pending": null,
+  "telegram_offset": 64485494,
+  "last_update_id": 64485493,
   "last_proposed": "2026-11-07",
   "queue": [
     {

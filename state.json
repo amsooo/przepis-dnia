@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485494,
-  "last_update_id": 64485493,
-  "last_proposed": "2026-11-07",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Puszysty pieczony omlet Dutch Baby z karmelizowanymi jabłkami",
       "hook": "Szybkie śniadanie z piekarnika: puszysty omlet Dutch Baby z jabłkami i cynamonem",
       "intro": "Ten efektowny omlet rośnie w piecu jak szalony, tworząc chrupiące brzegi i miękki środek. To idealny pomysł na ciepłe, słodkie śniadanie, które robi się niemal samo.",
@@ -40,6 +36,18 @@
       "image_prompt": "Realistic food photography of a golden-brown puffy Dutch Baby pancake with caramelized apple slices in a cast iron skillet, natural light, 45-degree angle, single dish, no cutlery, no extras, no people, no text",
       "category": "śniadanie lub brunch"
     },
+    "image": "media/2026-11-08-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-08T06:36:35.939104+00:00",
+    "image_note": "",
+    "card": "media/2026-11-08-1-skladniki.jpg",
+    "video": "media/2026-11-08-1-reel.mp4"
+  },
+  "telegram_offset": 64485494,
+  "last_update_id": 64485493,
+  "last_proposed": "2026-11-08",
+  "queue": [
     {
       "title": "Aromatyczna zupa gulaszowa z wołowiną i papryką",
       "hook": "Sycąca zupa gulaszowa z wołowiną i papryką: obiad z jednego garnka",

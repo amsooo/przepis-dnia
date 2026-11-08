@@ -199,6 +199,43 @@
       ],
       "image_prompt": "A realistic food photograph of a single ceramic plate served with pasta tossed in roasted cherry tomato sauce, topped with a torn creamy burrata ball and fresh basil leaves, cracked black pepper visible, shot at a 45-degree angle in soft natural daylight, no cutlery, no extra side dishes, no people, no text.",
       "category": "makaron, ryż lub kasza"
+    },
+    {
+      "title": "Mocno czekoladowe brownie z solą morską",
+      "hook": "Proste brownie czekoladowe: mocno wilgotne ciasto z chrupiącą skórką",
+      "intro": "Gęste, lekko ciągnące w środku i wykończone charakterystyczną, popękaną skorupką. Kilka płatków soli morskiej idealnie balansuje głęboki, wytrawny smak ciemnej czekolady.",
+      "time_min": 40,
+      "servings": 9,
+      "ingredients": [
+        "200 g gorzkiej czekolady (min. 70% kakao)",
+        "150 g masła 82%",
+        "3 jajka (w temperaturze pokojowej)",
+        "150 g drobnego cukru do wypieków",
+        "70 g mąki pszennej tortowej",
+        "25 g ciemnego kakao",
+        "1/2 łyżeczki drobnej soli",
+        "1/2 łyżeczki soli w płatkach (np. maldon)"
+      ],
+      "steps": [
+        "Piekarnik rozgrzej do 170°C w trybie góra-dół. Kwadratową formę do pieczenia o wymiarach 20x20 cm wyłóż papierem do pieczenia.",
+        "W małym rondelku na minimalnym ogniu rozpuść pokrojone masło wraz z posiekaną czekoladą, regularnie mieszając. Zdejmij z ognia i odstaw na 5 minut do lekkiego przestudzenia.",
+        "W misce ubijaj całe jajka z drobnym cukrem mikserem na wysokich obrotach przez 3 minuty, aż masa zbieleje i wyraźnie zwiększy objętość.",
+        "Do ubitych jajek powoli wlej ciepłą masę czekoladową, miksując na najniższych obrotach tylko do połączenia składników.",
+        "Do masy przesiej przez sitko mąkę, kakao oraz drobną sól. Całość wymieszaj delikatnie szpatułką, wykonując tylko kilka ruchów, aż znikną ślady mąki.",
+        "Przelej masę do formy, wyrównaj wierzch szpatułką i posyp równomiernie płatkami soli morskiej.",
+        "Piecz przez dokładnie 22 minuty. Patyczek wbity w środek powinien wyjść oblepiony wilgotnymi okruchami ciasta, ale nie surową, płynną masą.",
+        "Wyjmij formę z piekarnika i pozostaw ciasto do całkowitego ostudzenia na blacie, a następnie pokrój na 9 równych kwadratów."
+      ],
+      "tip": "Nie piecz brownie ani minuty dłużej niż podano w przepisie, inaczej zamieni się w zwykłe, suche ciasto czekoladowe.",
+      "hashtags": [
+        "#jedzenie",
+        "#deser",
+        "#slodkosci",
+        "#brownie",
+        "#ciastoczekoladowe"
+      ],
+      "image_prompt": "Realistic food photography shot at a 45-degree angle, showing a single square slice of rich, fudgy dark chocolate brownie with a shiny crinkled paper-thin crust and visible flaky sea salt crystals on top, centered on a neutral dark gray ceramic plate. Soft natural daylight from the side, shallow depth of field, sharp moist crumb texture, single dish, no cutlery, no crumbs beside the plate, no people, no text.",
+      "category": "deser lub wypiek"
     }
   ]
 }

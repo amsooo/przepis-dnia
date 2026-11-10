@@ -153,6 +153,40 @@
       ],
       "image_prompt": "Realistic food photography shot at a 45-degree angle, showing a single square slice of rich, fudgy dark chocolate brownie with a shiny crinkled paper-thin crust and visible flaky sea salt crystals on top, centered on a neutral dark gray ceramic plate. Soft natural daylight from the side, shallow depth of field, sharp moist crumb texture, single dish, no cutlery, no crumbs beside the plate, no people, no text.",
       "category": "deser lub wypiek"
+    },
+    {
+      "title": "Puszyste tosty francuskie z chałki z cynamonem",
+      "hook": "Pomysł na niedzielny brunch: puszyste tosty francuskie z chałki w 15 minut",
+      "intro": "Ciepłe, pachnące maślaną chałką i cynamonem tosty to idealny sposób na niespieszny poranek. Chrupiące z zewnątrz, niezwykle miękkie i aksamitne w środku.",
+      "time_min": 15,
+      "servings": 2,
+      "ingredients": [
+        "4 grube plastry chałki (ok. 160 g)",
+        "2 duże jajka",
+        "80 ml mleka 3,2%",
+        "1 łyżeczka cukru wanilinowego",
+        "1/2 łyżeczki mielonego cynamonu",
+        "25 g masła",
+        "2 łyżki syropu klonowego",
+        "60 g świeżych malin"
+      ],
+      "steps": [
+        "W głębokim talerzu lub szerokiej misce roztrzep jajka z mlekiem, cukrem wanilinowym i cynamonem.",
+        "Na patelni rozgrzej masło na średnim ogniu, pilnując, aby się nie przypaliło.",
+        "Kawałki chałki zanurzaj w przygotowanej masie jajecznej na około 5 sekund z każdej strony, pozwalając pieczywu dobrze nasiąknąć.",
+        "Przełóż chałkę na rozgrzaną patelnię i smaż przez około 2-3 minuty z każdej strony, aż uzyskają złocistobrązowy kolor.",
+        "Gotowe tosty wyłóż na talerz, polej syropem klonowym i posyp świeżymi malinami."
+      ],
+      "tip": "Masa jajeczna nie powinna być zbyt zimna, dlatego wyjmij jajka i mleko z lodówki chwilę przed przygotowaniem.",
+      "hashtags": [
+        "#smaczne",
+        "#sniadanie",
+        "#brunch",
+        "#tostyfrancuskie",
+        "#chalka"
+      ],
+      "image_prompt": "A realistic food photograph taken at a 45-degree angle in soft natural daylight, featuring golden-brown cinnamon French toast made from thick challah slices on a single minimalist ceramic plate, topped with fresh red raspberries and a light drizzle of maple syrup, no cutlery, no side dishes, no people, no text",
+      "category": "śniadanie lub brunch"
     }
   ]
 }

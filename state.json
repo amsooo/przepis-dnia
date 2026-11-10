@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485495,
-  "last_update_id": 64485494,
-  "last_proposed": "2026-11-09",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Aromatyczna zupa gulaszowa z wołowiną i papryką",
       "hook": "Sycąca zupa gulaszowa z wołowiną i papryką: obiad z jednego garnka",
       "intro": "Idealna na chłodniejsze dni, gęsta i pełna smaku zupa, która z powodzeniem zastąpi dwudaniowy posiłek. Mięso staje się kruche i delikatne dzięki wolnemu gotowaniu w aromatycznym sosie.",
@@ -43,6 +39,18 @@
       "image_prompt": "Realistic food photography of a bowl of thick Hungarian goulash soup with chunks of beef and red bell peppers, natural lighting, 45-degree angle, one bowl on a dark wooden table, no cutlery, no side dishes, no people, no text",
       "category": "zupa"
     },
+    "image": "media/2026-11-10-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-10T06:45:15.918876+00:00",
+    "image_note": "",
+    "card": "media/2026-11-10-1-skladniki.jpg",
+    "video": "media/2026-11-10-1-reel.mp4"
+  },
+  "telegram_offset": 64485495,
+  "last_update_id": 64485494,
+  "last_proposed": "2026-11-10",
+  "queue": [
     {
       "title": "Chrupiące placki z cukinii z fetą i koperkiem",
       "hook": "Prosty obiad w 25 minut: chrupiące placki z cukinii z fetą i koperkiem",

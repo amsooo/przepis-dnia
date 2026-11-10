@@ -1,54 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Aromatyczna zupa gulaszowa z wołowiną i papryką",
-      "hook": "Sycąca zupa gulaszowa z wołowiną i papryką: obiad z jednego garnka",
-      "intro": "Idealna na chłodniejsze dni, gęsta i pełna smaku zupa, która z powodzeniem zastąpi dwudaniowy posiłek. Mięso staje się kruche i delikatne dzięki wolnemu gotowaniu w aromatycznym sosie.",
-      "time_min": 120,
-      "servings": 4,
-      "ingredients": [
-        "600 g udźca wołowego pokrojonego w kostkę 2 cm",
-        "2 duże cebule (ok. 200 g)",
-        "3 czerwone papryki",
-        "4 średnie ziemniaki (ok. 500 g)",
-        "3 ząbki czosnku",
-        "1,5 l bulionu wołowego",
-        "2 łyżki koncentratu pomidorowego",
-        "2 łyżki smalcu lub oleju rzepakowego",
-        "2 łyżki słodkiej papryki w proszku",
-        "1/2 łyżeczki ostrej papryki w proszku",
-        "1 łyżeczka mielonego kminku",
-        "Sól i świeżo mielony pieprz"
-      ],
-      "steps": [
-        "W dużym garnku z grubym dnem rozgrzej tłuszcz i partiami obsmaż wołowinę na rumiany kolor, a następnie zdejmij mięso z ognia.",
-        "Na pozostałym w garnku tłuszczu podsmaż drobno posiekaną cebulę, aż stanie się szklista i lekko złota.",
-        "Dodaj przeciśnięty przez praskę czosnek, kminek oraz obie papryki w proszku. Smaż przez 30 sekund, intensywnie mieszając, aby papryka nie zgorzkniała.",
-        "Wlej bulion i dodaj podsmażone wcześniej mięso. Gotuj pod przykryciem na małym ogniu przez około 70 minut, aż wołowina zacznie mięknąć.",
-        "Dodaj ziemniaki pokrojone w kostkę oraz paprykę pokrojoną w krótkie paski. Gotuj przez kolejne 25 minut.",
-        "Na koniec dodaj koncentrat pomidorowy, dopraw solą i pieprzem. Gotuj jeszcze 5-10 minut bez przykrycia, aż zupa lekko zgęstnieje."
-      ],
-      "tip": "Zupa smakuje jeszcze lepiej następnego dnia, gdy wszystkie aromaty się przegryzą.",
-      "hashtags": [
-        "#smaczne",
-        "#zupa",
-        "#zdrowejedzenie",
-        "#zupagulaszowa",
-        "#wolowina"
-      ],
-      "image_prompt": "Realistic food photography of a bowl of thick Hungarian goulash soup with chunks of beef and red bell peppers, natural lighting, 45-degree angle, one bowl on a dark wooden table, no cutlery, no side dishes, no people, no text",
-      "category": "zupa"
-    },
-    "image": "media/2026-11-10-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-10T06:45:15.918876+00:00",
-    "image_note": "",
-    "card": "media/2026-11-10-1-skladniki.jpg",
-    "video": "media/2026-11-10-1-reel.mp4"
-  },
-  "telegram_offset": 64485495,
-  "last_update_id": 64485494,
+  "pending": null,
+  "telegram_offset": 64485496,
+  "last_update_id": 64485495,
   "last_proposed": "2026-11-10",
   "queue": [
     {

@@ -151,6 +151,48 @@
       ],
       "image_prompt": "A realistic food photograph taken at a 45-degree angle in soft natural daylight, featuring golden-brown cinnamon French toast made from thick challah slices on a single minimalist ceramic plate, topped with fresh red raspberries and a light drizzle of maple syrup, no cutlery, no side dishes, no people, no text",
       "category": "śniadanie lub brunch"
+    },
+    {
+      "title": "Francuska zupa cebulowa z zapiekanym serem",
+      "hook": "Tradycyjna francuska zupa cebulowa z karmelizowaną cebulą i serem",
+      "intro": "Głęboki, naturalnie słodkawy smak długo karmelizowanej cebuli połączony z chrupiącą grzanką i ciągnącym się serem gruyère. To absolutny klasyk, który idealnie rozgrzewa i smakuje jak z najlepszego paryskiego bistro.",
+      "time_min": 60,
+      "servings": 4,
+      "ingredients": [
+        "1 kg żółtej cebuli",
+        "40 g masła",
+        "1 łyżka oliwy z oliwek",
+        "2 ząbki czosnku",
+        "1 płaska łyżka mąki pszennej",
+        "120 ml wytrawnego białego wina",
+        "1 litr wywaru wołowego lub warzywnego",
+        "1 łyżeczka świeżego tymianku",
+        "1 liść laurowy",
+        "1 łyżeczka soli",
+        "0.5 łyżeczki świeżo mielonego czarnego pieprzu",
+        "8 kromek bagietki pszennej",
+        "120 g sera gruyère lub emmentaler"
+      ],
+      "steps": [
+        "Cebulę obierz i pokrój w cienkie piórka.",
+        "W garnku z grubym dnem rozgrzej masło z oliwą, dodaj cebulę oraz sól i smaż na małym ogniu przez około 35-40 minut, regularnie mieszając, aż cebula mocno zmięknie i nabierze głębokiego, karmelowo-brązowego koloru.",
+        "Dodaj przeciśnięty przez praskę czosnek oraz mąkę, wymieszaj dokładnie i podsmażaj przez 1 minutę.",
+        "Wlej białe wino, zeskrobując szpatułką aromat z dna garnka, i gotuj przez 2 minuty, aż płyn częściowo odparuje.",
+        "Wlej gorący wywar, dodaj tymianek, liść laurowy oraz pieprz. Gotuj na małym ogniu pod lekkim przykryciem przez 15 minut, po czym wyjmij liść laurowy.",
+        "W międzyczasie podpiecz kromki bagietki w piekarniku nagrzanym do 200°C przez 5 minut, aż będą chrupiące.",
+        "Rozlej gorącą zupę do żaroodpornych miseczek, na wierzchu każdej połóż po 2 kromki bagietki i posyp obficie startym serem.",
+        "Wstaw miseczki do piekarnika pod funkcję grilla (220°C) na około 5-7 minut, aż ser całkowicie się rozpuści i apetycznie zrumieni."
+      ],
+      "tip": "Jeśli nie masz żaroodpornych naczyń, zapiecz kromki bagietki z serem bezpośrednio na blaszce w piekarniku i ułóż je na wierzchu zupy tuż przed podaniem.",
+      "hashtags": [
+        "#kuchniapolska",
+        "#zupa",
+        "#zdrowejedzenie",
+        "#zupacebulowa",
+        "#cebulowa"
+      ],
+      "image_prompt": "A close-up 45-degree angle food photography shot of classic French onion soup in a rustic ceramic bowl, topped with a golden toasted baguette slice and bubbling melted browned gruyere cheese, rich dark amber onion broth visible, soft natural morning light, no cutlery, no side dishes, no people, no text",
+      "category": "zupa"
     }
   ]
 }

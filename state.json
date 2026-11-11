@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485496,
-  "last_update_id": 64485495,
-  "last_proposed": "2026-11-10",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Chrupiące placki z cukinii z fetą i koperkiem",
       "hook": "Prosty obiad w 25 minut: chrupiące placki z cukinii z fetą i koperkiem",
       "intro": "Idealny pomysł na lekki obiad lub ciepłą kolację, gdy masz mało czasu. Placki wychodzą idealnie chrupiące z zewnątrz i delikatne w środku.",
@@ -40,6 +36,18 @@
       "image_prompt": "A realistic food photography shot at a 45-degree angle under soft natural daylight. Three golden-brown crispy zucchini fritters with visible speckles of green herbs and white feta, neatly stacked on a minimalist grey ceramic plate. No cutlery, no side dishes beside the plate, no people, no text.",
       "category": "danie wegetariańskie lub wegańskie"
     },
+    "image": "media/2026-11-11-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-11T06:49:04.490087+00:00",
+    "image_note": "",
+    "card": "media/2026-11-11-1-skladniki.jpg",
+    "video": "media/2026-11-11-1-reel.mp4"
+  },
+  "telegram_offset": 64485496,
+  "last_update_id": 64485495,
+  "last_proposed": "2026-11-11",
+  "queue": [
     {
       "title": "Aromatyczne curry z ciecierzycą i batatami",
       "hook": "Szybki wegański obiad w 35 minut: kremowe curry z ciecierzycą i batatami",

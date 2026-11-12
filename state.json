@@ -1,56 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Aromatyczne curry z ciecierzycą i batatami",
-      "hook": "Szybki wegański obiad w 35 minut: kremowe curry z ciecierzycą i batatami",
-      "intro": "Sycące, rozgrzewające i pełne głębokiego smaku danie z jednego garnka. Idealne na pożywny posiłek po długim dniu.",
-      "time_min": 35,
-      "servings": 4,
-      "ingredients": [
-        "1 duży batat (ok. 400 g), obrany i pokrojony w 1,5 cm kostkę",
-        "1 puszka (400 g) ciecierzycy, odsączona z zalewy",
-        "1 puszka (400 ml) mleczka kokosowego (min. 80% ekstraktu)",
-        "1 puszka (400 g) pomidorów krojonych",
-        "1 duża cebula, drobno posiekana",
-        "2 ząbki czosnku, przeciśnięte przez praskę",
-        "2 cm świeżego imbiru, startego na tarce",
-        "80 g świeżego szpinaku baby",
-        "2 łyżki oleju rzepakowego",
-        "1 płaska łyżka przyprawy curry w proszku",
-        "1 łyżeczka mielonego kuminu",
-        "0,5 łyżeczki kurkumy",
-        "1 łyżeczka soli",
-        "1 łyżka soku z limonki"
-      ],
-      "steps": [
-        "W głębokiej patelni lub szerokim garnku rozgrzej olej i podsmaż cebulę na średnim ogniu przez 4 minuty, aż się zeszkli.",
-        "Dodaj czosnek, starty imbir, proszek curry, kumin oraz kurkumę i smaż całość przez 1 minutę, ciągle mieszając, aż przyprawy uwolnią aromat.",
-        "Wrzuć pokrojonego w kostkę batata, wlej krojone pomidory oraz mleczko kokosowe, dodaj sól i dokładnie wymieszaj.",
-        "Doprowadź do wrzenia, zmniejsz ogień, przykryj i gotuj na wolnym ogniu przez 15-18 minut, aż batat będzie całkowicie miękki.",
-        "Dodaj odsączoną ciecierzycę oraz świeży szpinak, gotuj bez przykrycia przez 3 minuty, aż szpinak zmięknie.",
-        "Zdejmij danie z ognia, wmieszaj sok z limonki i dopraw do smaku w razie potrzeby."
-      ],
-      "tip": "Curry smakuje jeszcze lepiej po kilku godzinach, gdy smaki się przegryzą, dlatego świetnie nadaje się do przygotowania na zapas do lunchboxa.",
-      "hashtags": [
-        "#obiad",
-        "#wegetarianskie",
-        "#zdrowejedzenie",
-        "#curry",
-        "#ciecierzyca"
-      ],
-      "image_prompt": "realistic food photography, natural lighting, 45-degree angle shot, a deep rustic ceramic bowl filled with vibrant golden-red chickpea and sweet potato curry with wilted baby spinach leaves in creamy sauce, no cutlery, no side dishes, no people, no text",
-      "category": "danie wegetariańskie lub wegańskie"
-    },
-    "image": "media/2026-11-12-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-12T06:51:32.538794+00:00",
-    "image_note": "",
-    "card": "media/2026-11-12-1-skladniki.jpg",
-    "video": "media/2026-11-12-1-reel.mp4"
-  },
-  "telegram_offset": 64485497,
-  "last_update_id": 64485496,
+  "pending": null,
+  "telegram_offset": 64485498,
+  "last_update_id": 64485497,
   "last_proposed": "2026-11-12",
   "queue": [
     {

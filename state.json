@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485497,
-  "last_update_id": 64485496,
-  "last_proposed": "2026-11-11",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Aromatyczne curry z ciecierzycą i batatami",
       "hook": "Szybki wegański obiad w 35 minut: kremowe curry z ciecierzycą i batatami",
       "intro": "Sycące, rozgrzewające i pełne głębokiego smaku danie z jednego garnka. Idealne na pożywny posiłek po długim dniu.",
@@ -45,6 +41,18 @@
       "image_prompt": "realistic food photography, natural lighting, 45-degree angle shot, a deep rustic ceramic bowl filled with vibrant golden-red chickpea and sweet potato curry with wilted baby spinach leaves in creamy sauce, no cutlery, no side dishes, no people, no text",
       "category": "danie wegetariańskie lub wegańskie"
     },
+    "image": "media/2026-11-12-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-12T06:51:32.538794+00:00",
+    "image_note": "",
+    "card": "media/2026-11-12-1-skladniki.jpg",
+    "video": "media/2026-11-12-1-reel.mp4"
+  },
+  "telegram_offset": 64485497,
+  "last_update_id": 64485496,
+  "last_proposed": "2026-11-12",
+  "queue": [
     {
       "title": "Kremowy makaron z pieczonymi pomidorkami i burratą",
       "hook": "Szybki obiad w 25 minut: makaron z pieczonymi pomidorkami i burratą",

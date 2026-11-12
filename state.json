@@ -201,6 +201,45 @@
       ],
       "image_prompt": "A close-up 45-degree angle food photography shot of classic French onion soup in a rustic ceramic bowl, topped with a golden toasted baguette slice and bubbling melted browned gruyere cheese, rich dark amber onion broth visible, soft natural morning light, no cutlery, no side dishes, no people, no text",
       "category": "zupa"
+    },
+    {
+      "title": "Aromatyczny butter chicken",
+      "hook": "Pomysł na obiad w 35 minut: domowy butter chicken jak z restauracji",
+      "intro": "Aksamitny, delikatnie pikantny sos pomidorowo-maślany i soczyste kawałki kurczaka to połączenie, do którego chce się wracać. Danie przygotujesz sprawnie na jednej patelni.",
+      "time_min": 35,
+      "servings": 3,
+      "ingredients": [
+        "500 g piersi z kurczaka",
+        "150 g jogurtu naturalnego",
+        "400 g krojonych pomidorów z puszki",
+        "100 ml śmietanki 30%",
+        "40 g masła",
+        "1 duża cebula",
+        "2 ząbki czosnku",
+        "1 łyżeczka świeżego startego imbiru",
+        "1 łyżka soku z cytryny",
+        "1 łyżka oleju do smażenia",
+        "1 łyżeczka przyprawy garam masala",
+        "1 łyżeczka słodkiej papryki",
+        "1/2 łyżeczki kuminu",
+        "1/2 łyżeczki soli"
+      ],
+      "steps": [
+        "Mięso pokrój w kostkę i wymieszaj z jogurtem, sokiem z cytryny, przeciskanym czosnkiem, imbirem oraz połową garam masali, papryki i kuminu.",
+        "Na dużej patelni rozgrzej olej i podsmaż kurczaka na dużym ogniu przez 6 minut do zrumienienia, po czym zdejmij go na talerz.",
+        "Na tej samej patelni rozpuść 20 g masła, dodaj drobno posiekaną cebulę i smaż na średnim ogniu przez 5 minut.",
+        "Wsyp pozostałe przyprawy, wlej krojone pomidory i gotuj sos na wolnym ogniu przez 10 minut.",
+        "Wlej śmietankę, dodaj resztę masła oraz usmażonego kurczaka. Całość wymieszaj i podgrzewaj na małym ogniu jeszcze przez 5 minut."
+      ],
+      "tip": "Aby uzyskać idealnie gładki sos jak z indyjskiej restauracji, zblenduj podsmażoną cebulę z pomidorami przed dodaniem śmietanki i mięsa.",
+      "hashtags": [
+        "#obiad",
+        "#pomyslnaobiad",
+        "#butterchicken",
+        "#obiadzkurczakiem"
+      ],
+      "image_prompt": "Realistic food photography of Indian butter chicken with creamy orange sauce, served in a shallow dark ceramic bowl alongside white basmati rice, garnished with a drizzle of cream and green cilantro, natural soft window light, 45-degree angle shot, single dish on a plate, no cutlery, no background props, no people, no text",
+      "category": "obiad z mięsem lub rybą"
     }
   ]
 }

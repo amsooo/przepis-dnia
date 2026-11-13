@@ -1,54 +1,6 @@
 {
   "pending": {
     "recipe": {
-      "title": "Kremowy makaron z pieczonymi pomidorkami i burratą",
-      "hook": "Szybki obiad w 25 minut: makaron z pieczonymi pomidorkami i burratą",
-      "intro": "Słodkie, pieczone pomidorki z czosnkiem i oliwą tworzą genialny sos, a kremowa burrata rozpuszcza się na gorącym makaronie. To jedno z tych dań, które robi się niemal samo, a smakuje jak z włoskiej restauracji.",
-      "time_min": 25,
-      "servings": 2,
-      "ingredients": [
-        "250 g makaronu (np. tagliatelle lub spaghetti)",
-        "400 g pomidorków koktajlowych",
-        "1 kula sera burrata (125 g)",
-        "3 ząbki czosnku w łupinach",
-        "40 ml oliwy z oliwek (ok. 4 łyżki)",
-        "1/3 łyżeczki płatków chili",
-        "garść świeżych liści bazylii",
-        "1/2 łyżeczki soli",
-        "świeżo mielony czarny pieprz do smaku"
-      ],
-      "steps": [
-        "Rozgrzej piekarnik do 200°C w trybie góra-dół.",
-        "Do naczynia żaroodpornego wrzuć całe pomidorki koktajlowe oraz lekko zgniecione ząbki czosnku w łupinach. Polej oliwą, oprósz solą oraz płatkami chili i wymieszaj.",
-        "Piecz przez około 20 minut, aż pomidorki popękają i lekko się skarmelizują.",
-        "W międzyczasie ugotuj makaron w osolonej wodzie al dente według instrukcji na opakowaniu, zachowując 50 ml wody z gotowania.",
-        "Wyjmij pomidorki z pieca. Czosnek wyciśnij z łupinek i rozgnieć widelcem razem z kilkoma pomidorkami na dnie naczynia, tworząc gęsty sos.",
-        "Przełóż odcedzony makaron bezpośrednio do naczynia z pomidorkami, wlej zachowaną wodę z gotowania i dokładnie wymieszaj, aby sos oblepił makaron.",
-        "Wyłóż porcje na talerze, na wierzchu ułóż rozerwaną na pół burratę, posyp świeżą bazylią i świeżo mielonym pieprzem."
-      ],
-      "tip": "Woda z gotowania makaronu jest kluczowa – dzięki zawartej w niej skrobi oliwa i soki z pomidorków połączą się w gładką emulsję.",
-      "hashtags": [
-        "#przepisy",
-        "#makaron",
-        "#pomyslnaobiad",
-        "#burrata"
-      ],
-      "image_prompt": "A realistic food photograph of a single ceramic plate served with pasta tossed in roasted cherry tomato sauce, topped with a torn creamy burrata ball and fresh basil leaves, cracked black pepper visible, shot at a 45-degree angle in soft natural daylight, no cutlery, no extra side dishes, no people, no text.",
-      "category": "makaron, ryż lub kasza"
-    },
-    "image": "media/2026-11-13-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-13T06:49:44.379485+00:00",
-    "image_note": "",
-    "card": "media/2026-11-13-1-skladniki.jpg",
-    "video": "media/2026-11-13-1-reel.mp4"
-  },
-  "telegram_offset": 64485498,
-  "last_update_id": 64485497,
-  "last_proposed": "2026-11-13",
-  "queue": [
-    {
       "title": "Mocno czekoladowe brownie z solą morską",
       "hook": "Proste brownie czekoladowe: mocno wilgotne ciasto z chrupiącą skórką",
       "intro": "Gęste, lekko ciągnące w środku i wykończone charakterystyczną, popękaną skorupką. Kilka płatków soli morskiej idealnie balansuje głęboki, wytrawny smak ciemnej czekolady.",
@@ -85,6 +37,18 @@
       "image_prompt": "Realistic food photography shot at a 45-degree angle, showing a single square slice of rich, fudgy dark chocolate brownie with a shiny crinkled paper-thin crust and visible flaky sea salt crystals on top, centered on a neutral dark gray ceramic plate. Soft natural daylight from the side, shallow depth of field, sharp moist crumb texture, single dish, no cutlery, no crumbs beside the plate, no people, no text.",
       "category": "deser lub wypiek"
     },
+    "image": "media/2026-11-13-2.jpg",
+    "status": "awaiting",
+    "version": 2,
+    "created": "2026-11-13T10:59:11.543128+00:00",
+    "image_note": "",
+    "card": "media/2026-11-13-2-skladniki.jpg",
+    "video": "media/2026-11-13-2-reel.mp4"
+  },
+  "telegram_offset": 64485499,
+  "last_update_id": 64485498,
+  "last_proposed": "2026-11-13",
+  "queue": [
     {
       "title": "Puszyste tosty francuskie z chałki z cynamonem",
       "hook": "Pomysł na niedzielny brunch: puszyste tosty francuskie z chałki w 15 minut",

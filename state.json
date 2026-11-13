@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485498,
-  "last_update_id": 64485497,
-  "last_proposed": "2026-11-12",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Kremowy makaron z pieczonymi pomidorkami i burratą",
       "hook": "Szybki obiad w 25 minut: makaron z pieczonymi pomidorkami i burratą",
       "intro": "Słodkie, pieczone pomidorki z czosnkiem i oliwą tworzą genialny sos, a kremowa burrata rozpuszcza się na gorącym makaronie. To jedno z tych dań, które robi się niemal samo, a smakuje jak z włoskiej restauracji.",
@@ -40,6 +36,18 @@
       "image_prompt": "A realistic food photograph of a single ceramic plate served with pasta tossed in roasted cherry tomato sauce, topped with a torn creamy burrata ball and fresh basil leaves, cracked black pepper visible, shot at a 45-degree angle in soft natural daylight, no cutlery, no extra side dishes, no people, no text.",
       "category": "makaron, ryż lub kasza"
     },
+    "image": "media/2026-11-13-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-13T06:49:44.379485+00:00",
+    "image_note": "",
+    "card": "media/2026-11-13-1-skladniki.jpg",
+    "video": "media/2026-11-13-1-reel.mp4"
+  },
+  "telegram_offset": 64485498,
+  "last_update_id": 64485497,
+  "last_proposed": "2026-11-13",
+  "queue": [
     {
       "title": "Mocno czekoladowe brownie z solą morską",
       "hook": "Proste brownie czekoladowe: mocno wilgotne ciasto z chrupiącą skórką",

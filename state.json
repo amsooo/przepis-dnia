@@ -199,6 +199,50 @@
       ],
       "image_prompt": "Realistic food photography of Indian butter chicken with creamy orange sauce, served in a shallow dark ceramic bowl alongside white basmati rice, garnished with a drizzle of cream and green cilantro, natural soft window light, 45-degree angle shot, single dish on a plate, no cutlery, no background props, no people, no text",
       "category": "obiad z mięsem lub rybą"
+    },
+    {
+      "title": "Gęste chili sin carne z czarną fasolą i kukurydzą",
+      "hook": "Rozgrzewający obiad w 35 minut: gęste chili sin carne z fasolą",
+      "intro": "To sycące, jednogarnkowe danie idealnie sprawdza się w zabiegane dni, gdy masz ochotę na coś wyrazistego. Dodatek gorzkiej czekolady nadaje sosowi głęboki kolor i przyjemnie balansuje kwasowość pomidorów.",
+      "time_min": 35,
+      "servings": 4,
+      "ingredients": [
+        "2 puszki czarnej fasoli (po 400 g, waga po odsączeniu łącznie ok. 480 g)",
+        "1 puszka krojonych pomidorów (400 g)",
+        "1 mała puszka kukurydzy (150 g po odsączeniu)",
+        "1 duża czerwona papryka (ok. 200 g)",
+        "1 średnia czerwona cebula (ok. 100 g)",
+        "3 ząbki czosnku",
+        "2 łyżki oliwy z oliwek (20 ml)",
+        "1 łyżeczka mielonego kuminu",
+        "1,5 łyżeczki wędzonej słodkiej papryki",
+        "0,5 łyżeczki ostrej papryki w proszku",
+        "1 łyżeczka suszonego oregano",
+        "200 ml bulionu warzywnego",
+        "20 g gorzkiej czekolady (min. 70% kakao)",
+        "1 łyżka soku z limonki (15 ml)",
+        "1 płaska łyżeczka soli",
+        "0,5 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Cebulę i czerwoną paprykę pokrój w drobną kostkę, a ząbki czosnku drobno posiekaj.",
+        "W garnku z grubym dnem rozgrzej 2 łyżki oliwy, wrzuć cebulę i smaż na średnim ogniu przez 4 minuty, aż zmięknie.",
+        "Dodaj pokrojoną paprykę oraz czosnek i smaż całość przez kolejne 3 minuty.",
+        "Wsyp kumin, wędzoną paprykę, ostrą paprykę, oregano, sól oraz pieprz. Przesmażaj przyprawy przez 1 minutę, ciągle mieszając.",
+        "Wlej pomidory z puszki oraz 200 ml bulionu warzywnego. Doprowadź do wrzenia, zmniejsz płomień i gotuj pod lekkim przykryciem przez 12 minut.",
+        "Fasolę oraz kukurydzę przepłucz na sitku, dodaj do garnka i gotuj bez przykrycia przez 10 minut, aż sos wyraźnie zgęstnieje.",
+        "Zdejmij garnek z ognia, wrzuć połamaną gorzką czekoladę i wlej sok z limonki. Wymieszaj do całkowitego rozpuszczenia czekolady."
+      ],
+      "tip": "Danie smakuje jeszcze lepiej następnego dnia po podgrzaniu, gdy smaki dokładnie się przegryzą.",
+      "hashtags": [
+        "#przepisy",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#chilisincarne",
+        "#fasola"
+      ],
+      "image_prompt": "A close-up 45-degree angle food photograph of thick chili sin carne in a rustic dark ceramic bowl, natural soft daylight, deep rich red sauce with visible black beans and golden corn kernels, garnished with fresh chopped cilantro, single bowl centered on a plain matte surface, no cutlery, no side dishes, no people, no text",
+      "category": "danie wegetariańskie lub wegańskie"
     }
   ]
 }

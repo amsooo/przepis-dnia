@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485500,
-  "last_update_id": 64485499,
-  "last_proposed": "2026-11-13",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Puszyste tosty francuskie z chałki z cynamonem",
       "hook": "Pomysł na niedzielny brunch: puszyste tosty francuskie z chałki w 15 minut",
       "intro": "Ciepłe, pachnące maślaną chałką i cynamonem tosty to idealny sposób na niespieszny poranek. Chrupiące z zewnątrz, niezwykle miękkie i aksamitne w środku.",
@@ -38,6 +34,18 @@
       "image_prompt": "A realistic food photograph taken at a 45-degree angle in soft natural daylight, featuring golden-brown cinnamon French toast made from thick challah slices on a single minimalist ceramic plate, topped with fresh red raspberries and a light drizzle of maple syrup, no cutlery, no side dishes, no people, no text",
       "category": "śniadanie lub brunch"
     },
+    "image": "media/2026-11-14-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-14T06:37:46.757179+00:00",
+    "image_note": "",
+    "card": "media/2026-11-14-1-skladniki.jpg",
+    "video": "media/2026-11-14-1-reel.mp4"
+  },
+  "telegram_offset": 64485500,
+  "last_update_id": 64485499,
+  "last_proposed": "2026-11-14",
+  "queue": [
     {
       "title": "Francuska zupa cebulowa z zapiekanym serem",
       "hook": "Tradycyjna francuska zupa cebulowa z karmelizowaną cebulą i serem",

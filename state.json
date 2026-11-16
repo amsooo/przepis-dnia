@@ -128,6 +128,50 @@
       ],
       "image_prompt": "A close-up 45-degree angle food photograph of thick chili sin carne in a rustic dark ceramic bowl, natural soft daylight, deep rich red sauce with visible black beans and golden corn kernels, garnished with fresh chopped cilantro, single bowl centered on a plain matte surface, no cutlery, no side dishes, no people, no text",
       "category": "danie wegetariańskie lub wegańskie"
+    },
+    {
+      "title": "Wilgotne ciasto marchewkowe z kremem śmietankowym",
+      "hook": "Proste ciasto marchewkowe z cynamonem i kremem z serka",
+      "intro": "Pachnące korzennymi przyprawami, cudownie wilgotne ciasto, które zawsze się udaje. Całość dopełnia aksamitny, lekko waniliowy krem z serka śmietankowego.",
+      "time_min": 60,
+      "servings": 10,
+      "ingredients": [
+        "300 g marchwi (startej na drobnych oczkach)",
+        "200 g mąki pszennej",
+        "150 g drobnego cukru trzcinowego",
+        "3 duże jajka",
+        "150 ml oleju rzepakowego",
+        "1 łyżeczka proszku do pieczenia",
+        "1 łyżeczka sody oczyszczonej",
+        "1,5 łyżeczki mielonego cynamonu",
+        "0,5 łyżeczki mielonego imbiru",
+        "70 g posiekanych orzechów włoskich",
+        "szczypta soli",
+        "200 g serka śmietankowego typu philadelphia",
+        "60 g miękkiego masła",
+        "50 g cukru pudru",
+        "1 łyżeczka ekstraktu z wanilii"
+      ],
+      "steps": [
+        "Piekarnik nagrzej do 180°C w trybie góra-dół. Dno tortownicy o średnicy 22 cm wyłóż papierem do pieczenia.",
+        "W dużej misce ubijaj jajka z cukrem trzcinowym przez około 3 minuty na jasną, puszystą masę.",
+        "Cienkim strumieniem wlewaj olej, miksując na najniższych obrotach miksera.",
+        "W osobnej misce wymieszaj mąkę, proszek do pieczenia, sodę, cynamon, imbir i szczyptę soli, a następnie przesiej je do masy jajecznej i krótko wymieszaj szpatułką.",
+        "Dodaj startą marchewkę oraz posiekane orzechy włoskie, po czym delikatnie połącz składniki łyżką.",
+        "Przelej ciasto do formy i piecz przez 45-50 minut, do tak zwanego suchego patyczka. Po upieczeniu całkowicie ostudź.",
+        "Przygotuj krem: miękkie masło ucieraj z cukrem pudrem przez 3 minuty na puszysty puch, dodaj wanilię oraz partiami serek śmietankowy, miksując tylko do połączenia składników.",
+        "Rozprowadź równomiernie krem na wierzchu ostudzonego ciasta i udekoruj odrobiną posiekanych orzechów."
+      ],
+      "tip": "Wszystkie składniki do ciasta powinny być w temperaturze pokojowej, aby uniknąć zakalca.",
+      "hashtags": [
+        "#foodie",
+        "#deser",
+        "#slodkosci",
+        "#ciastomarchewkowe",
+        "#marchewkowe"
+      ],
+      "image_prompt": "Realistic food photography of a slice of moist spiced carrot cake topped with creamy white cream cheese frosting and finely chopped walnuts, sitting upright on a minimalist ceramic plate, 45-degree angle, soft natural window light, clean single dish composition, no cutlery, no background props, no people, no text",
+      "category": "deser lub wypiek"
     }
   ]
 }

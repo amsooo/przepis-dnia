@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485501,
-  "last_update_id": 64485500,
-  "last_proposed": "2026-11-15",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Francuska zupa cebulowa z zapiekanym serem",
       "hook": "Tradycyjna francuska zupa cebulowa z karmelizowaną cebulą i serem",
       "intro": "Głęboki, naturalnie słodkawy smak długo karmelizowanej cebuli połączony z chrupiącą grzanką i ciągnącym się serem gruyère. To absolutny klasyk, który idealnie rozgrzewa i smakuje jak z najlepszego paryskiego bistro.",
@@ -46,6 +42,18 @@
       "image_prompt": "A close-up 45-degree angle food photography shot of classic French onion soup in a rustic ceramic bowl, topped with a golden toasted baguette slice and bubbling melted browned gruyere cheese, rich dark amber onion broth visible, soft natural morning light, no cutlery, no side dishes, no people, no text",
       "category": "zupa"
     },
+    "image": "media/2026-11-16-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-16T08:03:06.308395+00:00",
+    "image_note": "",
+    "card": "media/2026-11-16-1-skladniki.jpg",
+    "video": "media/2026-11-16-1-reel.mp4"
+  },
+  "telegram_offset": 64485501,
+  "last_update_id": 64485500,
+  "last_proposed": "2026-11-16",
+  "queue": [
     {
       "title": "Aromatyczny butter chicken",
       "hook": "Pomysł na obiad w 35 minut: domowy butter chicken jak z restauracji",

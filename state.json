@@ -138,6 +138,120 @@
       ],
       "image_prompt": "Realistic food photography of a slice of moist spiced carrot cake topped with creamy white cream cheese frosting and finely chopped walnuts, sitting upright on a minimalist ceramic plate, 45-degree angle, soft natural window light, clean single dish composition, no cutlery, no background props, no people, no text",
       "category": "deser lub wypiek"
+    },
+    {
+      "title": "Krucha galette z jabłkami i cynamonem",
+      "hook": "Prosty deser w 50 minut: krucha tarta rustykalna z jabłkami i cynamonem",
+      "intro": "Pachnąca cynamonem, maślana i cudownie chrupiąca tarta bez używania formy do pieczenia. To idealny deser do popołudniowej kawy, który udaje się za każdym razem.",
+      "time_min": 50,
+      "servings": 6,
+      "ingredients": [
+        "200 g mąki pszennej",
+        "120 g bardzo zimnego masła",
+        "2 łyżki cukru pudru",
+        "40 ml lodowatej wody",
+        "3 średnie jabłka (najlepiej szara reneta lub antonówka)",
+        "2 łyżki cukru trzcinowego",
+        "1 łyżeczka cynamonu",
+        "1 łyżka soku z cytryny",
+        "1 łyżka skrobi ziemniaczanej",
+        "1 jajko roztrzepane z 1 łyżką mleka (do posmarowania brzegów)",
+        "2 łyżki płatków migdałowych"
+      ],
+      "steps": [
+        "Mąkę wymieszaj z cukrem pudrem. Dodaj pokrojone w drobną kostkę zimne masło i szybko posiekaj lub rozetrzyj palcami, aż powstaną drobne grudki.",
+        "Wlej lodowatą wodę, zagnieć jednolite ciasto, uformuj dysk, zawiń w folię i schłodź w lodówce przez 20 minut.",
+        "Jabłka obierz, pokrój w cienkie plasterki i wymieszaj w misce z sokiem z cytryny, cukrem trzcinowym, cynamonem oraz skrobią ziemniaczaną.",
+        "Schłodzone ciasto rozwałkuj na papierze do pieczenia na okrąg o średnicy około 30 cm i grubości 3-4 mm.",
+        "Na środku ciasta ułóż plasterki jabłek, zostawiając około 4 cm wolnego brzegu.",
+        "Zawiń brzegi ciasta do środka, lekko nakładając je na siebie i dociskając. Brzegi posmaruj roztrzepanym jajkiem i posyp płatkami migdałowymi.",
+        "Przełóż ciasto wraz z papierem na blachę i piecz w piekarniku nagrzanym do 190°C (grzanie góra-dół) przez 35-40 minut, aż ciasto ładnie się zezłoci, a jabłka zmiękną."
+      ],
+      "tip": "Użyj twardych, kwaskowatych jabłek, a spód ciasta przed wyłożeniem owoców możesz oprószyć łyżką mielonych migdałów, które wchłoną ewentualny nadmiar soku.",
+      "hashtags": [
+        "#foodie",
+        "#deser",
+        "#slodkosci",
+        "#galette",
+        "#tartazjablkami"
+      ],
+      "image_prompt": "A freshly baked rustic French apple galette with golden, flaky folded pastry crust, filled with neatly arranged sliced apples sprinkled with cinnamon and toasted almond flakes on top, centered on a matte off-white ceramic serving plate, 45-degree angle shot, soft natural afternoon sunlight, authentic food photography, no cutlery, no side items, no people, no text",
+      "category": "deser lub wypiek"
+    },
+    {
+      "title": "Aromatyczna szakszuka z pomidorami i fetą",
+      "hook": "Szybka kolacja w 20 minut: aromatyczna szakszuka z pomidorami i fetą",
+      "intro": "To idealny pomysł na ciepłą i sycącą kolację, którą zrobisz na jednej patelni w niecałe pół godziny. Soczyste pomidory, słona feta i kremowe, płynne żółtko to połączenie bezbłędne w swojej prostocie.",
+      "time_min": 20,
+      "servings": 2,
+      "ingredients": [
+        "4 duże jajka",
+        "400 g krojonych pomidorów z puszki",
+        "160 g czerwonej papryki (1 sztuka)",
+        "80 g czerwonej cebuli (1 mała sztuka)",
+        "80 g sera feta",
+        "2 ząbki czosnku",
+        "20 ml oliwy z oliwek (2 łyżki)",
+        "1 łyżeczka mielonego kminu rzymskiego",
+        "1 łyżeczka wędzonej słodkiej papryki",
+        "1/4 łyżeczki płatków chili",
+        "1/2 łyżeczki soli",
+        "2 łyżki posiekanej natki pietruszki"
+      ],
+      "steps": [
+        "Cebulę i paprykę pokrój w drobną kostkę, a czosnek posiekaj w cienkie plasterki.",
+        "Na dużej patelni rozgrzej oliwę z oliwek, dodaj cebulę oraz paprykę i podsmażaj na średnim ogniu przez 5 minut, aż zmiękną.",
+        "Dodaj czosnek, kmin rzymski, wędzoną paprykę oraz chili i smaż przez kolejną minutę, intensywnie mieszając.",
+        "Wlej pomidory z puszki, dodaj sól i duś całość na średnim ogniu bez przykrycia przez 7 minut, aż sos lekko odparuje i zgęstnieje.",
+        "W gęstym sosie zrób łyżką cztery wgłębienia i wbij w nie jajka, a wierzch posyp pokruszoną fetą.",
+        "Przykryj patelnię pokrywką, zmniejsz ogień do małego i gotuj przez 4-5 minut, aż białka się zetną, a żółtka pozostaną płynne.",
+        "Zdejmij z ognia i przed podaniem posyp posiekaną natką pietruszki."
+      ],
+      "tip": "Zdejmij patelnię z ognia chwilę przed idealnym ścięciem jajek, ponieważ dojdą jeszcze same w gorącym sosie.",
+      "hashtags": [
+        "#smaczne",
+        "#kolacja",
+        "#szybkieprzepisy",
+        "#szakszuka",
+        "#jajka"
+      ],
+      "image_prompt": "Realistic food photography of shakshuka served on a dark ceramic plate, featuring gently cooked eggs with bright runny yolks nestled in a rich chunky tomato and red pepper sauce, sprinkled with crumbled white feta cheese and finely chopped parsley, natural soft side lighting, 45-degree angle shot, single dish on a plate, no cutlery, no bread on the side, no people, no text",
+      "category": "szybka przekąska lub kolacja"
+    },
+    {
+      "title": "Puszyste syrniki twarogowe z sosem malinowym",
+      "hook": "Pomysł na leniwe śniadanie: aksamitne syrniki twarogowe z patelni",
+      "intro": "Kremowe w środku i delikatnie chrupiące ze złocistą skórką na zewnątrz. Te tradycyjne placuszki z twarogu to niezawodny sposób na udany weekendowy poranek.",
+      "time_min": 25,
+      "servings": 2,
+      "ingredients": [
+        "400 g twarogu półtłustego w kostce",
+        "1 żółtko jaja (klasa M)",
+        "25 g cukru wanilinowego lub drobnego cukru (ok. 2 łyżki)",
+        "35 g mąki pszennej (ok. 2 płaskie łyżki) plus odrobina do obtoczenia",
+        "15 g masła klarowanego do smażenia (1 łyżka)",
+        "150 g malin (świeżych lub mrożonych)",
+        "15 g miodu (1 łyżka)"
+      ],
+      "steps": [
+        "Twaróg przełóż do miski i dokładnie rozgnieć widelcem razem z żółtkiem oraz cukrem na jednolitą masę.",
+        "Wsyp 35 g mąki pszennej i krótko wymieszaj łyżką – masa powinna pozostać gęsta i zwarta.",
+        "Podziel ciasto na 6 równych porcji, uformuj z nich w dłoniach kulki, obtocz delikatnie w mące i spłaszcz nożem na grube krążki o wysokości około 2 cm.",
+        "Na patelni rozgrzej masło klarowane na małym ogniu i ułóż placuszki.",
+        "Smaż pod przykryciem przez 4-5 minut z każdej strony na małym ogniu, aż ładnie się zezłocą i napuszą.",
+        "W międzyczasie podgrzej w rondelku maliny z miodem przez 3 minuty, aż lekko puszczą sok i utworzą gęsty sos.",
+        "Wyłóż usmażone syrniki na talerz i polej ciepłym sosem malinowym."
+      ],
+      "tip": "Wybierz suchy twaróg w klinku lub kostce – twaróg z wiaderka jest zbyt mokry i wymagałby za dużo mąki.",
+      "hashtags": [
+        "#kuchniapolska",
+        "#sniadanie",
+        "#brunch",
+        "#syrniki",
+        "#placuszkitwarogowe"
+      ],
+      "image_prompt": "A 45-degree angle food photography shot of three golden-brown syrniki cottage cheese pancakes stacked neatly on a rustic ceramic plate, topped with warm raspberry coulis dripping down the sides. Soft natural morning light highlighting the delicate crust and vibrant berry texture. Single dish centered, clean composition, no cutlery, no background clutter, no people, no text.",
+      "category": "śniadanie lub brunch"
     }
   ]
 }

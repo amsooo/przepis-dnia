@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485503,
-  "last_update_id": 64485502,
-  "last_proposed": "2026-11-17",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Gęste chili sin carne z czarną fasolą i kukurydzą",
       "hook": "Rozgrzewający obiad w 35 minut: gęste chili sin carne z fasolą",
       "intro": "To sycące, jednogarnkowe danie idealnie sprawdza się w zabiegane dni, gdy masz ochotę na coś wyrazistego. Dodatek gorzkiej czekolady nadaje sosowi głęboki kolor i przyjemnie balansuje kwasowość pomidorów.",
@@ -48,6 +44,18 @@
       "image_prompt": "A close-up 45-degree angle food photograph of thick chili sin carne in a rustic dark ceramic bowl, natural soft daylight, deep rich red sauce with visible black beans and golden corn kernels, garnished with fresh chopped cilantro, single bowl centered on a plain matte surface, no cutlery, no side dishes, no people, no text",
       "category": "danie wegetariańskie lub wegańskie"
     },
+    "image": "media/2026-11-18-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-18T06:52:15.076673+00:00",
+    "image_note": "",
+    "card": "media/2026-11-18-1-skladniki.jpg",
+    "video": "media/2026-11-18-1-reel.mp4"
+  },
+  "telegram_offset": 64485503,
+  "last_update_id": 64485502,
+  "last_proposed": "2026-11-18",
+  "queue": [
     {
       "title": "Wilgotne ciasto marchewkowe z kremem śmietankowym",
       "hook": "Proste ciasto marchewkowe z cynamonem i kremem z serka",

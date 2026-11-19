@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485504,
-  "last_update_id": 64485503,
-  "last_proposed": "2026-11-18",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Wilgotne ciasto marchewkowe z kremem śmietankowym",
       "hook": "Proste ciasto marchewkowe z cynamonem i kremem z serka",
       "intro": "Pachnące korzennymi przyprawami, cudownie wilgotne ciasto, które zawsze się udaje. Całość dopełnia aksamitny, lekko waniliowy krem z serka śmietankowego.",
@@ -48,6 +44,18 @@
       "image_prompt": "Realistic food photography of a slice of moist spiced carrot cake topped with creamy white cream cheese frosting and finely chopped walnuts, sitting upright on a minimalist ceramic plate, 45-degree angle, soft natural window light, clean single dish composition, no cutlery, no background props, no people, no text",
       "category": "deser lub wypiek"
     },
+    "image": "media/2026-11-19-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-19T06:51:57.994373+00:00",
+    "image_note": "",
+    "card": "media/2026-11-19-1-skladniki.jpg",
+    "video": "media/2026-11-19-1-reel.mp4"
+  },
+  "telegram_offset": 64485504,
+  "last_update_id": 64485503,
+  "last_proposed": "2026-11-19",
+  "queue": [
     {
       "title": "Krucha galette z jabłkami i cynamonem",
       "hook": "Prosty deser w 50 minut: krucha tarta rustykalna z jabłkami i cynamonem",

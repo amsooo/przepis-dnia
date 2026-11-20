@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485505,
-  "last_update_id": 64485504,
-  "last_proposed": "2026-11-19",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Krucha galette z jabłkami i cynamonem",
       "hook": "Prosty deser w 50 minut: krucha tarta rustykalna z jabłkami i cynamonem",
       "intro": "Pachnąca cynamonem, maślana i cudownie chrupiąca tarta bez używania formy do pieczenia. To idealny deser do popołudniowej kawy, który udaje się za każdym razem.",
@@ -43,6 +39,18 @@
       "image_prompt": "A freshly baked rustic French apple galette with golden, flaky folded pastry crust, filled with neatly arranged sliced apples sprinkled with cinnamon and toasted almond flakes on top, centered on a matte off-white ceramic serving plate, 45-degree angle shot, soft natural afternoon sunlight, authentic food photography, no cutlery, no side items, no people, no text",
       "category": "deser lub wypiek"
     },
+    "image": "media/2026-11-20-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-20T06:51:09.510963+00:00",
+    "image_note": "",
+    "card": "media/2026-11-20-1-skladniki.jpg",
+    "video": "media/2026-11-20-1-reel.mp4"
+  },
+  "telegram_offset": 64485505,
+  "last_update_id": 64485504,
+  "last_proposed": "2026-11-20",
+  "queue": [
     {
       "title": "Aromatyczna szakszuka z pomidorami i fetą",
       "hook": "Szybka kolacja w 20 minut: aromatyczna szakszuka z pomidorami i fetą",

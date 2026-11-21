@@ -1,55 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Aromatyczna szakszuka z pomidorami i fetą",
-      "hook": "Szybka kolacja w 20 minut: aromatyczna szakszuka z pomidorami i fetą",
-      "intro": "To idealny pomysł na ciepłą i sycącą kolację, którą zrobisz na jednej patelni w niecałe pół godziny. Soczyste pomidory, słona feta i kremowe, płynne żółtko to połączenie bezbłędne w swojej prostocie.",
-      "time_min": 20,
-      "servings": 2,
-      "ingredients": [
-        "4 duże jajka",
-        "400 g krojonych pomidorów z puszki",
-        "160 g czerwonej papryki (1 sztuka)",
-        "80 g czerwonej cebuli (1 mała sztuka)",
-        "80 g sera feta",
-        "2 ząbki czosnku",
-        "20 ml oliwy z oliwek (2 łyżki)",
-        "1 łyżeczka mielonego kminu rzymskiego",
-        "1 łyżeczka wędzonej słodkiej papryki",
-        "1/4 łyżeczki płatków chili",
-        "1/2 łyżeczki soli",
-        "2 łyżki posiekanej natki pietruszki"
-      ],
-      "steps": [
-        "Cebulę i paprykę pokrój w drobną kostkę, a czosnek posiekaj w cienkie plasterki.",
-        "Na dużej patelni rozgrzej oliwę z oliwek, dodaj cebulę oraz paprykę i podsmażaj na średnim ogniu przez 5 minut, aż zmiękną.",
-        "Dodaj czosnek, kmin rzymski, wędzoną paprykę oraz chili i smaż przez kolejną minutę, intensywnie mieszając.",
-        "Wlej pomidory z puszki, dodaj sól i duś całość na średnim ogniu bez przykrycia przez 7 minut, aż sos lekko odparuje i zgęstnieje.",
-        "W gęstym sosie zrób łyżką cztery wgłębienia i wbij w nie jajka, a wierzch posyp pokruszoną fetą.",
-        "Przykryj patelnię pokrywką, zmniejsz ogień do małego i gotuj przez 4-5 minut, aż białka się zetną, a żółtka pozostaną płynne.",
-        "Zdejmij z ognia i przed podaniem posyp posiekaną natką pietruszki."
-      ],
-      "tip": "Zdejmij patelnię z ognia chwilę przed idealnym ścięciem jajek, ponieważ dojdą jeszcze same w gorącym sosie.",
-      "hashtags": [
-        "#smaczne",
-        "#kolacja",
-        "#szybkieprzepisy",
-        "#szakszuka",
-        "#jajka"
-      ],
-      "image_prompt": "Realistic food photography of shakshuka served on a dark ceramic plate, featuring gently cooked eggs with bright runny yolks nestled in a rich chunky tomato and red pepper sauce, sprinkled with crumbled white feta cheese and finely chopped parsley, natural soft side lighting, 45-degree angle shot, single dish on a plate, no cutlery, no bread on the side, no people, no text",
-      "category": "szybka przekąska lub kolacja"
-    },
-    "image": "media/2026-11-21-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-21T06:48:06.352771+00:00",
-    "image_note": "",
-    "card": "media/2026-11-21-1-skladniki.jpg",
-    "video": "media/2026-11-21-1-reel.mp4"
-  },
-  "telegram_offset": 64485506,
-  "last_update_id": 64485505,
+  "pending": null,
+  "telegram_offset": 64485507,
+  "last_update_id": 64485506,
   "last_proposed": "2026-11-21",
   "queue": [
     {

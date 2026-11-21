@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485506,
-  "last_update_id": 64485505,
-  "last_proposed": "2026-11-20",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Aromatyczna szakszuka z pomidorami i fetą",
       "hook": "Szybka kolacja w 20 minut: aromatyczna szakszuka z pomidorami i fetą",
       "intro": "To idealny pomysł na ciepłą i sycącą kolację, którą zrobisz na jednej patelni w niecałe pół godziny. Soczyste pomidory, słona feta i kremowe, płynne żółtko to połączenie bezbłędne w swojej prostocie.",
@@ -44,6 +40,18 @@
       "image_prompt": "Realistic food photography of shakshuka served on a dark ceramic plate, featuring gently cooked eggs with bright runny yolks nestled in a rich chunky tomato and red pepper sauce, sprinkled with crumbled white feta cheese and finely chopped parsley, natural soft side lighting, 45-degree angle shot, single dish on a plate, no cutlery, no bread on the side, no people, no text",
       "category": "szybka przekąska lub kolacja"
     },
+    "image": "media/2026-11-21-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-21T06:48:06.352771+00:00",
+    "image_note": "",
+    "card": "media/2026-11-21-1-skladniki.jpg",
+    "video": "media/2026-11-21-1-reel.mp4"
+  },
+  "telegram_offset": 64485506,
+  "last_update_id": 64485505,
+  "last_proposed": "2026-11-21",
+  "queue": [
     {
       "title": "Puszyste syrniki twarogowe z sosem malinowym",
       "hook": "Pomysł na leniwe śniadanie: aksamitne syrniki twarogowe z patelni",

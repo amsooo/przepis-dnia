@@ -124,6 +124,46 @@
       ],
       "image_prompt": "A realistic close-up food photograph taken at a 45-degree angle in soft natural light, featuring a bowl of rich red roasted tomato soup in a wide shallow grey ceramic bowl, finished with a subtle swirl of white cream and a few fresh green basil leaves in the center, set on a dark textured slate background, single dish, no spoons, no bread on the side, no people, no text",
       "category": "zupa"
+    },
+    {
+      "title": "Soczyste klopsiki indycze w sosie koperkowym",
+      "hook": "Pomysł na domowy obiad: soczyste klopsiki indycze w sosie koperkowym",
+      "intro": "Delikatne pulpety z mięsa indyka duszone w aksamitnym sosie ze świeżym koperkiem. To sprawdzony klasyk, który zawsze wychodzi miękki i aromatyczny.",
+      "time_min": 35,
+      "servings": 4,
+      "ingredients": [
+        "500 g mielonego mięsa z piersi indyka",
+        "1 mała cebula",
+        "1 ząbek czosnku",
+        "1 jajko",
+        "3 łyżki bułki tartej",
+        "50 ml mleka",
+        "500 ml bulionu drobiowego",
+        "150 g śmietanki 30%",
+        "1 pęczek świeżego koperku",
+        "1 łyżka masła",
+        "1 łyżka mąki pszennej",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki czarnego pieprzu"
+      ],
+      "steps": [
+        "Bułkę tartą zalej mlekiem w małej miseczce i odstaw na 5 minut do napęcznienia.",
+        "Cebulę drobno posiekaj i zeszklij na masie na patelni, pod koniec dodając przecciśnięty czosnek.",
+        "Do miski przełóż mięso, namoczoną bułkę, podsmażoną cebulę z czosnkiem, jajko, sól oraz pieprz. Wyrób gładką masę.",
+        "Formuj z masy niewielkie klopsiki wielkości orzecha włoskiego.",
+        "W garnku zagotuj bulion drobiowy, delikatnie wrzuć klopsiki i gotuj na małym ogniu pod przykryciem przez 15 minut.",
+        "Śmietankę wymieszaj w szklance z mąką i kilkoma łyżkami gorącego wywaru z garnka, a następnie wlej do klopsików.",
+        "Dodaj drobno posiekany koperek i gotuj całość bez przykrycia jeszcze przez 3 minuty, aż sos delikatnie zgęstnieje."
+      ],
+      "tip": "Aby klopsiki były wyjątkowo delikatne, wyrabiaj masę mięsną dłonią przez co najmniej 3-4 minuty.",
+      "hashtags": [
+        "#przepisy",
+        "#obiad",
+        "#pomyslnaobiad",
+        "#klopsiki"
+      ],
+      "image_prompt": "A 45-degree angle food photography shot of tender turkey meatballs smothered in a rich, creamy dill sauce, served on a plain white modern ceramic plate. Generously topped with freshly chopped green dill. Natural daylight illumination, clean background, single dish on a plate, no cutlery, no side dishes, no people, no text.",
+      "category": "obiad z mięsem lub rybą"
     }
   ]
 }

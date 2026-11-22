@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485507,
-  "last_update_id": 64485506,
-  "last_proposed": "2026-11-21",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Puszyste syrniki twarogowe z sosem malinowym",
       "hook": "Pomysł na leniwe śniadanie: aksamitne syrniki twarogowe z patelni",
       "intro": "Kremowe w środku i delikatnie chrupiące ze złocistą skórką na zewnątrz. Te tradycyjne placuszki z twarogu to niezawodny sposób na udany weekendowy poranek.",
@@ -39,6 +35,18 @@
       "image_prompt": "A 45-degree angle food photography shot of three golden-brown syrniki cottage cheese pancakes stacked neatly on a rustic ceramic plate, topped with warm raspberry coulis dripping down the sides. Soft natural morning light highlighting the delicate crust and vibrant berry texture. Single dish centered, clean composition, no cutlery, no background clutter, no people, no text.",
       "category": "śniadanie lub brunch"
     },
+    "image": "media/2026-11-22-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-22T13:43:50.483708+00:00",
+    "image_note": "",
+    "card": "media/2026-11-22-1-skladniki.jpg",
+    "video": "media/2026-11-22-1-reel.mp4"
+  },
+  "telegram_offset": 64485507,
+  "last_update_id": 64485506,
+  "last_proposed": "2026-11-22",
+  "queue": [
     {
       "title": "Aksamitny krem z pieczonych pomidorów i czosnku",
       "hook": "Szybki obiad na chłodniejsze dni: gęsty krem z pieczonych pomidorów",

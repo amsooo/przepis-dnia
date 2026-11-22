@@ -198,6 +198,42 @@
       ],
       "image_prompt": "Realistic food photography of a single white ceramic ramekin with classic French crème brûlée on a neutral ceramic plate, featuring a perfectly caramelized golden-amber sugar crust, shot at a 45-degree angle in soft natural daylight, single dish, no cutlery, no background extras, no people, no text",
       "category": "deser lub wypiek"
+    },
+    {
+      "title": "Wilgotne ciasto cytrynowe z lukrem",
+      "hook": "Prosty deser na niedzielę: wilgotne ciasto cytrynowe z maślanym aromatem",
+      "intro": "To ciasto zachwyca intensywnym cytrynowym smakiem i idealnie wilgotną strukturą. Przygotujesz je bez użycia miksera w zaledwie kilkanaście minut.",
+      "time_min": 65,
+      "servings": 8,
+      "ingredients": [
+        "200 g mąki pszennej",
+        "150 g cukru",
+        "150 g masła (roztopionego)",
+        "3 jajka (rozmiar L)",
+        "1 łyżeczka proszku do pieczenia",
+        "Skórka otarta z 2 cytryn",
+        "40 ml soku z cytryny",
+        "100 g cukru pudru",
+        "2 łyżki soku z cytryny (do lukru)"
+      ],
+      "steps": [
+        "Rozgrzej piekarnik do 180 stopni C w trybie góra-dół i wyłóż keksówkę papierem do pieczenia.",
+        "W dużej misce wymieszaj rózgą kuchenną jajka z cukrem, a następnie dodaj sok oraz otartą skórkę z cytryn.",
+        "Wlej przestudzone, roztopione masło i wymieszaj do połączenia składników.",
+        "Przesiej mąkę z proszkiem do pieczenia bezpośrednio do mokrych składników i krótko wymieszaj tylko do połączenia masy.",
+        "Przelej ciasto do keksówki i piecz przez 45-50 minut, do tzw. suchego patyczka.",
+        "Przygotuj lukier, ucierając cukier puder z 2 łyżkami soku z cytryny, i polej nim całkowicie ostudzone ciasto."
+      ],
+      "tip": "Cytryny przed otarciem skórki koniecznie sparź wrzątkiem i dokładnie umyj, aby pozbyć się niepożądanej goryczki.",
+      "hashtags": [
+        "#smaczne",
+        "#deser",
+        "#slodkosci",
+        "#ciastocytrynowe",
+        "#wypieki"
+      ],
+      "image_prompt": "A realistic food photograph of a slice of moist lemon loaf cake with smooth white lemon glaze on top, placed on a simple white ceramic plate. Soft natural day light, shot at a 45-degree angle. Single dish, no cutlery, no side decorations, no people, no text.",
+      "category": "deser lub wypiek"
     }
   ]
 }

@@ -116,6 +116,80 @@
       ],
       "image_prompt": "A 45-degree angle food photography shot of tender turkey meatballs smothered in a rich, creamy dill sauce, served on a plain white modern ceramic plate. Generously topped with freshly chopped green dill. Natural daylight illumination, clean background, single dish on a plate, no cutlery, no side dishes, no people, no text.",
       "category": "obiad z mięsem lub rybą"
+    },
+    {
+      "title": "Makaron z krewetkami w sosie maślano-czosnkowym",
+      "hook": "Szybki obiad w 20 minut: makaron z krewetkami w sosie maślano-czosnkowym",
+      "intro": "Połączenie krewetek, słodkich pomidorków i emulsji z zimnego masła, białego wina oraz czosnku to absolutny klasyk. Całość zrobisz na jednej patelni w czasie, gdy gotuje się makaron.",
+      "time_min": 20,
+      "servings": 2,
+      "ingredients": [
+        "200 g makaronu linguine lub tagliatelle",
+        "250 g krewetek (oczyszczonych, bez pancerzy)",
+        "3 ząbki czosnku",
+        "150 g pomidorków koktajlowych",
+        "40 g zimnego masła pokrojonego w kostkę",
+        "60 ml wytrawnego białego wina",
+        "2 łyżki oliwy z oliwek",
+        "1/3 pęczka świeżej natki pietruszki",
+        "1/2 łyżeczki płatków chili",
+        "1 łyżka soku z cytryny",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Wstaw duży garnek osolonej wody i ugotuj makaron al dente według instrukcji na opakowaniu, odlewając 60 ml wody ze skrobią tuż przed odcedzeniem.",
+        "Na dużej patelni rozgrzej oliwę na średnim ogniu, dodaj drobno posiekany czosnek oraz płatki chili i smaż przez około 40 sekund, aż uwolnią aromat.",
+        "Wrzuć przekrojone na pół pomidorki koktajlowe i smaż przez 2-3 minuty, aż lekko zmiękną.",
+        "Zwiększ płomień, dodaj oczyszczone krewetki i smaż po 1-1,5 minuty z każdej strony, aż zróżowieją. Wlej białe wino i gotuj przez minutę, aż alkohol odparuje.",
+        "Zmniejsz ogień do minimum, dodaj zimne masło w kostkach i energicznie mieszaj patelnią, tworząc gładką, lśniącą emulsję.",
+        "Przełóż na patelnię makaron, wlej 2-3 łyżki odlanej wody, dodaj sok z cytryny oraz posiekaną natkę pietruszki i wymieszaj całość, doprawiając solą oraz pieprzem."
+      ],
+      "tip": "Kluczem do aksamitnego sosu bez dodatku śmietanki jest zimne masło wmieszane pod koniec z odrobiną wody z makaronu.",
+      "hashtags": [
+        "#foodie",
+        "#makaron",
+        "#pomyslnaobiad",
+        "#makaronzkrewetkami",
+        "#krewetki"
+      ],
+      "image_prompt": "A shallow ceramic bowl with glossy linguine pasta tossed with pink seared prawns and blistered cherry tomatoes in a delicate buttery garlic sauce, garnished with fresh finely chopped parsley, realistic food photography, warm natural daylight, 45-degree angle shot, single dish on a plain neutral surface, no cutlery, no background elements, no people, no text",
+      "category": "makaron, ryż lub kasza"
+    },
+    {
+      "title": "Aksamitne crème brûlée z prawdziwą wanilią",
+      "hook": "Prosty deser jak z francuskiej restauracji: kremowe crème brûlée",
+      "intro": "Ten klasyczny francuski deser zachwyca kontrastem kruchej, skarmelizowanej skorupki i gładkiego, waniliowego kremu. Przygotujesz go z zaledwie kilku podstawowych składników.",
+      "time_min": 60,
+      "servings": 4,
+      "ingredients": [
+        "500 ml śmietanki 36%",
+        "1 laska wanilii",
+        "5 żółtek z jajek wielkości L",
+        "60 g drobnego cukru",
+        "4 łyżki brązowego cukru trzcinowego",
+        "1 szczypta soli"
+      ],
+      "steps": [
+        "Piekarnik nagrzej do 120°C w trybie góra-dół bez termoobiegu. Przygotuj 4 płaskie kokilki ceramiczne oraz dużą, głęboką blachę do pieczenia.",
+        "Śmietankę wlej do rondelka. Laskę wanilii przekrój wzdłuż, wyskrob nożem ziarenka i dodaj je wraz z pustą laską do śmietanki. Podgrzewaj na małym ogniu prawie do wrzenia, po czym zdejmij z palnika i wyjmij pustą laskę.",
+        "W misce wymieszaj rózgą kuchenną żółtka z 60 g drobnego cukru oraz szczyptą soli tylko do połączenia składników, unikając mocnego napowietrzania masy.",
+        "Do żółtek wlewaj powoli ciepłą śmietankę, cały czas delikatnie mieszając trzepaczką.",
+        "Gotową masę przecedź przez gęste sitko, aby pozbyć się pęcherzyków powietrza, a następnie rozlej równomiernie do kokilek.",
+        "Kokilki ułóż na głębokiej blasze, a na dno blachy wlej gorącą wodę do połowy wysokości foremek.",
+        "Piecz w kąpieli wodnej przez 40-45 minut, aż brzegi kremu będą ścięte, a środek pozostanie lekko drżący.",
+        "Ostudź deser do temperatury pokojowej, po czym wstaw do lodówki na minimum 3 godziny do całkowitego schłodzenia.",
+        "Bezpośrednio przed podaniem posyp wierzch każdego deseru równą warstwą cukru trzcinowego (po 1 łyżce na porcję) i skarmelizuj palnikiem cukierniczym na chrupiącą skorupkę."
+      ],
+      "tip": "Jeśli nie masz palnika cukierniczego, wstaw schłodzone kokilki posypane cukrem pod mocno rozgrzany grill piekarnika na najwyższą półkę na około 2 minuty, pilnując, by karmel się nie przypalił.",
+      "hashtags": [
+        "#smaczne",
+        "#deser",
+        "#slodkosci",
+        "#cremebrulee"
+      ],
+      "image_prompt": "Realistic food photography of a single white ceramic ramekin with classic French crème brûlée on a neutral ceramic plate, featuring a perfectly caramelized golden-amber sugar crust, shot at a 45-degree angle in soft natural daylight, single dish, no cutlery, no background extras, no people, no text",
+      "category": "deser lub wypiek"
     }
   ]
 }

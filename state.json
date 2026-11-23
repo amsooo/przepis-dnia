@@ -41,10 +41,11 @@
     "created": "2026-11-22T13:43:50.483708+00:00",
     "image_note": "",
     "card": "media/2026-11-22-1-skladniki.jpg",
-    "video": "media/2026-11-22-1-reel.mp4"
+    "video": "media/2026-11-22-1-reel.mp4",
+    "published": {}
   },
-  "telegram_offset": 64485507,
-  "last_update_id": 64485506,
+  "telegram_offset": 64485508,
+  "last_update_id": 64485507,
   "last_proposed": "2026-11-22",
   "queue": [
     {

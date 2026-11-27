@@ -1,54 +1,6 @@
 {
   "pending": {
     "recipe": {
-      "title": "Puszyste syrniki twarogowe z sosem malinowym",
-      "hook": "Pomysł na leniwe śniadanie: aksamitne syrniki twarogowe z patelni",
-      "intro": "Kremowe w środku i delikatnie chrupiące ze złocistą skórką na zewnątrz. Te tradycyjne placuszki z twarogu to niezawodny sposób na udany weekendowy poranek.",
-      "time_min": 25,
-      "servings": 2,
-      "ingredients": [
-        "400 g twarogu półtłustego w kostce",
-        "1 żółtko jaja (klasa M)",
-        "25 g cukru wanilinowego lub drobnego cukru (ok. 2 łyżki)",
-        "35 g mąki pszennej (ok. 2 płaskie łyżki) plus odrobina do obtoczenia",
-        "15 g masła klarowanego do smażenia (1 łyżka)",
-        "150 g malin (świeżych lub mrożonych)",
-        "15 g miodu (1 łyżka)"
-      ],
-      "steps": [
-        "Twaróg przełóż do miski i dokładnie rozgnieć widelcem razem z żółtkiem oraz cukrem na jednolitą masę.",
-        "Wsyp 35 g mąki pszennej i krótko wymieszaj łyżką – masa powinna pozostać gęsta i zwarta.",
-        "Podziel ciasto na 6 równych porcji, uformuj z nich w dłoniach kulki, obtocz delikatnie w mące i spłaszcz nożem na grube krążki o wysokości około 2 cm.",
-        "Na patelni rozgrzej masło klarowane na małym ogniu i ułóż placuszki.",
-        "Smaż pod przykryciem przez 4-5 minut z każdej strony na małym ogniu, aż ładnie się zezłocą i napuszą.",
-        "W międzyczasie podgrzej w rondelku maliny z miodem przez 3 minuty, aż lekko puszczą sok i utworzą gęsty sos.",
-        "Wyłóż usmażone syrniki na talerz i polej ciepłym sosem malinowym."
-      ],
-      "tip": "Wybierz suchy twaróg w klinku lub kostce – twaróg z wiaderka jest zbyt mokry i wymagałby za dużo mąki.",
-      "hashtags": [
-        "#kuchniapolska",
-        "#sniadanie",
-        "#brunch",
-        "#syrniki",
-        "#placuszkitwarogowe"
-      ],
-      "image_prompt": "A 45-degree angle food photography shot of three golden-brown syrniki cottage cheese pancakes stacked neatly on a rustic ceramic plate, topped with warm raspberry coulis dripping down the sides. Soft natural morning light highlighting the delicate crust and vibrant berry texture. Single dish centered, clean composition, no cutlery, no background clutter, no people, no text.",
-      "category": "śniadanie lub brunch"
-    },
-    "image": "media/2026-11-22-1.jpg",
-    "status": "awaiting",
-    "version": 1,
-    "created": "2026-11-22T13:43:50.483708+00:00",
-    "image_note": "",
-    "card": "media/2026-11-22-1-skladniki.jpg",
-    "video": "media/2026-11-22-1-reel.mp4",
-    "published": {}
-  },
-  "telegram_offset": 64485509,
-  "last_update_id": 64485508,
-  "last_proposed": "2026-11-26",
-  "queue": [
-    {
       "title": "Aksamitny krem z pieczonych pomidorów i czosnku",
       "hook": "Szybki obiad na chłodniejsze dni: gęsty krem z pieczonych pomidorów",
       "intro": "Pieczenie pomidorów z czosnkiem wydobywa z nich głęboki, słodkawy i lekko karmelowy smak. Ta zupa robi się praktycznie sama w piekarniku, a jej kremowa konsystencja zachwyca od pierwszej łyżki.",
@@ -86,6 +38,18 @@
       "image_prompt": "A realistic close-up food photograph taken at a 45-degree angle in soft natural light, featuring a bowl of rich red roasted tomato soup in a wide shallow grey ceramic bowl, finished with a subtle swirl of white cream and a few fresh green basil leaves in the center, set on a dark textured slate background, single dish, no spoons, no bread on the side, no people, no text",
       "category": "zupa"
     },
+    "image": "media/2026-11-27-2.jpg",
+    "status": "awaiting",
+    "version": 2,
+    "created": "2026-11-27T04:34:00.000489+00:00",
+    "image_note": "",
+    "card": "media/2026-11-27-2-skladniki.jpg",
+    "video": "media/2026-11-27-2-reel.mp4"
+  },
+  "telegram_offset": 64485510,
+  "last_update_id": 64485509,
+  "last_proposed": "2026-11-26",
+  "queue": [
     {
       "title": "Soczyste klopsiki indycze w sosie koperkowym",
       "hook": "Pomysł na domowy obiad: soczyste klopsiki indycze w sosie koperkowym",

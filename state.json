@@ -1,53 +1,7 @@
 {
-  "pending": {
-    "recipe": {
-      "title": "Aksamitny krem z pieczonych pomidorów i czosnku",
-      "hook": "Szybki obiad na chłodniejsze dni: gęsty krem z pieczonych pomidorów",
-      "intro": "Pieczenie pomidorów z czosnkiem wydobywa z nich głęboki, słodkawy i lekko karmelowy smak. Ta zupa robi się praktycznie sama w piekarniku, a jej kremowa konsystencja zachwyca od pierwszej łyżki.",
-      "time_min": 45,
-      "servings": 4,
-      "ingredients": [
-        "1,2 kg dojrzałych pomidorów (np. rzymskich lub gałązkowych)",
-        "1 cała główka czosnku",
-        "1 duża cebula",
-        "3 łyżki oliwy z oliwek (45 ml)",
-        "500 ml bulionu warzywnego",
-        "100 g serka mascarpone",
-        "1 łyżeczka suszonego oregano",
-        "garść świeżych liści bazylii",
-        "1 płaska łyżeczka soli",
-        "1/2 łyżeczki świeżo mielonego pieprzu"
-      ],
-      "steps": [
-        "Piekarnik rozgrzej do 200°C w trybie góra-dół.",
-        "Pomidory umyj i przekrój na połówki. Cebulę obierz i pokrój w grube pióra. Z główki czosnku odetnij wierzch, odsłaniając ząbki.",
-        "Warzywa ułóż na blasze wyłożonej papierem do pieczenia, główkę czosnku połóż obok. Całość skrop oliwą z oliwek, posyp oregano, solą oraz pieprzem.",
-        "Piecz przez 35 minut, aż brzegi pomidorów lekko się przypieką, a czosnek stanie się miękki.",
-        "Upieczone pomidory i cebulę przełóż do garnka, a miękkie ząbki czosnku wyciśnij z łupin.",
-        "Wlej ciepły bulion warzywny, dodaj mascarpone oraz świeżą bazylię, po czym zblenduj wszystko blenderem ręcznym na gładki krem.",
-        "Podgrzewaj zupę na małym ogniu przez 3 minuty i w razie potrzeby dopraw do smaku solą."
-      ],
-      "tip": "Jeśli pomidory mają zbyt dużo kwasowości, dodaj pod koniec blendowania pół łyżeczki miodu lub brązowego cukru.",
-      "hashtags": [
-        "#obiad",
-        "#zupa",
-        "#zdrowejedzenie",
-        "#zupapomidorowa",
-        "#zupakrem"
-      ],
-      "image_prompt": "A realistic close-up food photograph taken at a 45-degree angle in soft natural light, featuring a bowl of rich red roasted tomato soup in a wide shallow grey ceramic bowl, finished with a subtle swirl of white cream and a few fresh green basil leaves in the center, set on a dark textured slate background, single dish, no spoons, no bread on the side, no people, no text",
-      "category": "zupa"
-    },
-    "image": "media/2026-11-27-2.jpg",
-    "status": "awaiting",
-    "version": 2,
-    "created": "2026-11-27T04:34:00.000489+00:00",
-    "image_note": "",
-    "card": "media/2026-11-27-2-skladniki.jpg",
-    "video": "media/2026-11-27-2-reel.mp4"
-  },
-  "telegram_offset": 64485510,
-  "last_update_id": 64485509,
+  "pending": null,
+  "telegram_offset": 64485511,
+  "last_update_id": 64485510,
   "last_proposed": "2026-11-26",
   "queue": [
     {

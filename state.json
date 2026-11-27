@@ -200,6 +200,43 @@
       ],
       "image_prompt": "A close-up 45-degree angle realistic food photography shot of a single deep dark ceramic plate filled with creamy yellow polenta topped with sautéed brown mushrooms and fresh green thyme leaves. Natural side lighting, focus on the texture of the dish, single plate centered, no cutlery, no background items, no people, no text.",
       "category": "danie wegetariańskie lub wegańskie"
+    },
+    {
+      "title": "Makaron z pistacjowym pesto i burratą",
+      "hook": "Szybki obiad w 20 minut: kremowy makaron z pistacjowym pesto i burratą",
+      "intro": "Wyraziste pesto z prażonych pistacji i świeżej bazylii połączone z aksamitną burratą. To eleganckie danie przygotujesz w czasie potrzebnym na ugotowanie makaronu.",
+      "time_min": 20,
+      "servings": 2,
+      "ingredients": [
+        "250 g makaronu fettuccine",
+        "100 g łuskanych pistacji niesolonych",
+        "1 kulka sera burrata (150 g)",
+        "1 duża garść świeżej bazylii (ok. 20 g)",
+        "40 g tartego parmezanu",
+        "1 ząbek czosnku",
+        "60 ml oliwy z oliwek",
+        "50 ml wody z gotowania makaronu",
+        "1 łyżeczka soku z cytryny",
+        "1/2 łyżeczki soli",
+        "1/4 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Wstaw duży garnek z osoloną wodą i ugotuj makaron fettuccine al dente zgodnie z instrukcją na opakowaniu. Tuż przed odcedzeniem odlej 50 ml wody z gotowania.",
+        "Na suchej patelni upraż pistacje przez około 3 minuty na średnim ogniu, pilnując, by się nie przypaliły. Odstaw do przestudzenia i odłóż 1 łyżkę do posypania dania.",
+        "Do kielicha blendera wrzuć prażone pistacje, bazylię, obrany ząbek czosnku, parmezan, sok z cytryny, sól oraz wlej oliwę z oliwek. Zblenduj na gęste pesto.",
+        "Gorący, odcedzony makaron wymieszaj w misce z przygotowanym pesto, dodając stopniowo ciepłą wodę z gotowania makaronu, aż sos stanie się gładki i dobrze oblepi makaron.",
+        "Wyłóż makaron na talerze, na górze ułóż rozerwaną na pół burratę, posyp posiekanymi odłożonymi pistacjami i świeżo mielonym pieprzem."
+      ],
+      "tip": "Użyj niesolonych pistacji, aby mieć pełną kontrolę nad słonością pesto i nie zdominować delikatnego smaku burraty.",
+      "hashtags": [
+        "#foodie",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#makaron",
+        "#pesto"
+      ],
+      "image_prompt": "A realistic food photograph shot at a 45-degree angle in bright natural light, featuring a single ceramic plate with fettuccine pasta coated in vivid green pistachio pesto, topped with a torn creamy burrata cheese and sprinkled with crushed pistachios. No cutlery, no side items, no people, no text.",
+      "category": "danie wegetariańskie lub wegańskie"
     }
   ]
 }

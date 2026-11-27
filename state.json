@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485511,
-  "last_update_id": 64485510,
-  "last_proposed": "2026-11-26",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Soczyste klopsiki indycze w sosie koperkowym",
       "hook": "Pomysł na domowy obiad: soczyste klopsiki indycze w sosie koperkowym",
       "intro": "Delikatne pulpety z mięsa indyka duszone w aksamitnym sosie ze świeżym koperkiem. To sprawdzony klasyk, który zawsze wychodzi miękki i aromatyczny.",
@@ -44,6 +40,18 @@
       "image_prompt": "A 45-degree angle food photography shot of tender turkey meatballs smothered in a rich, creamy dill sauce, served on a plain white modern ceramic plate. Generously topped with freshly chopped green dill. Natural daylight illumination, clean background, single dish on a plate, no cutlery, no side dishes, no people, no text.",
       "category": "obiad z mięsem lub rybą"
     },
+    "image": "media/2026-11-27-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-27T15:45:23.960647+00:00",
+    "image_note": "",
+    "card": "media/2026-11-27-1-skladniki.jpg",
+    "video": "media/2026-11-27-1-reel.mp4"
+  },
+  "telegram_offset": 64485511,
+  "last_update_id": 64485510,
+  "last_proposed": "2026-11-27",
+  "queue": [
     {
       "title": "Makaron z krewetkami w sosie maślano-czosnkowym",
       "hook": "Szybki obiad w 20 minut: makaron z krewetkami w sosie maślano-czosnkowym",

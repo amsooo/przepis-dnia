@@ -153,6 +153,45 @@
       ],
       "image_prompt": "A realistic food photograph of a slice of moist lemon loaf cake with smooth white lemon glaze on top, placed on a simple white ceramic plate. Soft natural day light, shot at a 45-degree angle. Single dish, no cutlery, no side decorations, no people, no text.",
       "category": "deser lub wypiek"
+    },
+    {
+      "title": "Kremowa polenta z podsmażanymi grzybami i tymiankiem",
+      "hook": "Pomysł na szybki obiad: kremowa polenta z grzybami i tymiankiem",
+      "intro": "To idealne, rozgrzewające danie jednogarnkowe, które przygotujesz w niecałe pół godziny. Połączenie aksamitnej kukurydzianej bazy ze zrumienionymi boczniakami i pieczarkami zachwyci każdego miłośnika grzybowych smaków.",
+      "time_min": 25,
+      "servings": 2,
+      "ingredients": [
+        "150 g kaszki kukurydzianej (polenty)",
+        "600 ml bulionu warzywnego",
+        "200 g pieczarek brunatnych",
+        "150 g boczniaków",
+        "2 ząbki czosnku",
+        "2 łyżki masła",
+        "30 g tartego parmezanu",
+        "2 gałązki świeżego tymianku",
+        "1 łyżka oliwy z oliwek",
+        "0.5 łyżeczki soli",
+        "0.25 łyżeczki świeżo mielonego czarnego pieprzu"
+      ],
+      "steps": [
+        "Zagotuj bulion warzywny w garnku. Mieszając energicznie rózgą kuchenną, powoli wsypuj kaszkę kukurydzianą, aby zapobiec powstawaniu grudek.",
+        "Zmniejsz ogień do minimum i gotuj polentę przez 10-12 minut, często mieszając, aż zgęstnieje i uzyskasz gładką konsystencję.",
+        "Zdejmij garnek z ognia, dodaj 1 łyżkę masła oraz tarty parmezan. Dopraw solą i pieprzem, dokładnie wymieszaj i przykryj pokrywką.",
+        "Oczyść grzyby i pokrój je w grubsze plastry. Czosnek posiekaj w drobną kostkę.",
+        "Na patelni rozgrzej oliwę z pozostałą łyżką masła. Wrzuć grzyby oraz listki tymianku i smaż na średnio-dużym ogniu przez 6-8 minut do zrumienienia.",
+        "Dodaj posiekany czosnek, dopraw solą oraz pieprzem i smaż jeszcze przez 2 minuty.",
+        "Na głębokie talerze wyłóż gorącą polentę, a na jej wierzchu ułóż podsmażone grzyby."
+      ],
+      "tip": "Jeśli polenta zbytnio zgęstnieje przed podaniem, dolej do niej 2-3 łyżki gorącego bulionu i energicznie wymieszaj.",
+      "hashtags": [
+        "#foodie",
+        "#wegetarianskie",
+        "#zdrowejedzenie",
+        "#polenta",
+        "#grzyby"
+      ],
+      "image_prompt": "A close-up 45-degree angle realistic food photography shot of a single deep dark ceramic plate filled with creamy yellow polenta topped with sautéed brown mushrooms and fresh green thyme leaves. Natural side lighting, focus on the texture of the dish, single plate centered, no cutlery, no background items, no people, no text.",
+      "category": "danie wegetariańskie lub wegańskie"
     }
   ]
 }

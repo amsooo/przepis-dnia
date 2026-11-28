@@ -1,10 +1,6 @@
 {
-  "pending": null,
-  "telegram_offset": 64485512,
-  "last_update_id": 64485511,
-  "last_proposed": "2026-11-27",
-  "queue": [
-    {
+  "pending": {
+    "recipe": {
       "title": "Makaron z krewetkami w sosie maślano-czosnkowym",
       "hook": "Szybki obiad w 20 minut: makaron z krewetkami w sosie maślano-czosnkowym",
       "intro": "Połączenie krewetek, słodkich pomidorków i emulsji z zimnego masła, białego wina oraz czosnku to absolutny klasyk. Całość zrobisz na jednej patelni w czasie, gdy gotuje się makaron.",
@@ -43,6 +39,18 @@
       "image_prompt": "A shallow ceramic bowl with glossy linguine pasta tossed with pink seared prawns and blistered cherry tomatoes in a delicate buttery garlic sauce, garnished with fresh finely chopped parsley, realistic food photography, warm natural daylight, 45-degree angle shot, single dish on a plain neutral surface, no cutlery, no background elements, no people, no text",
       "category": "makaron, ryż lub kasza"
     },
+    "image": "media/2026-11-28-1.jpg",
+    "status": "awaiting",
+    "version": 1,
+    "created": "2026-11-28T14:41:14.697790+00:00",
+    "image_note": "",
+    "card": "media/2026-11-28-1-skladniki.jpg",
+    "video": "media/2026-11-28-1-reel.mp4"
+  },
+  "telegram_offset": 64485512,
+  "last_update_id": 64485511,
+  "last_proposed": "2026-11-28",
+  "queue": [
     {
       "title": "Aksamitne crème brûlée z prawdziwą wanilią",
       "hook": "Prosty deser jak z francuskiej restauracji: kremowe crème brûlée",
